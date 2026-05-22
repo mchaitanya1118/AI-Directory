@@ -80,17 +80,33 @@ export default function Header() {
         
         {/* 1. Left Logo */}
         <Link href="/" className="logo-container" style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>
-          <img 
-            src="/logo.png" 
-            alt="AI Tools Hub" 
-            style={{ 
-              height: "38px", 
-              width: "auto", 
-              objectFit: "contain",
-              filter: "invert(1) hue-rotate(180deg)",
-              mixBlendMode: "lighten"
-            }} 
-          />
+          <div style={{
+            width: "38px",
+            height: "38px",
+            overflow: "hidden",
+            borderRadius: "50%",
+            position: "relative",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            background: "rgba(255, 255, 255, 0.03)",
+            border: "1px solid rgba(255, 255, 255, 0.08)"
+          }}>
+            <img 
+              src="/logo.png" 
+              alt="AI Tools Hub" 
+              style={{ 
+                position: "absolute",
+                height: "220%",
+                width: "auto",
+                maxWidth: "none",
+                top: "-60%",
+                left: "-25%",
+                filter: "invert(1) hue-rotate(180deg)",
+                mixBlendMode: "lighten"
+              }} 
+            />
+          </div>
         </Link>
 
         {/* 2. Navigation Links */}
