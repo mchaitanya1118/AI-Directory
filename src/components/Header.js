@@ -79,11 +79,18 @@ export default function Header() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%', maxWidth: '1000px', margin: '0 auto' }}>
         
         {/* 1. Left Logo */}
-        <Link href="/" className="logo-container" style={{ flexShrink: 0, gap: '0.5rem' }}>
-          <div className="logo-glow">
-            <span>A</span>
-          </div>
-          <h1 className="brand-name" style={{ display: 'none' }}>AuraAI</h1>
+        <Link href="/" className="logo-container" style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>
+          <img 
+            src="/logo.png" 
+            alt="AI Tools Hub" 
+            style={{ 
+              height: "28px", 
+              width: "auto", 
+              objectFit: "contain",
+              filter: "invert(1) hue-rotate(180deg)",
+              mixBlendMode: "lighten"
+            }} 
+          />
         </Link>
 
         {/* 2. Navigation Links */}
