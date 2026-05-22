@@ -9,6 +9,10 @@ export default function Header() {
   const pathname = usePathname();
   const router = useRouter();
   const { data: session, status } = useSession();
+
+  const isAdminActive = pathname?.startsWith("/admin");
+  const isProfileActive = pathname === "/profile";
+  const isLoginActive = pathname === "/login";
   
   const [searchQuery, setSearchQuery] = useState("");
   const [searchResults, setSearchResults] = useState([]);
@@ -79,34 +83,11 @@ export default function Header() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%', maxWidth: '1000px', margin: '0 auto' }}>
         
         {/* 1. Left Logo */}
-        <Link href="/" className="logo-container" style={{ flexShrink: 0, display: "flex", alignItems: "center" }}>
-          <div style={{
-            width: "38px",
-            height: "38px",
-            overflow: "hidden",
-            borderRadius: "50%",
-            position: "relative",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            background: "rgba(255, 255, 255, 0.03)",
-            border: "1px solid rgba(255, 255, 255, 0.08)"
-          }}>
-            <img 
-              src="/logo.png" 
-              alt="AI Tools Hub" 
-              style={{ 
-                position: "absolute",
-                height: "220%",
-                width: "auto",
-                maxWidth: "none",
-                top: "-60%",
-                left: "-25%",
-                filter: "invert(1) hue-rotate(180deg)",
-                mixBlendMode: "lighten"
-              }} 
-            />
+        <Link href="/" className="logo-container" style={{ flexShrink: 0, gap: '0.5rem' }}>
+          <div className="logo-glow">
+            <span>A</span>
           </div>
+          <h1 className="brand-name" style={{ display: 'none' }}>AuraAI</h1>
         </Link>
 
         {/* 2. Navigation Links */}
@@ -237,17 +218,41 @@ export default function Header() {
 
         {/* 4. Auth & Admin */}
         {status !== "loading" && session && session.user?.role === "ADMIN" && (
-          <Link href="/admin" className="nav-link" style={{ color: '#ff4d4d' }}>
-            Admin
+          <Link 
+            href="/admin" 
+            className={`nav-link ${isAdminActive ? "active" : ""}`}
+            style={{ 
+              color: isAdminActive ? 'var(--neon-rose)' : '#ff5b52', 
+              opacity: isAdminActive ? 1 : 0.8,
+              fontWeight: isAdminActive ? '600' : '400',
+              textShadow: isAdminActive ? '0 0 10px var(--neon-rose-glow)' : 'none',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '0.2rem'
+            }}
+          >
+            <span style={{ fontSize: '0.65rem' }}>⚡</span> Admin
           </Link>
         )}
         
         {status !== "loading" && session ? (
-          <Link href="/profile" className="nav-link">
+          <Link 
+            href="/profile" 
+            className={`nav-link ${isProfileActive ? "active" : ""}`}
+            style={{ 
+              fontWeight: isProfileActive ? '600' : '400'
+            }}
+          >
             Profile
           </Link>
         ) : status !== "loading" ? (
-          <Link href="/login" className="nav-link">
+          <Link 
+            href="/login" 
+            className={`nav-link ${isLoginActive ? "active" : ""}`}
+            style={{ 
+              fontWeight: isLoginActive ? '600' : '400'
+            }}
+          >
             Sign In
           </Link>
         ) : null}
