@@ -267,7 +267,6 @@ export default function Header() {
 
             {showProfileDropdown && (
               <div 
-                className="detail-glass-card" 
                 style={{
                   position: 'absolute',
                   top: '160%',
@@ -275,9 +274,9 @@ export default function Header() {
                   width: '220px',
                   padding: '0.75rem',
                   zIndex: 1000,
-                  background: 'rgba(10, 10, 15, 0.96)',
-                  border: '1px solid var(--border-glass)',
-                  boxShadow: '0 12px 40px rgba(0,0,0,0.6)',
+                  background: 'rgba(20, 20, 25, 0.95)',
+                  border: '1px solid rgba(255, 255, 255, 0.12)',
+                  boxShadow: '0 12px 40px rgba(0,0,0,0.55)',
                   borderRadius: '12px',
                   display: 'flex',
                   flexDirection: 'column',
@@ -287,11 +286,11 @@ export default function Header() {
                 }}
               >
                 {/* User Info Header Section */}
-                <div style={{ padding: '0.25rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.06)', paddingBottom: '0.6rem', marginBottom: '0.2rem' }}>
-                  <div style={{ color: 'var(--text-bright)', fontWeight: '600', fontSize: '0.8rem', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
+                <div style={{ padding: '0.25rem 0.5rem', borderBottom: '1px solid rgba(255,255,255,0.08)', paddingBottom: '0.6rem', marginBottom: '0.2rem' }}>
+                  <div style={{ color: '#ffffff', fontWeight: '600', fontSize: '0.8rem', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap' }}>
                     {session.user.username || 'User Account'}
                   </div>
-                  <div style={{ color: 'var(--text-muted)', fontSize: '0.7rem', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', marginTop: '0.1rem' }}>
+                  <div style={{ color: 'rgba(255, 255, 255, 0.55)', fontSize: '0.7rem', textOverflow: 'ellipsis', overflow: 'hidden', whiteSpace: 'nowrap', marginTop: '0.1rem' }}>
                     {session.user.email}
                   </div>
                   {session.user.role === "ADMIN" && (
@@ -301,9 +300,9 @@ export default function Header() {
                       borderRadius: '4px',
                       fontSize: '0.65rem',
                       fontWeight: '700',
-                      background: 'rgba(255, 59, 48, 0.1)',
-                      color: 'var(--neon-rose)',
-                      border: '1px solid rgba(255, 59, 48, 0.2)',
+                      background: 'rgba(255, 59, 48, 0.15)',
+                      color: '#ff453a',
+                      border: '1px solid rgba(255, 59, 48, 0.3)',
                       marginTop: '0.4rem'
                     }}>
                       ⚡ Administrator
@@ -320,18 +319,20 @@ export default function Header() {
                       padding: '0.4rem 0.5rem',
                       borderRadius: '6px',
                       fontSize: '0.75rem',
-                      color: isAdminActive ? 'var(--neon-rose)' : 'var(--text-main)',
+                      color: isAdminActive ? '#ff453a' : 'rgba(255, 255, 255, 0.8)',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.5rem',
                       transition: 'all 0.2s',
                       fontWeight: isAdminActive ? '600' : '400',
                       background: isAdminActive ? 'rgba(255, 255, 255, 0.04)' : 'transparent',
-                      textShadow: isAdminActive ? '0 0 10px var(--neon-rose-glow)' : 'none'
                     }}
                     className="profile-dropdown-item"
                   >
-                    <span>🛡️</span> Admin Console
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
+                      <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    </svg>
+                    Admin Console
                   </Link>
                 )}
 
@@ -342,7 +343,7 @@ export default function Header() {
                     padding: '0.4rem 0.5rem',
                     borderRadius: '6px',
                     fontSize: '0.75rem',
-                    color: isProfileActive ? 'var(--neon-cyan)' : 'var(--text-main)',
+                    color: isProfileActive ? '#0071e3' : 'rgba(255, 255, 255, 0.8)',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '0.5rem',
@@ -352,10 +353,14 @@ export default function Header() {
                   }}
                   className="profile-dropdown-item"
                 >
-                  <span>👤</span> My Profile
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ opacity: 0.85 }}>
+                    <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                    <circle cx="12" cy="7" r="4"/>
+                  </svg>
+                  My Profile
                 </Link>
 
-                <div style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: '0.2rem', paddingTop: '0.3rem' }}>
+                <div style={{ borderTop: '1px solid rgba(255,255,255,0.08)', marginTop: '0.2rem', paddingTop: '0.3rem' }}>
                   <button
                     onClick={() => {
                       setShowProfileDropdown(false);
@@ -370,7 +375,7 @@ export default function Header() {
                       padding: '0.4rem 0.5rem',
                       borderRadius: '6px',
                       fontSize: '0.75rem',
-                      color: '#ff4d4d',
+                      color: '#ff453a',
                       display: 'flex',
                       alignItems: 'center',
                       gap: '0.5rem',
@@ -379,7 +384,12 @@ export default function Header() {
                     }}
                     className="profile-dropdown-item-signout"
                   >
-                    <span>🚪</span> Sign Out
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                      <polyline points="16 17 21 12 16 7"/>
+                      <line x1="21" y1="12" x2="9" y2="12"/>
+                    </svg>
+                    Sign Out
                   </button>
                 </div>
               </div>
@@ -400,12 +410,15 @@ export default function Header() {
         {/* Custom Header Dropdown hover transitions injected locally */}
         <style jsx global>{`
           .profile-dropdown-item:hover {
-            background: rgba(255, 255, 255, 0.06) !important;
-            color: var(--text-bright) !important;
+            background: rgba(255, 255, 255, 0.08) !important;
+            color: #ffffff !important;
+          }
+          .profile-dropdown-item:hover svg {
+            opacity: 1 !important;
           }
           .profile-dropdown-item-signout:hover {
-            background: rgba(255, 59, 48, 0.08) !important;
-            color: #ff3b30 !important;
+            background: rgba(255, 59, 48, 0.12) !important;
+            color: #ff453a !important;
           }
         `}</style>
 
