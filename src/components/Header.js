@@ -84,7 +84,7 @@ export default function Header() {
             src="/logo.png" 
             alt="AI Tools Hub" 
             style={{ 
-              height: "28px", 
+              height: "38px", 
               width: "auto", 
               objectFit: "contain",
               filter: "invert(1) hue-rotate(180deg)",
