@@ -1,0 +1,149 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  email     String   @unique
+  password  String
+  role      String   @default("USER")
+  bookmarks Bookmark[]
+  reviews   Review[]
+}
+
+model Bookmark {
+  id     String @id @default(cuid())
+  userId String
+  toolId String
+  user   User   @relation(fields: [userId], references: [id])
+  tool   Tool   @relation(fields: [toolId], references: [id])
+}
+
+model Category {
+  id          String @id
+  name        String
+  description String?
+  tools       Tool[]
+}
+
+model Tag {
+  id    String @id @default(cuid())
+  name  String @unique
+  tools ToolTag[]
+}
+
+model ToolTag {
+  toolId String
+  tagId  String
+  tool   Tool @relation(fields: [toolId], references: [id])
+  tag    Tag  @relation(fields: [tagId], references: [id])
+  @@id([toolId, tagId])
+}
+
+model Tool {
+  id               String   @id
+  name             String
+  categoryId       String
+  category         Category @relation(fields: [categoryId], references: [id])
+  logo             String
+  rating           Float
+  ratingCount      Int
+  pricing          String
+  pricingDetails   String
+  shortDescription String
+  description      String
+  website          String
+  sponsored        Boolean
+
+  features         String
+  pros             String
+  cons             String
+  useCases         String
+  comparisons      String
+  faqs             String
+  specs            String 
+
+  tags             ToolTag[]
+  reviews          Review[]
+  bookmarks        Bookmark[]
+  workflows        WorkflowTool[]
+  launch           ToolLaunch?
+}
+
+model Review {
+  id       String @id @default(cuid())
+  username String
+  userId   String?
+  rating   Float
+  comment  String
+  date     String
+  toolId   String
+  tool     Tool   @relation(fields: [toolId], references: [id])
+  user     User?  @relation(fields: [userId], references: [id])
+}
+
+model BlogPost {
+  id           String @id
+  title        String
+  summary      String
+  category     String
+  readTime     String
+  date         String
+  keywords     String 
+  logo         String
+  body         String 
+  relatedTools String 
+}
+
+// WORKFLOW MARKETPLACE
+model Workflow {
+  id               String         @id @default(cuid())
+  title            String
+  slug             String         @unique
+  summary          String
+  description      String
+  role             String         // e.g., "Developer", "Designer", "Creator"
+  industry         String         // e.g., "SaaS", "Education", "Marketing"
+  budget           String         // e.g., "Free", "Premium"
+  views            Int            @default(0)
+  upvotes          Int            @default(0)
+  tools            WorkflowTool[]
+}
+
+model WorkflowTool {
+  workflowId String
+  toolId     String
+  stepNumber Int
+  useCase    String
+  workflow   Workflow @relation(fields: [workflowId], references: [id])
+  tool       Tool     @relation(fields: [toolId], references: [id])
+  @@id([workflowId, toolId])
+}
+
+// AI PROMPT LIBRARY
+model Prompt {
+  id          String   @id @default(cuid())
+  title       String
+  promptText  String
+  category    String   // e.g., "Coding", "Marketing", "Images"
+  views       Int      @default(0)
+  useCount    Int      @default(0)
+}
+
+// LAUNCH PLATFORM & SUBMISSIONS
+model ToolLaunch {
+  id          String   @id @default(cuid())
+  toolId      String   @unique
+  launchDate  DateTime @default(now())
+  tagline     String
+  upvotes     Int      @default(0)
+  commentsCount Int    @default(0)
+  tool        Tool     @relation(fields: [toolId], references: [id])
+}
+

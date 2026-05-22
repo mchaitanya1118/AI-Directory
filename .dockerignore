@@ -1,0 +1,9 @@
+node_modules
+.next
+out
+.git
+.gitignore
+Dockerfile
+README.md
+dev.db
+prisma/dev.db

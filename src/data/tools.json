@@ -1,0 +1,1393 @@
+[
+  {
+    "id": "cursor",
+    "name": "Cursor",
+    "category": "coding",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2L2 7L12 12L22 7L12 2Z\" stroke=\"url(#gradient-cyan)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      <path d=\"M2 17L12 22L22 17\" stroke=\"url(#gradient-cyan)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      <path d=\"M2 12L12 17L22 12\" stroke=\"url(#gradient-cyan)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-cyan\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#00F2FE\"/>\n          <stop offset=\"1\" stop-color=\"#4FACFE\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.9,
+    "ratingCount": 382,
+    "pricing": "Freemium",
+    "pricingDetails": "Free tier with 50 fast premium uses; Pro plan currently starting at $20/month.",
+    "shortDescription": "Built to make you extraordinarily productive, Cursor is the best way to build software with AI.",
+    "description": "Cursor is an AI-powered code editor fork of VS Code. It features seamless integration with powerful large language models to enable multi-file edits, natural language codebase search, auto-completions, and direct chat. Designed to run locally with full support for VS Code extensions, it integrates AI directly into the editing experience.",
+    "features": [
+      "AI-powered multi-file code editing (Composer)",
+      "Natural language codebase search and reasoning",
+      "Inline AI code generation and debugging",
+      "Full VS Code extension ecosystem compatibility",
+      "Privacy mode to prevent codebase training"
+    ],
+    "pros": [
+      "Incredibly fast and context-aware autocomplete",
+      "Seamless migration for existing VS Code users",
+      "Multi-file edit feature saves hours of refactoring",
+      "Excellent local project reasoning capabilities"
+    ],
+    "cons": [
+      "Can consume high memory on larger codebases",
+      "Paid plans are required for high-volume developer usage",
+      "Heavy reliance on internet connection for cloud models"
+    ],
+    "website": "https://cursor.com/?via=aitoolsdir",
+    "sponsored": true,
+    "tags": [
+      "IDE",
+      "Autocomplete",
+      "Free Tier",
+      "Best Value",
+      "Editor"
+    ],
+    "specs": {
+      "platform": "Windows, macOS, Linux",
+      "apiAccess": "Available via API keys or subscription",
+      "targetAudience": "Software Engineers, Web Developers, Students",
+      "trialLength": "Free forever basic plan",
+      "hosting": "Desktop Client (Local Editor)"
+    },
+    "reviews": [
+      {
+        "id": "rev1",
+        "username": "dev_architect",
+        "rating": 5,
+        "comment": "Absolutely game-changing editor. Composer has completely changed how I refactor entire folders. I rarely open standard VS Code now.",
+        "date": "2026-05-10"
+      },
+      {
+        "id": "rev2",
+        "username": "sarah_code",
+        "rating": 4.8,
+        "comment": "The codebase search is incredibly accurate. It saved me hours trying to figure out where a custom hook was registered in a messy legacy project.",
+        "date": "2026-05-18"
+      }
+    ],
+    "useCases": [
+      "AI-native codebase refactoring across folders",
+      "Multi-file complex feature generation using Composer",
+      "Standard VS Code replacement with high-speed autocomplete"
+    ],
+    "faqs": [
+      {
+        "q": "Is Cursor completely free?",
+        "a": "Cursor offers a generous Freemium tier that includes 50 fast premium GPT-4/Claude uses. The Pro plan starts at $20/month for unlimited completions."
+      },
+      {
+        "q": "Can I use VS Code extensions in Cursor?",
+        "a": "Yes, Cursor is a direct fork of VS Code, meaning 100% of your favorite marketplace themes, keymaps, and coding extensions are fully supported."
+      }
+    ],
+    "comparisons": [
+      "copilot",
+      "v0"
+    ]
+  },
+  {
+    "id": "copilot",
+    "name": "GitHub Copilot",
+    "category": "coding",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2C6.477 2 2 6.477 2 12C2 17.523 6.477 22 12 22C17.523 22 22 17.523 22 12C22 6.477 17.523 2 12 2Z\" stroke=\"url(#gradient-violet)\" stroke-width=\"2\"/>\n      <path d=\"M12 6C9.79 6 8 7.79 8 10C8 12.21 9.79 14 12 14C14.21 14 16 12.21 16 10C16 7.79 14.21 6 12 6Z\" fill=\"url(#gradient-violet)\" fill-opacity=\"0.2\" stroke=\"url(#gradient-violet)\" stroke-width=\"2\"/>\n      <path d=\"M8 14C8 16.5 10 18 12 18C14 18 16 16.5 16 14\" stroke=\"url(#gradient-violet)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-violet\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#7F00FF\"/>\n          <stop offset=\"1\" stop-color=\"#E100FF\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.7,
+    "ratingCount": 1540,
+    "pricing": "Freemium",
+    "pricingDetails": "Individual plan is $10/month or $100/year. Free tier available for students and open source maintainers.",
+    "shortDescription": "GitHub Copilot works alongside you directly in your editor, suggesting whole lines or entire functions for you.",
+    "description": "GitHub Copilot is the pioneer AI autocomplete tool trained on billions of lines of public code. It acts as an extension in VS Code, JetBrains, Visual Studio, and Neovim, helping developers write code faster by suggesting entire lines or blocks based on comments and context.",
+    "features": [
+      "Sub-second inline code completions",
+      "Supports all major programming languages",
+      "Copilot Chat window for conversational code analysis",
+      "Context filtering to block public code matches",
+      "Corporate/enterprise compliance security rules"
+    ],
+    "pros": [
+      "Integrates natively inside standard IDEs without layout shifts",
+      "Free for verified students and open-source contributors",
+      "Extremely fast suggestions backed by Github's infrastructure",
+      "Great at repetitive boilerplate tasks"
+    ],
+    "cons": [
+      "No native standalone desktop app (strictly extension-based)",
+      "Occasionally hallucinates older API syntaxes",
+      "Context window is more limited compared to new AI-native editors"
+    ],
+    "website": "https://github.com/features/copilot?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Autocomplete",
+      "Extension",
+      "Students Free",
+      "Popular"
+    ],
+    "specs": {
+      "platform": "VS Code, JetBrains, Neovim, Visual Studio",
+      "apiAccess": "Enterprise integrations only",
+      "targetAudience": "Developers of all experience levels, Students",
+      "trialLength": "30-day free trial",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "cop_rev1",
+        "username": "rust_cean",
+        "rating": 4.5,
+        "comment": "Excellent at boilerplate. It excels at filling out repetitive match arms in Rust, but fails slightly on complex type logic.",
+        "date": "2026-04-12"
+      }
+    ],
+    "useCases": [
+      "Sub-second inline autocomplete suggestions",
+      "Drafting repetitive boilerplate structures inside major IDEs",
+      "Chat-based inline code explanations"
+    ],
+    "faqs": [
+      {
+        "q": "Which IDEs support GitHub Copilot?",
+        "a": "GitHub Copilot integrates natively as an extension inside VS Code, JetBrains IDEs, Visual Studio, and Neovim."
+      },
+      {
+        "q": "Is there a free tier for Copilot?",
+        "a": "Copilot requires a paid subscription ($10/month), but it is completely free for verified students, teachers, and popular open-source maintainers."
+      }
+    ],
+    "comparisons": [
+      "cursor",
+      "v0"
+    ]
+  },
+  {
+    "id": "v0",
+    "name": "v0 by Vercel",
+    "category": "coding",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2L2 22H22L12 2Z\" fill=\"url(#gradient-dark)\" stroke=\"url(#gradient-cyan)\" stroke-width=\"2\"/>\n      <circle cx=\"12\" cy=\"14\" r=\"3\" stroke=\"#00F2FE\" stroke-width=\"2\"/>\n      <defs>\n        <linearGradient id=\"gradient-dark\" x1=\"12\" y1=\"2\" x2=\"12\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#151124\"/>\n          <stop offset=\"1\" stop-color=\"#0B0813\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.8,
+    "ratingCount": 290,
+    "pricing": "Paid",
+    "pricingDetails": "Free basic tier with 200 monthly credits. Pro tier starts at $20/month for advanced generations.",
+    "shortDescription": "Your collaborative AI assistant to design, iterate, and scale full-stack applications for the web.",
+    "description": "v0 is an AI system designed to build user interfaces. You describe the UI you want, and v0 generates production-ready, beautifully designed React code styling with Tailwind CSS and shadcn/ui components. You can iterate directly, asking v0 to tweak alignments, colors, or add custom components.",
+    "features": [
+      "Generates shadcn/ui and Tailwind components",
+      "Immediate interactive browser preview of generated UI",
+      "Refine elements iteratively using plain English prompts",
+      "One-click deploy to Vercel or code copy-paste",
+      "Dark and light mode generation support"
+    ],
+    "pros": [
+      "Cuts UI scaffolding time down by 80%",
+      "Generates modern, standard layouts adhering to best design practices",
+      "Fully interactive previews in-browser",
+      "Clean, modern React/Tailwind/TypeScript code output"
+    ],
+    "cons": [
+      "Can exhaust free generation credits very quickly",
+      "Not suited for backend or heavy business logic generation",
+      "Heavy bias towards React and Tailwind CSS stacks"
+    ],
+    "website": "https://v0.dev/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "UI Builder",
+      "React",
+      "Tailwind",
+      "Free Tier"
+    ],
+    "specs": {
+      "platform": "Web-based",
+      "apiAccess": "None",
+      "targetAudience": "Frontend Developers, UI/UX Designers, Builders",
+      "trialLength": "Recurring free monthly credits",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "v0_rev1",
+        "username": "frontend_ninja",
+        "rating": 5,
+        "comment": "This has completely replaced my boilerplate step. I prompt the layout, copy the React/Tailwind, and put it in my code. Absolutely spectacular.",
+        "date": "2026-05-15"
+      }
+    ],
+    "useCases": [
+      "Fast layout and mockup wireframing in React/Tailwind",
+      "Generative shadcn/ui components styling workflows",
+      "One-click browser prototypes deployment"
+    ],
+    "faqs": [
+      {
+        "q": "What UI frameworks does v0 output?",
+        "a": "v0 is optimized to generate React components styled with Tailwind CSS, TypeScript, and shadcn/ui."
+      },
+      {
+        "q": "Are my credits recurring?",
+        "a": "Yes, the free plan gives 200 credits monthly which recur at the beginning of each billing cycle."
+      }
+    ],
+    "comparisons": [
+      "cursor",
+      "copilot"
+    ]
+  },
+  {
+    "id": "midjourney",
+    "name": "Midjourney",
+    "category": "image",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2ZM13 17H11V15H13V17ZM13 13H11V7H13V13Z\" fill=\"url(#gradient-gold)\" stroke=\"url(#gradient-gold)\" stroke-width=\"1\"/>\n      <path d=\"M5 12H19\" stroke=\"url(#gradient-gold)\" stroke-width=\"2\" stroke-dasharray=\"2 2\"/>\n      <defs>\n        <linearGradient id=\"gradient-gold\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#FFE259\"/>\n          <stop offset=\"1\" stop-color=\"#FFA751\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.8,
+    "ratingCount": 1940,
+    "pricing": "Paid",
+    "pricingDetails": "Basic tier starting at $10/month (fast GPU hours). Standard, Pro, and Mega tiers scaling to $120/month.",
+    "shortDescription": "Highly artistic, industry-standard generative AI image creator operated via web and Discord interfaces.",
+    "description": "Midjourney produces highly detailed, photorealistic, and cinematic illustrations based on text descriptions. Widely regarded as the most aesthetic and creative AI image engine, Midjourney has evolved from running purely inside Discord channels to launching a fully interactive web interface for image creation.",
+    "features": [
+      "Unrivaled aesthetic detail, lighting, and textures",
+      "Inpainting (Vary Region) and Outpainting (Zoom) canvas expansions",
+      "Character reference and Style reference parameters (cref, sref)",
+      "High resolution upscaling options up to 4K",
+      "Web interface with immediate slider-based controls"
+    ],
+    "pros": [
+      "Stunning, photographic, and abstract artistic quality",
+      "Style reference (sref) allows strict visual design consistency",
+      "Incredible lighting and portrait rendering out of the box",
+      "Active, massive community of creators sharing prompts"
+    ],
+    "cons": [
+      "No longer offers a free tier (strictly paid service)",
+      "Prompt system is quirky with highly specific parameter codes (e.g. --v 6 --ar 16:9)",
+      "Text rendering inside images still requires highly careful prompt tuning"
+    ],
+    "website": "https://midjourney.com/?ref=aitoolsdir",
+    "sponsored": true,
+    "tags": [
+      "Artistic",
+      "Photorealism",
+      "Designers Fav",
+      "Editor's Choice"
+    ],
+    "specs": {
+      "platform": "Web & Discord client",
+      "apiAccess": "No official public API (third parties exist)",
+      "targetAudience": "Digital Artists, Graphic Designers, Creative Directors",
+      "trialLength": "No free trials available",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "mid_rev1",
+        "username": "cyber_art",
+        "rating": 5,
+        "comment": "Nothing matches the style of Midjourney V6. It renders human skin, dynamic lighting, and cinematic scenes with details that Stable Diffusion needs 100 extensions to match.",
+        "date": "2026-05-19"
+      }
+    ],
+    "useCases": [
+      "Cinematic concept artworks and character sheets",
+      "Photorealistic portraits and highly aesthetic textures",
+      "Dynamic style reference locking using sref commands"
+    ],
+    "faqs": [
+      {
+        "q": "Do I have to use Discord to run Midjourney?",
+        "a": "While Midjourney originally ran exclusively in Discord, they have now launched a fully interactive, slider-based web interface for subscribers."
+      },
+      {
+        "q": "Is there a free trial for Midjourney?",
+        "a": "No, Midjourney has retired its free trial tiers. Subscriptions begin at $10/month for fast GPU hours."
+      }
+    ],
+    "comparisons": [
+      "stablediffusion",
+      "adobe-firefly"
+    ]
+  },
+  {
+    "id": "stablediffusion",
+    "name": "Stable Diffusion (SDXL)",
+    "category": "image",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z\" stroke=\"url(#gradient-rose)\" stroke-width=\"2\"/>\n      <path d=\"M12 6V18\" stroke=\"url(#gradient-rose)\" stroke-width=\"2\"/>\n      <path d=\"M6 12H18\" stroke=\"url(#gradient-rose)\" stroke-width=\"2\"/>\n      <circle cx=\"12\" cy=\"12\" r=\"4\" fill=\"url(#gradient-rose)\"/>\n      <defs>\n        <linearGradient id=\"gradient-rose\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#F857A6\"/>\n          <stop offset=\"1\" stop-color=\"#FF5858\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.6,
+    "ratingCount": 1120,
+    "pricing": "Free",
+    "pricingDetails": "Open-source and 100% free to run locally. Developer API features pricing scales on micro-credit tokens.",
+    "shortDescription": "Stability AI is the enterprise-ready creative partner for teams and creators, delivering professional-grade generative AI tools and solutions for content production at scale.",
+    "description": "Stable Diffusion (developed by Stability AI) is an open-source text-to-image model. Because the weights are public, it is the cornerstone of the local AI generation movement, supporting thousands of custom models, ControlNet adapters for structured generation, LoRAs, and UI frameworks like Automatic1111 and ComfyUI.",
+    "features": [
+      "100% locally runnable with zero censorship",
+      "ControlNet support for strict pose, depth, and edge mapping",
+      "Fine-tunable using custom LoRA weights and embeddings",
+      "Active ecosystem of community custom checkpoints (Civitai)",
+      "High scalability and batch processing workflows"
+    ],
+    "pros": [
+      "Completely free to run without restrictions",
+      "Unmatched precision over composition via ControlNet",
+      "Extensive customizability through plugins and UIs",
+      "Runs fully offline on standard gaming graphics cards"
+    ],
+    "cons": [
+      "Requires high-end PC hardware (NVIDIA GPU with 8GB+ VRAM recommended)",
+      "Steep learning curve, especially ComfyUI node setups",
+      "Requires manual updates and troubleshooting"
+    ],
+    "website": "https://stability.ai/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Open Source",
+      "Free",
+      "Offline Mode",
+      "Highly Custom"
+    ],
+    "specs": {
+      "platform": "Windows, Linux, macOS (Web interfaces available)",
+      "apiAccess": "Available via Stability Developer Platform",
+      "targetAudience": "Tech-savvy Creators, Developers, Game Designers",
+      "trialLength": "Free forever (Local)",
+      "hosting": "Local (Self-Hosted) or Cloud API"
+    },
+    "reviews": [
+      {
+        "id": "sd_rev1",
+        "username": "render_master",
+        "rating": 4,
+        "comment": "Amazing control! With ControlNet, I can lock an architect's blueprint lines and generate photorealistic interior renderings in seconds. Not easy to set up though.",
+        "date": "2026-05-02"
+      }
+    ],
+    "useCases": [
+      "100% control over spatial composition via ControlNet",
+      "Offline, uncensored local image generation pipelines",
+      "Fine-tuned corporate styling models using LoRAs"
+    ],
+    "faqs": [
+      {
+        "q": "What PC hardware is required for Stable Diffusion?",
+        "a": "Stable Diffusion runs locally. A modern PC with a dedicated NVIDIA GPU containing at least 8GB of VRAM is highly recommended."
+      },
+      {
+        "q": "Is ComfyUI necessary to use Stable Diffusion?",
+        "a": "No, ComfyUI is a node-based editor. Beginners can start with simpler web interfaces like Automatic1111, although ComfyUI offers the highest customization."
+      }
+    ],
+    "comparisons": [
+      "midjourney",
+      "adobe-firefly"
+    ]
+  },
+  {
+    "id": "runway",
+    "name": "Runway Gen-2",
+    "category": "video",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M21 12H3\" stroke=\"url(#gradient-purple-blue)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <path d=\"M12 3V21\" stroke=\"url(#gradient-purple-blue)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <rect x=\"5\" y=\"5\" width=\"6\" height=\"6\" rx=\"1\" fill=\"url(#gradient-purple-blue)\" fill-opacity=\"0.3\" stroke=\"url(#gradient-purple-blue)\" stroke-width=\"2\"/>\n      <rect x=\"13\" y=\"13\" width=\"6\" height=\"6\" rx=\"1\" fill=\"url(#gradient-purple-blue)\" fill-opacity=\"0.3\" stroke=\"url(#gradient-purple-blue)\" stroke-width=\"2\"/>\n      <defs>\n        <linearGradient id=\"gradient-purple-blue\" x1=\"3\" y1=\"3\" x2=\"21\" y2=\"21\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#a8c0ff\"/>\n          <stop offset=\"1\" stop-color=\"#3f2b96\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.5,
+    "ratingCount": 450,
+    "pricing": "Paid",
+    "pricingDetails": "Free plan includes 125 credits. Standard subscription starts at $15/month up to Unlimited at $95/month.",
+    "shortDescription": "We are building foundational General World Models that will be capable of simulating all possible worlds and experiences. The next frontier of intelligence will come from models that can understand, perceive, generate and act in the world.",
+    "description": "Runway Gen-2 is a web-based multimodal AI system that generates new video clips from text prompts, static images, or existing video streams. It offers advanced control tools such as Motion Brush, which lets users specify precise movement directions for specific image regions.",
+    "features": [
+      "High-fidelity Text-to-Video and Image-to-Video generation",
+      "Motion Brush for regional structural motion control",
+      "Camera control parameters (Pan, Zoom, Tilt, Roll, Speed)",
+      "Inpainting tools to edit objects dynamically inside video frames",
+      "Built-in timeline, audio layering, and export settings"
+    ],
+    "pros": [
+      "Industry standard with regular AI updates",
+      "Motion Brush offers unmatched control over video details",
+      "Full cloud-based editor makes importing and cutting footage easy",
+      "Great variety of styling prompts built in"
+    ],
+    "cons": [
+      "Free credits disappear in a few standard generation trials",
+      "Highly dynamic motions can cause fluid warping or surreal morphs",
+      "Maximum single-clip output length is relatively short (4-16s)"
+    ],
+    "website": "https://runwayml.com/?ref=aitoolsdir",
+    "sponsored": true,
+    "tags": [
+      "Video Editor",
+      "Hollywood Tech",
+      "Motion Brush",
+      "Free Trial"
+    ],
+    "specs": {
+      "platform": "Web-based, iOS App",
+      "apiAccess": "Available for Enterprise integrations",
+      "targetAudience": "Filmmakers, Motion designers, Advertisers, Architects",
+      "trialLength": "125 one-time free credits",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "run_rev1",
+        "username": "indie_director",
+        "rating": 5,
+        "comment": "For B-roll, Runway is magical. Image-to-Video combined with Motion Brush lets me animate static digital paintings into atmospheric visual sequences.",
+        "date": "2026-05-14"
+      }
+    ]
+  },
+  {
+    "id": "heygen",
+    "name": "HeyGen",
+    "category": "video",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z\" stroke=\"url(#gradient-neon)\" stroke-width=\"2\"/>\n      <path d=\"M10 8L16 12L10 16V8Z\" fill=\"url(#gradient-neon)\"/>\n      <defs>\n        <linearGradient id=\"gradient-neon\" x1=\"3\" y1=\"3\" x2=\"21\" y2=\"21\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#00FF87\"/>\n          <stop offset=\"1\" stop-color=\"#60EFFF\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.7,
+    "ratingCount": 310,
+    "pricing": "Freemium",
+    "pricingDetails": "Free tier offers 1 credit/month. Creator plans begin at $29/month, custom enterprise tiers available.",
+    "shortDescription": "Create AI videos from your ideas using HeyGen. Enter text, images, or audio to produce complete videos with narration, captions, visuals, and animations.",
+    "description": "HeyGen utilizes advanced deep learning to create humanlike avatars that speak in over 40 languages. Ideal for marketing, sales training, tutorials, and onboarding, HeyGen translates text inputs into natural speech perfectly synced with high-fidelity visual avatars, custom-cloned voices, or cartoon illustrations.",
+    "features": [
+      "100+ highly realistic custom and preset human avatars",
+      "Voice cloning with perfect accent matching in 40+ languages",
+      "Auto-translation of videos into multiple target languages",
+      "Interactive conversational avatars for websites",
+      "Integrations with Canva, ChatGPT, and Zapier"
+    ],
+    "pros": [
+      "Uncanny mouth syncing and blinking logic",
+      "Saves thousands of dollars on actors and voiceovers",
+      "Extremely quick video assembly from script text",
+      "Allows creation of a personalized avatar of yourself"
+    ],
+    "cons": [
+      "Pricing can be high for scaling teams requiring high resolutions",
+      "Can look slightly static in the torso and hands",
+      "Requires strict video proof of consent to clone custom voices"
+    ],
+    "website": "https://heygen.com/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Avatar",
+      "Marketing",
+      "Voice Clone",
+      "Sales Helper"
+    ],
+    "specs": {
+      "platform": "Web-based",
+      "apiAccess": "Full REST APIs for avatar generation",
+      "targetAudience": "Content Creators, Marketers, HR Managers",
+      "trialLength": "1 free credit per month",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "hey_rev1",
+        "username": "marketing_gal",
+        "rating": 5,
+        "comment": "This has cut down our employee training video budget by 90%. I just update the script text, click render, and the avatar delivers the training without reshoots.",
+        "date": "2026-05-17"
+      }
+    ]
+  },
+  {
+    "id": "claude",
+    "name": "Claude by Anthropic",
+    "category": "productivity",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2L4 7V17L12 22L20 17V7L12 2Z\" stroke=\"url(#gradient-anthropic)\" stroke-width=\"2\" stroke-linejoin=\"round\"/>\n      <path d=\"M12 6V18\" stroke=\"url(#gradient-anthropic)\" stroke-width=\"2\"/>\n      <path d=\"M8 10H16\" stroke=\"url(#gradient-anthropic)\" stroke-width=\"2\"/>\n      <path d=\"M8 14H16\" stroke=\"url(#gradient-anthropic)\" stroke-width=\"2\"/>\n      <defs>\n        <linearGradient id=\"gradient-anthropic\" x1=\"4\" y1=\"2\" x2=\"20\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#D97706\"/>\n          <stop offset=\"1\" stop-color=\"#F59E0B\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.9,
+    "ratingCount": 2200,
+    "pricing": "Paid",
+    "pricingDetails": "Free version with basic rate limits. Claude Pro starts at $20/month offering 5x higher usage.",
+    "shortDescription": "Claude is Anthropic's AI, built for problem solvers. Tackle complex challenges, analyze data, write code, and think through your hardest work.",
+    "description": "Claude, developed by Anthropic, is one of the world's most advanced LLMs. With a massive 200,000 token context window, it can digest entire code bases or books. Claude is highly praised by developers for its natural conversational tone, superior code generation, strict ethical alignment, and its interactive 'Artifacts' window for previewing generated files in real time.",
+    "features": [
+      "200K token context window for massive uploads",
+      "Claude Artifacts for HTML/JS, SVG, and document visual previews",
+      "Peerless mathematical reasoning and technical coding accuracy",
+      "Custom 'Projects' feature to group documents and instructions",
+      "Strict data privacy controls (no training on enterprise chats)"
+    ],
+    "pros": [
+      "Writing tone feels human and far less formulaic than ChatGPT",
+      "Extraordinary comprehension of dense technical research documents",
+      "Interactive Artifacts makes frontend prototyping a joy",
+      "Capable of reading and compiling mathematical logic"
+    ],
+    "cons": [
+      "Web interface limits message rates quickly under heavy load",
+      "Free tier context limits can feel restricted during peak hours",
+      "No native live voice mode like ChatGPT's Advanced Voice"
+    ],
+    "website": "https://claude.ai/?ref=aitoolsdir",
+    "sponsored": true,
+    "tags": [
+      "Best Value",
+      "Students Choice",
+      "Artifacts",
+      "Coding Helper"
+    ],
+    "specs": {
+      "platform": "Web-based, iOS & Android Apps",
+      "apiAccess": "Anthropic API & Amazon Bedrock",
+      "targetAudience": "Writers, Software Engineers, Researchers, Students",
+      "trialLength": "Free basic tier with limits",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "claude_rev1",
+        "username": "grad_student",
+        "rating": 5,
+        "comment": "Claude is my primary research assistant. I upload 4 different 50-page PDF studies, and it synthesizes the contradictory data points flawlessly. The writing style is top notch.",
+        "date": "2026-05-20"
+      }
+    ],
+    "useCases": [
+      "Dense PDF syntheses and complex book-length document Q&As",
+      "Natural and logical copywriting, programming, and text drafting",
+      "Interactive front-end prototyping via Claude Artifacts"
+    ],
+    "faqs": [
+      {
+        "q": "What makes Claude better than ChatGPT at writing?",
+        "a": "Claude avoids the standard robotic AI patterns (like 'delve' or 'moreover') and writes with complex, varied sentence structures that mirror human authors."
+      },
+      {
+        "q": "Does Claude support file uploads?",
+        "a": "Yes, you can upload code documents, text files, and PDFs directly. Its context window handles up to 200,000 tokens."
+      }
+    ],
+    "comparisons": [
+      "chatgpt",
+      "perplexity"
+    ]
+  },
+  {
+    "id": "chatgpt",
+    "name": "ChatGPT",
+    "category": "productivity",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"12\" cy=\"12\" r=\"10\" stroke=\"url(#gradient-chatgpt)\" stroke-width=\"2\"/>\n      <path d=\"M12 8V16M8 12H16\" stroke=\"url(#gradient-chatgpt)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <path d=\"M9.5 9.5L14.5 14.5\" stroke=\"url(#gradient-chatgpt)\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>\n      <path d=\"M14.5 9.5L9.5 14.5\" stroke=\"url(#gradient-chatgpt)\" stroke-width=\"1.5\" stroke-linecap=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-chatgpt\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#10A37F\"/>\n          <stop offset=\"1\" stop-color=\"#057053\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.8,
+    "ratingCount": 8900,
+    "pricing": "Paid",
+    "pricingDetails": "Free access powered by GPT-4o-mini. ChatGPT Plus is $20/month for premium reasoning models and Custom GPTs.",
+    "shortDescription": "ChatGPT helps you get answers, find inspiration, and be more productive.",
+    "description": "OpenAI's ChatGPT is the most widely adopted AI assistant. Powered by GPT-4o and custom o1 reasoning models, it offers integrated web search, DALL-E 3 image generation, data analysis scripting (Advanced Data Analysis), and a revolutionary Advanced Voice Mode that holds real-time, emotionally responsive vocal conversations.",
+    "features": [
+      "Integrated web browsing and real-time news search",
+      "Advanced Data Analysis (Python execution environment)",
+      "Image input recognition and OCR",
+      "DALL-E 3 image generation directly inside the chat",
+      "Advanced Voice Mode for humanlike conversation speed"
+    ],
+    "pros": [
+      "Incredible voice-to-voice interaction feels like science fiction",
+      "Highly capable Python sandbox for charting and data processing",
+      "Huge marketplace of custom user GPTs",
+      "Extremely reliable server availability"
+    ],
+    "cons": [
+      "Text styling can feel boilerplate (excessive use of 'delve', 'testament', etc.)",
+      "Web searching sometimes summarizes low-quality SEO articles",
+      "Advanced features are heavily rate-limited on peak days"
+    ],
+    "website": "https://chatgpt.com/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Household Name",
+      "Voice Mode",
+      "Web Search",
+      "Free Tier"
+    ],
+    "specs": {
+      "platform": "Web, iOS, Android, macOS & Windows Clients",
+      "apiAccess": "OpenAI API",
+      "targetAudience": "General Public, Professionals, Students",
+      "trialLength": "Free basic tier with limits",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "gpt_rev1",
+        "username": "josh_ventures",
+        "rating": 5,
+        "comment": "The advanced voice mode is spectacular for learning languages. I practice my conversational Spanish during commutes and it corrects my grammar perfectly.",
+        "date": "2026-05-12"
+      }
+    ],
+    "useCases": [
+      "Real-time emotionally-responsive language conversation",
+      "Inline python code execution sandboxing for charts",
+      "Integrated DALL-E 3 image generations inside chat"
+    ],
+    "faqs": [
+      {
+        "q": "What is Advanced Voice Mode?",
+        "a": "It is an ultra-low-latency voice interface powered natively by GPT-4o, enabling real-time conversations with emotional tone and interruptions support."
+      },
+      {
+        "q": "Can I customize ChatGPT's behavior?",
+        "a": "Yes, you can create or browse 'Custom GPTs' inside the GPT Store to lock instructions, uploaded documents, or APIs for specific tasks."
+      }
+    ],
+    "comparisons": [
+      "claude",
+      "perplexity"
+    ]
+  },
+  {
+    "id": "notionai",
+    "name": "Notion AI",
+    "category": "productivity",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <rect x=\"4\" y=\"4\" width=\"16\" height=\"16\" rx=\"2\" stroke=\"url(#gradient-notion)\" stroke-width=\"2\"/>\n      <path d=\"M8 8V16L11 12L13 16V8\" stroke=\"url(#gradient-notion)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-notion\" x1=\"4\" y1=\"4\" x2=\"20\" y2=\"20\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#e2e2e2\"/>\n          <stop offset=\"1\" stop-color=\"#111111\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.6,
+    "ratingCount": 520,
+    "pricing": "Paid",
+    "pricingDetails": "Available as an embedded add-on to existing Notion plans at $8 to $10/user/month.",
+    "shortDescription": "One tool that does it all. Search, generate, analyze, and chat—right inside Notion.",
+    "description": "Notion AI integrates generative models straight into your text canvas and documents. Users can trigger AI anywhere on a page using the spacebar or slash commands to brainstorm ideas, summarize meeting notes, rewrite style tones, autofill tabular databases, and query their entire Notion database for answers.",
+    "features": [
+      "In-line document editing, rewording, and translation",
+      "Automated summary generations for long wikis and databases",
+      "AI Autofill formulas and custom properties inside tables",
+      "Notion Q&A for cross-workspace semantic searches",
+      "Active meeting transcript action-item generation"
+    ],
+    "pros": [
+      "Extremely convenient—no need to copy-paste between external chat tools",
+      "Semantic search (Q&A) scans thousands of your private docs instantly",
+      "Tabular database auto-filling saves massive manual entry time",
+      "Outstanding document translation capabilities"
+    ],
+    "cons": [
+      "Requires subscription—no permanent free-tier version available",
+      "Requires already being an active user of the Notion document ecosystem",
+      "Underlying model is slightly less optimized for complex custom programming tasks"
+    ],
+    "website": "https://notion.so/product/ai?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Embedded AI",
+      "Database Helper",
+      "Organizers Choice"
+    ],
+    "specs": {
+      "platform": "Web-based, Desktop App, Mobile Apps",
+      "apiAccess": "Available via Notion API",
+      "targetAudience": "Project Managers, Team Leaders, Organizers, Writers",
+      "trialLength": "Limited free AI responses for test workspaces",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "not_rev1",
+        "username": "agile_pm",
+        "rating": 4.5,
+        "comment": "We compile all user stories here. Using Q&A, I can ask: 'What did we decide on the payment gateway API in March?' and it instantly gives the correct citation. Priceless.",
+        "date": "2026-05-09"
+      }
+    ]
+  },
+  {
+    "id": "perplexity",
+    "name": "Perplexity AI",
+    "category": "productivity",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2C6.48 2 2 6.48 2 12C2 17.52 6.48 22 12 22C17.52 22 22 17.52 22 12C22 6.48 17.52 2 12 2Z\" stroke=\"url(#gradient-perplexity)\" stroke-width=\"2\"/>\n      <path d=\"M12 6V18\" stroke=\"url(#gradient-perplexity)\" stroke-width=\"2\" stroke-dasharray=\"2 2\"/>\n      <circle cx=\"12\" cy=\"12\" r=\"2\" fill=\"url(#gradient-perplexity)\"/>\n      <defs>\n        <linearGradient id=\"gradient-perplexity\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#20B2AA\"/>\n          <stop offset=\"1\" stop-color=\"#008B8B\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.8,
+    "ratingCount": 780,
+    "pricing": "Paid",
+    "pricingDetails": "Free standard answers. Perplexity Pro is $20/month for deep reasoning models and academic collections.",
+    "shortDescription": "Answers engine synthesizing live search crawls into direct citations with interactive footnotes.",
+    "description": "Perplexity AI functions as a search-first answers engine. Instead of a list of blue links, it reads and crawls the live web, synthesizing a comprehensive response with superscript footnotes linked directly to sources. Users can toggles models, upload document files, and search specific channels like Reddit, Academic Journals, or Youtube.",
+    "features": [
+      "Live web crawling and instant footnote citations",
+      "Focus channels (Academic papers, Reddit, Youtube, Writing)",
+      "Pro Search for deep multi-step research questions",
+      "Model Selector (Claude 3.5 Sonnet, GPT-4o, Llama-3)",
+      "Collection threads to organize researches"
+    ],
+    "pros": [
+      "Provides direct, objective answers with source validation",
+      "Virtually eliminates SEO spam links by reading text directly",
+      "Pro search solves multi-layered queries by generating sub-questions",
+      "Outstanding research tool for academic students and writers"
+    ],
+    "cons": [
+      "Can occasionally miss details behind paywalled publications",
+      "Synthesizes matches instead of letting you explore design layouts directly",
+      "Copy-paste text contains markup footnotes which requires minor cleanup"
+    ],
+    "website": "https://perplexity.ai/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Search Engine",
+      "Citations",
+      "Students Choice",
+      "Editor's Choice"
+    ],
+    "specs": {
+      "platform": "Web-based, iOS & Android Apps",
+      "apiAccess": "Perplexity Sonar API for developers",
+      "targetAudience": "Researchers, Analysts, Students, Journalists",
+      "trialLength": "Free basic tier with limits",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "perp_rev1",
+        "username": "fact_checker",
+        "rating": 5,
+        "comment": "Google is dead to me. Perplexity gives me a comprehensive answer with 8 source citations in 2 seconds. Perfect for researching hardware reviews.",
+        "date": "2026-05-21"
+      }
+    ],
+    "useCases": [
+      "Bypassing SEO-clickbait links for objective summaries",
+      "Academic citation-backed fact-checking and literature searches",
+      "Real-time product hardware specs comparisons crawls"
+    ],
+    "faqs": [
+      {
+        "q": "Is Perplexity an LLM or a Search Engine?",
+        "a": "It is an answers engine that combines search web crawlers with powerful LLMs (like GPT-4o and Claude) to parse pages and synthesize answers."
+      },
+      {
+        "q": "How are sources cited?",
+        "a": "Answers contain inline footnote numbers (superscripts) that link directly to the crawled web pages for source verification."
+      }
+    ],
+    "comparisons": [
+      "chatgpt",
+      "claude"
+    ]
+  },
+  {
+    "id": "adobe-firefly",
+    "name": "Adobe Firefly",
+    "category": "image",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2L2 22H22L12 2Z\" fill=\"url(#gradient-adobe)\" stroke=\"url(#gradient-adobe)\" stroke-width=\"2\"/>\n      <path d=\"M12 8L6 18H18L12 8Z\" fill=\"#ffffff\" fill-opacity=\"0.2\"/>\n      <defs>\n        <linearGradient id=\"gradient-adobe\" x1=\"2\" y1=\"22\" x2=\"22\" y2=\"2\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#FF0000\"/>\n          <stop offset=\"1\" stop-color=\"#FF7A00\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.5,
+    "ratingCount": 610,
+    "pricing": "Paid",
+    "pricingDetails": "Free plan offers 25 credits monthly. Premium commercial licenses starting at $4.99/month.",
+    "shortDescription": "Create and edit images, audio, and video with Adobe Firefly’s Generative AI, plus try top models from Google, OpenAI, and more.",
+    "description": "Adobe Firefly is a family of generative creative AI models. Trained exclusively on licensed content, public domain items, and Adobe Stock, Firefly offers enterprise indemnity. It powers features like Generative Fill and Generative Expand directly within Photoshop, allowing smooth image manipulation.",
+    "features": [
+      "Trained on legally safe, licensed stocks (Commercial Safe)",
+      "Generative Fill to add or remove details inside Photoshop",
+      "Vector Graphic Recolor inside Adobe Illustrator",
+      "Text Effects generator for typographical styles",
+      "Generative Expand to fill missing boundaries"
+    ],
+    "pros": [
+      "100% commercially safe with legal protection for companies",
+      "Outstanding, seamless Photoshop integration",
+      "Excellent vector matching tools",
+      "High-speed generation on web interface"
+    ],
+    "cons": [
+      "Artistic aesthetics are sometimes more conservative/stock-like than Midjourney",
+      "Credits are depleted fast when using high resolutions",
+      "Requires Adobe Creative Cloud ecosystem for maximum benefit"
+    ],
+    "website": "https://adobe.com/products/firefly.html?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Commercial Safe",
+      "Adobe Suite",
+      "Vector Helper",
+      "Free Tier"
+    ],
+    "specs": {
+      "platform": "Web-based, Photoshop / Illustrator Integration",
+      "apiAccess": "Adobe Firefly APIs available",
+      "targetAudience": "Enterprise designers, Branding agencies, Illustrators",
+      "trialLength": "25 monthly credits free",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "ad_rev1",
+        "username": "brand_lead",
+        "rating": 5,
+        "comment": "The commercial safety is why our agency uses it. We cannot risk using Midjourney for client logos due to copyright queries. Generative Fill in Photoshop works like magic.",
+        "date": "2026-05-04"
+      }
+    ]
+  },
+  {
+    "id": "gemini",
+    "name": "Google Gemini",
+    "category": "productivity",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2C12 2 12.5 8.5 16.5 12.5C20.5 16.5 22 12 22 12C22 12 15.5 11.5 11.5 7.5C7.5 3.5 12 2 12 2Z\" fill=\"url(#gradient-gemini)\" stroke=\"url(#gradient-gemini)\" stroke-width=\"1\"/>\n      <path d=\"M12 22C12 22 11.5 15.5 7.5 11.5C3.5 7.5 2 12 2 12C2 12 8.5 12.5 12.5 16.5C16.5 20.5 12 22 12 22Z\" fill=\"url(#gradient-gemini)\" stroke=\"url(#gradient-gemini)\" stroke-width=\"1\"/>\n      <defs>\n        <linearGradient id=\"gradient-gemini\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#38bdf8\"/>\n          <stop offset=\"0.5\" stop-color=\"#818cf8\"/>\n          <stop offset=\"1\" stop-color=\"#ec4899\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.7,
+    "ratingCount": 4210,
+    "pricing": "Freemium",
+    "pricingDetails": "Free version powered by Gemini 1.5 Flash. Gemini Advanced is $20/month offering 1.5 Pro and deep Google Workspace integrations.",
+    "shortDescription": "Meet Gemini, Google’s AI assistant. Get help with writing, planning, brainstorming, and more. Experience the power of generative AI.",
+    "description": "Google Gemini is a highly advanced multimodal AI model capable of reasoning across text, code, images, audio, and video. Integrated natively within the Google ecosystem, Gemini features a massive context window of up to 1 million tokens, making it outstanding for deep analysis of massive datasets, videos, and multi-file codebases.",
+    "features": [
+      "Massive 1 million token context window for native uploads",
+      "Multimodal analysis of files, images, codebases, and audio",
+      "Native Google Docs, Gmail, and Workspace integrations",
+      "Fast response speed powered by Gemini 1.5 Flash",
+      "Double-check answers using real-time Google Search integration"
+    ],
+    "pros": [
+      "Deeply integrated with Google products (Docs, Sheets, Drive)",
+      "Unrivaled context window length (up to 1M tokens on Advanced)",
+      "Outstanding at analyzing long video files directly",
+      "Extremely capable and competitive developer API pricing"
+    ],
+    "cons": [
+      "Can occasionally be overly conservative or safety-blocked",
+      "Voice model is slightly less conversational than ChatGPT's Advanced Voice",
+      "Workspace integrations require a paid Gemini Advanced subscription"
+    ],
+    "website": "https://gemini.google.com/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Multimodal",
+      "Google Ecosystem",
+      "Large Context",
+      "Free Tier"
+    ],
+    "specs": {
+      "platform": "Web-based, Android & iOS Apps",
+      "apiAccess": "Google AI Studio API available",
+      "targetAudience": "General Users, Developers, Data Analysts, Students",
+      "trialLength": "Free forever basic plan",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "gem_rev1",
+        "username": "data_surfer",
+        "rating": 4.8,
+        "comment": "Uploading a full 45-minute lecture video and getting a highly precise, timestamped summary in seconds is mind-blowing. Gemini's video context window is completely unmatched.",
+        "date": "2026-05-18"
+      }
+    ],
+    "useCases": [
+      "Summarizing long YouTube videos or custom audio recordings",
+      "Analyzing extremely large codebase repositories in a single prompt",
+      "Direct document drafting and action items inside Google Workspace"
+    ],
+    "faqs": [
+      {
+        "q": "What models power the free version of Google Gemini?",
+        "a": "The free version is powered by Gemini 1.5 Flash, which is optimized for ultra-fast speeds and high reasoning capability."
+      },
+      {
+        "q": "What is the maximum file size Gemini can analyze?",
+        "a": "With Gemini Advanced's 1 million token context window, you can upload massive PDFs, complete codebases, or videos up to an hour long."
+      }
+    ],
+    "comparisons": [
+      "chatgpt",
+      "claude"
+    ]
+  },
+  {
+    "id": "leonardo",
+    "name": "Leonardo AI",
+    "category": "image",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M12 2L4 9L12 16L20 9L12 2Z\" fill=\"url(#gradient-leo)\" stroke=\"url(#gradient-leo)\" stroke-width=\"1\"/>\n      <path d=\"M4 15L12 22L20 15\" stroke=\"url(#gradient-leo)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <circle cx=\"12\" cy=\"9\" r=\"2\" fill=\"#FFFFFF\"/>\n      <defs>\n        <linearGradient id=\"gradient-leo\" x1=\"4\" y1=\"2\" x2=\"20\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#FFB300\"/>\n          <stop offset=\"1\" stop-color=\"#E65100\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.7,
+    "ratingCount": 1420,
+    "pricing": "Freemium",
+    "pricingDetails": "Free tier offers 150 daily credits. Premium plans start at $10/month scaling to $48/month.",
+    "shortDescription": "High-fidelity production-ready generative image suite optimized for game assets and digital graphics.",
+    "description": "Leonardo AI is an advanced generative platform designed specifically for game designers, character developers, and visual content creators. Built on top of custom-trained Stable Diffusion structures, it features real-time canvas editors, custom model fine-tuning, motion generation, and strict character/pose locks.",
+    "features": [
+      "Generates highly structured game assets and visual layouts",
+      "Real-time canvas for selective inpainting and outpainting edits",
+      "Pose and structural guidance locking via ControlNet modules",
+      "Custom LoRA model training directly in-browser",
+      "Daily recurring free generation credits (150 credits)"
+    ],
+    "pros": [
+      "Extremely generous recurring free tier of 150 daily credits",
+      "Outstanding, professional dashboard for asset organization",
+      "Highly customizable guidance weights and resolution parameters",
+      "Allows hosting and selling fine-tuned community models"
+    ],
+    "cons": [
+      "Web layout is feature-rich but has a steep initial learning curve",
+      "Free generations are placed in a public gallery feed",
+      "Video motion outputs occasionally warp heavily"
+    ],
+    "website": "https://leonardo.ai/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Game Assets",
+      "Character Design",
+      "Free Daily",
+      "Popular"
+    ],
+    "specs": {
+      "platform": "Web-based, iOS App",
+      "apiAccess": "Full Developer API available",
+      "targetAudience": "Game Artists, Concept Designers, Content Creators",
+      "trialLength": "150 recurring free credits daily",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "leo_rev1",
+        "username": "indie_dev_jack",
+        "rating": 5,
+        "comment": "As an indie game developer, Leonardo is a lifesaver. I trained a custom model on my own sketches and generated 100 consistent 2D isometric item assets in an afternoon.",
+        "date": "2026-05-14"
+      }
+    ],
+    "useCases": [
+      "Consistent game asset generation and character rendering",
+      "Interactive structural painting via real-time canvas",
+      "Custom brand styler training using LoRA models in-browser"
+    ],
+    "faqs": [
+      {
+        "q": "Are my images public on Leonardo AI?",
+        "a": "Yes, images generated on the free tier are added to the public catalog. Subscribing to a premium tier allows private image generations."
+      },
+      {
+        "q": "What is the daily credit limit?",
+        "a": "Free accounts receive 150 tokens every 24 hours, which is enough to generate approximately 30-75 high-fidelity images."
+      }
+    ],
+    "comparisons": [
+      "midjourney",
+      "stablediffusion"
+    ]
+  },
+  {
+    "id": "elevenlabs",
+    "name": "ElevenLabs",
+    "category": "video",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M4 12C4 8 8 4 12 4C16 4 20 8 20 12\" stroke=\"url(#gradient-eleven)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <path d=\"M6 14C6 11 9 9 12 9C15 9 18 11 18 14\" stroke=\"url(#gradient-eleven)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <path d=\"M8 16H16\" stroke=\"url(#gradient-eleven)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <path d=\"M12 18V20\" stroke=\"url(#gradient-eleven)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-eleven\" x1=\"4\" y1=\"4\" x2=\"20\" y2=\"20\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#34d399\"/>\n          <stop offset=\"1\" stop-color=\"#059669\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.9,
+    "ratingCount": 2100,
+    "pricing": "Freemium",
+    "pricingDetails": "Free plan gives 10,000 characters monthly. Creator plans start at $5/month up to $330/month.",
+    "shortDescription": "Create lifelike speech with our AI voice generator and voice agents platform. Access 5,000+ voices in 70+ languages with secure APIs and SDKs.",
+    "description": "ElevenLabs is the undisputed leader in generative AI voice synthesis. Able to clone custom voices from short 1-minute audio clips, it produces natural voiceovers with perfect emotional pacing, accents, and punctuation, supporting audiobook generation, game dubbing, and video translations.",
+    "features": [
+      "Hyper-realistic custom voice cloning and synthesis",
+      "AI sound effects generator (actions, atmospheres, hits)",
+      "Perfect multi-language translation and voice dubbing",
+      "Extensive voice design dashboard (sliders for age, accent, gender)",
+      "Enterprise-grade speech-to-speech voice conversions"
+    ],
+    "pros": [
+      "Speech sounds indistinguishable from human voice actors",
+      "Clones custom voices with outstanding accuracy from short clips",
+      "Auto dubs video clips into 30+ languages keeping the same voice",
+      "Outstanding API for real-time applications and game systems"
+    ],
+    "cons": [
+      "Character credit pools exhaust rapidly on long transcripts",
+      "Free tier lacks custom voice cloning support",
+      "Requires high-quality microphone input for voice cloning references"
+    ],
+    "website": "https://elevenlabs.io/?ref=aitoolsdir",
+    "sponsored": true,
+    "tags": [
+      "Voice Clone",
+      "Sound FX",
+      "Video Dubbing",
+      "Hobbyist Free"
+    ],
+    "specs": {
+      "platform": "Web-based, Developer APIs",
+      "apiAccess": "Full developer REST API with sub-second latency",
+      "targetAudience": "Video Editors, HR Trainers, Game Developers, Authors",
+      "trialLength": "10,000 monthly characters free",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "ele_rev1",
+        "username": "audio_pro",
+        "rating": 5,
+        "comment": "The emotional range is incredible. Most text-to-speech tools sound completely robotic, but ElevenLabs can whisper, sigh, or sound energetic based on the written context.",
+        "date": "2026-05-19"
+      }
+    ],
+    "useCases": [
+      "Autogenerating high-fidelity audiobooks from TXT files",
+      "Translating company video ads into German, French, and Japanese",
+      "Autonomously generating interactive character audio in games via APIs"
+    ],
+    "faqs": [
+      {
+        "q": "What is the minimum audio length needed for voice cloning?",
+        "a": "Instant voice cloning can be completed using just a 1-minute audio recording, although longer references provide higher fidelity."
+      },
+      {
+        "q": "Can I monetize the voices generated on ElevenLabs?",
+        "a": "Yes, premium subscriptions grant commercial licensing rights for all synthesized audio outputs."
+      }
+    ],
+    "comparisons": [
+      "heygen",
+      "runway"
+    ]
+  },
+  {
+    "id": "sora",
+    "name": "Sora by OpenAI",
+    "category": "video",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <rect x=\"3\" y=\"6\" width=\"18\" height=\"12\" rx=\"2\" stroke=\"url(#gradient-sora)\" stroke-width=\"2\"/>\n      <circle cx=\"10\" cy=\"12\" r=\"3\" fill=\"url(#gradient-sora)\"/>\n      <path d=\"M18 9L21 6V18L18 15\" stroke=\"url(#gradient-sora)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-sora\" x1=\"3\" y1=\"6\" x2=\"21\" y2=\"18\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#10a37f\"/>\n          <stop offset=\"1\" stop-color=\"#02e1c3\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.9,
+    "ratingCount": 110,
+    "pricing": "Paid",
+    "pricingDetails": "Enterprise-level custom licensing. Limited access program for creative professionals.",
+    "shortDescription": "OpenAI's state-of-the-art text-to-video foundation model producing up to 60 seconds of cinema-grade footage.",
+    "description": "Sora is OpenAI's state-of-the-art generative video model. By combining diffusion techniques with transformer architectures, Sora generates complex, cinema-grade video clips up to 60 seconds long with highly consistent physics, lighting, multiple characters, and complex camera movements.",
+    "features": [
+      "Generates continuous, cinematic videos up to 60 seconds long",
+      "Maintains strict structural/object consistency across frames",
+      "Highly realistic physics, fluid motion, and light reflection simulation",
+      "Support for complex multi-angle panning and camera sweeps",
+      "Direct image-to-video and video-to-video creative modifications"
+    ],
+    "pros": [
+      "Completely redefines video lengths (up to 1 minute continuous)",
+      "Unrivaled photo quality, matching professional film stock",
+      "Excellent understanding of material surfaces and object collisions",
+      "Generates multiple high-quality clips from a single prompt context"
+    ],
+    "cons": [
+      "Currently restricted to closed preview / enterprise channels",
+      "Render times are extremely high compared to short-clip models",
+      "Complex physical interactions (e.g. eating food) can still show logic errors"
+    ],
+    "website": "https://openai.com/sora?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Cinematic",
+      "OpenAI Suite",
+      "General World Model",
+      "Enterprise"
+    ],
+    "specs": {
+      "platform": "Web Interface (Closed beta)",
+      "apiAccess": "Enterprise custom API only",
+      "targetAudience": "Professional filmmakers, advertising agencies, visual artists",
+      "trialLength": "Closed select testing program",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "sora_rev1",
+        "username": "hollywood_vfx",
+        "rating": 5,
+        "comment": "Sora is completely on another level. The physics matching, reflections on car windows, and continuous 60-second shots are absolute game-changers for concept rendering.",
+        "date": "2026-05-15"
+      }
+    ],
+    "useCases": [
+      "Generating cinema-grade, continuous 60-second video mockups",
+      "Animating complex multi-character visual concepts with physics",
+      "Direct conceptual storyboarding for marketing campaigns"
+    ],
+    "faqs": [
+      {
+        "q": "Can I sign up and use Sora today?",
+        "a": "Sora is currently in a rollout phase, restricted to select artists, designers, and film professionals for safety audits before public release."
+      },
+      {
+        "q": "What is the maximum output video length?",
+        "a": "Sora is capable of generating continuous video sequences up to 60 seconds in length."
+      }
+    ],
+    "comparisons": [
+      "runway",
+      "heygen"
+    ]
+  },
+  {
+    "id": "suno",
+    "name": "Suno AI",
+    "category": "video",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"12\" cy=\"12\" r=\"10\" stroke=\"url(#gradient-suno)\" stroke-width=\"2\"/>\n      <circle cx=\"12\" cy=\"12\" r=\"6\" stroke=\"url(#gradient-suno)\" stroke-width=\"1.5\" stroke-dasharray=\"3 3\"/>\n      <path d=\"M9 17L14 12V6L19 9\" stroke=\"url(#gradient-suno)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-suno\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#ffe259\"/>\n          <stop offset=\"1\" stop-color=\"#ffa751\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.8,
+    "ratingCount": 1640,
+    "pricing": "Freemium",
+    "pricingDetails": "Free plan gives 50 daily credits (10 songs). Pro tier starts at $8/month; Premier tier at $24/month.",
+    "shortDescription": "Create stunning original music for free in seconds using our AI generator. Make your own masterpieces, share with friends, and discover music from artists worldwide.",
+    "description": "Suno AI is the ultimate generative music platform. Able to produce complete 4-minute songs in any genre, Suno generates professional-quality instrumentals, custom lyrics (or takes your custom poetry), and highly realistic vocals matching the desired vocal style and gender, ready for downloads.",
+    "features": [
+      "Generates complete, radio-ready songs in any genre (Rock, Pop, Jazz, Synthwave)",
+      "Vocal and instrumental generation matching plain-text requests",
+      "Allows user-provided custom lyrics and chord structures",
+      "Song extensions up to 4-8 minutes continuous",
+      "Commercial licensing rights granted on premium tiers"
+    ],
+    "pros": [
+      "Generate a complete high-fidelity song in under 30 seconds",
+      "Incredible genre flexibility, including local folk and EDM styles",
+      "Vocal quality is outstandingly clear and emotional",
+      "Free recurring daily credits (50 credits)"
+    ],
+    "cons": [
+      "Instrumental layers can sometimes sound slightly compressed",
+      "Free tier songs cannot be monetized commercially",
+      "Occasional voice duplication quirks on specialized metal genres"
+    ],
+    "website": "https://suno.com/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Music Creator",
+      "Generative Song",
+      "Free Credits",
+      "Entertainment"
+    ],
+    "specs": {
+      "platform": "Web-based",
+      "apiAccess": "Closed public API",
+      "targetAudience": "Musicians, Content Creators, Gamers, Hobbyists",
+      "trialLength": "50 daily free credits",
+      "hosting": "Cloud-Based"
+    },
+    "reviews": [
+      {
+        "id": "sun_rev1",
+        "username": "jingle_writer",
+        "rating": 4.8,
+        "comment": "Suno is incredibly addictive. I prompted a '1980s synthwave corporate presentation track about coding' and got a highly aesthetic song with vocals that sound like a real radio hit.",
+        "date": "2026-05-11"
+      }
+    ],
+    "useCases": [
+      "Generating custom, royalty-free background tracks for YouTube",
+      "Accelerating song mockups and chord drafting workflows",
+      "Creating customized musical greetings and funny song parodies"
+    ],
+    "faqs": [
+      {
+        "q": "Do I own the copyright to Suno songs?",
+        "a": "Yes, if you generate songs under a paid plan (Pro or Premier), you own 100% of the commercial rights to the compositions."
+      },
+      {
+        "q": "Can I write my own lyrics?",
+        "a": "Yes, Suno features a 'Custom Mode' where you can paste your own lyrics, structure, and request specific musical instruments."
+      }
+    ],
+    "comparisons": [
+      "elevenlabs",
+      "runway"
+    ]
+  },
+  {
+    "id": "cline",
+    "name": "Cline",
+    "category": "coding",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <rect x=\"3\" y=\"3\" width=\"18\" height=\"18\" rx=\"3\" stroke=\"url(#gradient-cline)\" stroke-width=\"2\"/>\n      <path d=\"M7 9L11 12L7 15\" stroke=\"url(#gradient-cline)\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"/>\n      <path d=\"M12 15H17\" stroke=\"url(#gradient-cline)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-cline\" x1=\"3\" y1=\"3\" x2=\"21\" y2=\"21\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#00F2FE\"/>\n          <stop offset=\"1\" stop-color=\"#7F00FF\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.8,
+    "ratingCount": 670,
+    "pricing": "Free",
+    "pricingDetails": "Open-source and 100% free to run. Users bring their own API keys (OpenRouter, Anthropic, OpenAI).",
+    "shortDescription": "Autonomous coding agent as an SDK, IDE extension, or CLI assistant. - cline/cline",
+    "description": "Cline is a highly autonomous, open-source AI agent that runs directly inside VS Code. Integrated with your terminal, file system, and browser, Cline can read/write files, execute shell commands, install packages, compile scripts, and run web-browser tests to confirm its work automatically, keeping you fully in control.",
+    "features": [
+      "Autonomous terminal control and command executions",
+      "Dynamic file editing, directory reading, and refactoring",
+      "Integrated browser rendering and UI debugging tests",
+      "Supports major API keys (Claude 3.5 Sonnet, OpenRouter, DeepSeek)",
+      "Permission check overlays before command runs"
+    ],
+    "pros": [
+      "Completely open-source and free to install",
+      "Tackles complex multi-step coding instructions autonomously",
+      "Can run tests, identify errors, and correct them without input",
+      "Lets you select and change LLM backends easily"
+    ],
+    "cons": [
+      "Can consume a massive amount of token credits on complex tasks",
+      "Steep learning curve to prevent loops or unwanted file creations",
+      "Requires caution since it runs real shell commands"
+    ],
+    "website": "https://github.com/cline/cline?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Open Source",
+      "Autonomous",
+      "Extension",
+      "Agent"
+    ],
+    "specs": {
+      "platform": "VS Code Extension",
+      "apiAccess": "Requires standard LLM API keys",
+      "targetAudience": "Power Users, Software Engineers, Builders",
+      "trialLength": "Free open-source client",
+      "hosting": "Local Client (runs via standard API keys)"
+    },
+    "reviews": [
+      {
+        "id": "cli_rev1",
+        "username": "agentic_coder",
+        "rating": 5,
+        "comment": "Cline has replaced 70% of my writing steps. I ask it to build a full React dashboard with mock data, it installs packages, edits pages, runs the build, fixes compile warnings, and shows me the final results. Breathtaking.",
+        "date": "2026-05-20"
+      }
+    ],
+    "useCases": [
+      "Fully autonomous frontend project scaffolds from single prompts",
+      "Batch refactoring complex API endpoints across repositories",
+      "Automated troubleshooting and bug correction by executing builds"
+    ],
+    "faqs": [
+      {
+        "q": "Is Cline safe to execute commands?",
+        "a": "Yes, Cline asks for explicit user approval before executing any terminal command or making file modifications."
+      },
+      {
+        "q": "What is the best model to run with Cline?",
+        "a": "Claude 3.5 Sonnet (via Anthropic or OpenRouter) is widely regarded as the most capable model for agentic reasoning."
+      }
+    ],
+    "comparisons": [
+      "cursor",
+      "copilot"
+    ]
+  },
+  {
+    "id": "deepseek",
+    "name": "DeepSeek Coder",
+    "category": "coding",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <circle cx=\"12\" cy=\"12\" r=\"10\" stroke=\"url(#gradient-deep)\" stroke-width=\"2\"/>\n      <path d=\"M8 12C8 9.79 9.79 8 12 8C14.21 8 16 9.79 16 12C16 14.21 14.21 16 12 16\" stroke=\"url(#gradient-deep)\" stroke-width=\"2\"/>\n      <path d=\"M12 2V6\" stroke=\"url(#gradient-deep)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <path d=\"M12 18V22\" stroke=\"url(#gradient-deep)\" stroke-width=\"2\" stroke-linecap=\"round\"/>\n      <defs>\n        <linearGradient id=\"gradient-deep\" x1=\"2\" y1=\"2\" x2=\"22\" y2=\"22\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#0ea5e9\"/>\n          <stop offset=\"1\" stop-color=\"#2563eb\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.8,
+    "ratingCount": 1820,
+    "pricing": "Free",
+    "pricingDetails": "Highly affordable pay-per-token API (currently starting at $0.14/million tokens). Free model download available.",
+    "shortDescription": "深度求索（DeepSeek），成立于2023年，专注于研究世界领先的通用人工智能底层模型与技术，挑战人工智能前沿性难题。基于自研训练框架、自建智算集群和万卡算力等资源，深度求索团队仅用半年时间便已发布并开源多个百亿级参数大模型，如DeepSeek-LLM通用大语言模型、DeepSeek-Coder代码大模型，并在2024年1月率先开源国内首个MoE大模型（DeepSeek-MoE），各大模型在公开评测榜单及真实样本外的泛化效果均有超越同级别模型的出色表现。和 DeepSeek AI 对话，轻松接入 API。",
+    "description": "DeepSeek Coder is a state-of-the-art open-weight AI model optimized specifically for developers. Trained on over 2 trillion code tokens and supporting a massive 128K context window, DeepSeek Coder matches commercial models in coding benchmarks while remaining highly affordable to scale.",
+    "features": [
+      "Open-weights available for secure self-hosted execution",
+      "Massive 128K token context window for large codebase uploads",
+      "Highly optimized for code completions and semantic understanding",
+      "Peerless mathematical reasoning benchmarks",
+      "Extremely affordable pay-as-you-go developer API"
+    ],
+    "pros": [
+      "Extremely cheap API pricing (up to 95% cheaper than competitors)",
+      "Self-hostable offline inside local enterprise architectures",
+      "Excellent multi-file code understanding and completion support",
+      "Supports all major programming languages"
+    ],
+    "cons": [
+      "Self-hosting requires extremely high-end hardware for maximum speed",
+      "API lacks secondary search plugins out of the box",
+      "Documentation is more technical, focused on developers"
+    ],
+    "website": "https://deepseek.com/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "Open Weight",
+      "API Model",
+      "Cheap API",
+      "High Value"
+    ],
+    "specs": {
+      "platform": "Cloud API, Self-Hostable Weights",
+      "apiAccess": "Open API access with OpenAI-compatible endpoint",
+      "targetAudience": "Developers, Tech Startups, Enterprise Systems",
+      "trialLength": "Free credits upon registration",
+      "hosting": "Cloud API or Self-Hosted"
+    },
+    "reviews": [
+      {
+        "id": "deep_rev1",
+        "username": "api_architect",
+        "rating": 4.8,
+        "comment": "Unbelievable cost-efficiency. I migrated our automated code generation microservice to DeepSeek Coder and cut our monthly API invoice from $4,000 to $180 without losing any quality.",
+        "date": "2026-05-18"
+      }
+    ],
+    "useCases": [
+      "Migrating scaling company code generators to affordable APIs",
+      "Self-hosting secure local programming models offline",
+      "Integrating high-speed completions inside terminal CLI utilities"
+    ],
+    "faqs": [
+      {
+        "q": "How cheap is the DeepSeek Coder API?",
+        "a": "DeepSeek API costs approximately $0.14 per 1 million input tokens, making it roughly 15-30x cheaper than models like GPT-4o."
+      },
+      {
+        "q": "Can I run DeepSeek Coder locally?",
+        "a": "Yes, you can download the model weights and run them locally using standard frameworks like Ollama, LM Studio, or vLLM."
+      }
+    ],
+    "comparisons": [
+      "cursor",
+      "copilot"
+    ]
+  },
+  {
+    "id": "replit",
+    "name": "Replit Agent",
+    "category": "coding",
+    "logo": "<svg class=\"w-12 h-12\" viewBox=\"0 0 24 24\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n      <path d=\"M4 4H20V8H4V4Z\" fill=\"url(#gradient-replit)\" stroke=\"url(#gradient-replit)\" stroke-width=\"1\"/>\n      <path d=\"M4 10H14V14H4V10Z\" fill=\"url(#gradient-replit)\" stroke=\"url(#gradient-replit)\" stroke-width=\"1\"/>\n      <path d=\"M4 16H20V20H4V16Z\" fill=\"url(#gradient-replit)\" stroke=\"url(#gradient-replit)\" stroke-width=\"1\"/>\n      <defs>\n        <linearGradient id=\"gradient-replit\" x1=\"4\" y1=\"4\" x2=\"20\" y2=\"20\" gradientUnits=\"userSpaceOnUse\">\n          <stop stop-color=\"#F43F5E\"/>\n          <stop offset=\"1\" stop-color=\"#BE123C\"/>\n        </linearGradient>\n      </defs>\n    </svg>",
+    "rating": 4.6,
+    "ratingCount": 420,
+    "pricing": "Paid",
+    "pricingDetails": "Included inside the Replit Core plan starting at $15/month or $120/year.",
+    "shortDescription": "Build and deploy software collaboratively with the power of AI without spending a second on setup.",
+    "description": "Replit Agent is a fully autonomous AI agent embedded within the Replit cloud sandbox. By describing what you want to build (e.g., 'a database tracking real estate portfolios'), the Agent installs databases, configures backends, designs frontends, and hosts a live-running prototype inside Replit, letting you build apps with zero coding skills.",
+    "features": [
+      "Autonomous full-stack application development in-browser",
+      "Automatic SQLite database configurations and schemas mapping",
+      "One-click deployment to standard production cloud sandboxes",
+      "Interactive code editing sidebar alongside the Agent",
+      "Dynamic prompt history tracking and rollbacks"
+    ],
+    "pros": [
+      "Requires absolutely zero local setup or package installation",
+      "Outstanding at building complete CRUD databases in minutes",
+      "Instant live URL preview of the running application",
+      "Supports interactive, conversational code changes"
+    ],
+    "cons": [
+      "Requires an active paid Replit subscription",
+      "Restricted strictly to the Replit cloud editor environment",
+      "Not designed for massive multi-tier enterprise integrations"
+    ],
+    "website": "https://replit.com/?ref=aitoolsdir",
+    "sponsored": false,
+    "tags": [
+      "No Code",
+      "Full Stack",
+      "Sandbox Editor",
+      "Agent"
+    ],
+    "specs": {
+      "platform": "Web-based cloud workspace",
+      "apiAccess": "API access on enterprise plans",
+      "targetAudience": "Product Builders, Startup Founders, Beginners",
+      "trialLength": "Available on Replit Core subscriptions",
+      "hosting": "Cloud-Based Sandbox"
+    },
+    "reviews": [
+      {
+        "id": "rep_rev1",
+        "username": "idea_guy",
+        "rating": 4.5,
+        "comment": "I don't know React or Python, but in 15 minutes, Replit Agent built me a fully functioning client portfolio app with login verification and a SQLite database. Unbelievable.",
+        "date": "2026-05-16"
+      }
+    ],
+    "useCases": [
+      "Accelerating minimum viable product (MVP) design pitches",
+      "Learning full-stack data relationships with live sandbox views",
+      "Fast, automated deployment of lightweight databases"
+    ],
+    "faqs": [
+      {
+        "q": "Do I need coding experience to use Replit Agent?",
+        "a": "No, Replit Agent is designed specifically to convert plain-English instructions into fully functional, deployed cloud apps."
+      },
+      {
+        "q": "What languages does Replit Agent use?",
+        "a": "It typically builds full-stack applications using Python, Flask, Express, SQLite, React, and standard CSS frameworks."
+      }
+    ],
+    "comparisons": [
+      "cursor",
+      "cline"
+    ]
+  }
+]

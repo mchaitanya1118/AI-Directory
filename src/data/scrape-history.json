@@ -1,0 +1,1235 @@
+{
+  "lastRun": "2026-05-22T04:58:04.712Z",
+  "successRate": 100,
+  "totalRuns": 8,
+  "toolsUpdated": [
+    "Cursor",
+    "GitHub Copilot",
+    "v0 by Vercel",
+    "Midjourney",
+    "Stable Diffusion (SDXL)",
+    "Runway Gen-2",
+    "HeyGen",
+    "Claude by Anthropic",
+    "ChatGPT",
+    "Notion AI",
+    "Perplexity AI",
+    "Adobe Firefly",
+    "Google Gemini",
+    "ElevenLabs",
+    "Suno AI",
+    "Cline",
+    "DeepSeek Coder",
+    "Replit Agent"
+  ],
+  "logs": [
+    {
+      "timestamp": "2026-05-22T04:58:04.715Z",
+      "level": "INFO",
+      "message": "Scraper started. Total listings in queue: 20"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:04.715Z",
+      "level": "INFO",
+      "message": "Checking live website for Cursor: https://cursor.com/?via=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:05.005Z",
+      "level": "INFO",
+      "message": "Crawl response for Cursor succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:05.005Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Cursor"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:05.009Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Cursor. Old: \"The AI-first code editor designed to mak...\" -> New: \"Built to make you extraordinarily produc...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:05.009Z",
+      "level": "INFO",
+      "message": "Checking live website for GitHub Copilot: https://github.com/features/copilot?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:05.672Z",
+      "level": "INFO",
+      "message": "Crawl response for GitHub Copilot succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:05.672Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for GitHub Copilot"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:05.676Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for GitHub Copilot. Old: \"The pioneer AI pair programmer providing...\" -> New: \"GitHub Copilot works alongside you direc...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:05.676Z",
+      "level": "INFO",
+      "message": "Checking live website for v0 by Vercel: https://v0.dev/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:06.902Z",
+      "level": "INFO",
+      "message": "Crawl response for v0 by Vercel succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:06.902Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for v0 by Vercel"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:06.907Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for v0 by Vercel. Old: \"Generative UI system by Vercel producing...\" -> New: \"Your collaborative AI assistant to desig...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:06.907Z",
+      "level": "INFO",
+      "message": "Checking live website for Midjourney: https://midjourney.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.035Z",
+      "level": "WARN",
+      "message": "Crawl request for Midjourney returned non-200 block code: 403"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.036Z",
+      "level": "INFO",
+      "message": "Checking live website for Stable Diffusion (SDXL): https://stability.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.774Z",
+      "level": "INFO",
+      "message": "Crawl response for Stable Diffusion (SDXL) succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.774Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Stable Diffusion (SDXL)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.778Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Stable Diffusion (SDXL). Old: \"The ultimate open-source, fully custom t...\" -> New: \"Stability AI is the enterprise-ready cre...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.778Z",
+      "level": "INFO",
+      "message": "Checking live website for Runway Gen-2: https://runwayml.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.976Z",
+      "level": "INFO",
+      "message": "Crawl response for Runway Gen-2 succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.977Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Runway Gen-2"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.979Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Runway Gen-2. Old: \"Hollywood-grade text-to-video and image-...\" -> New: \"We are building foundational General Wor...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:07.979Z",
+      "level": "INFO",
+      "message": "Checking live website for HeyGen: https://heygen.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:08.484Z",
+      "level": "INFO",
+      "message": "Crawl response for HeyGen succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:08.484Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for HeyGen"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:08.486Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for HeyGen. Old: \"Photorealistic AI video spokesperson ava...\" -> New: \"Create AI videos from your ideas using H...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:08.486Z",
+      "level": "INFO",
+      "message": "Checking live website for Claude by Anthropic: https://claude.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:08.684Z",
+      "level": "INFO",
+      "message": "Crawl response for Claude by Anthropic succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:08.684Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Claude by Anthropic"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:08.685Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Claude by Anthropic. Old: \"High-reasoning conversational AI assista...\" -> New: \"Claude is Anthropic's AI, built for prob...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:08.685Z",
+      "level": "INFO",
+      "message": "Checking live website for ChatGPT: https://chatgpt.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:09.677Z",
+      "level": "INFO",
+      "message": "Crawl response for ChatGPT succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:09.677Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for ChatGPT"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:09.678Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for ChatGPT. Old: \"Household name in conversational AI, off...\" -> New: \"ChatGPT helps you get answers, find insp...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:09.678Z",
+      "level": "INFO",
+      "message": "Checking live website for Notion AI: https://notion.so/product/ai?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:10.660Z",
+      "level": "INFO",
+      "message": "Crawl response for Notion AI succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:10.660Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Notion AI"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:10.662Z",
+      "level": "INFO",
+      "message": "Parsed active currency tags on page: $10"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:10.662Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Notion AI. Old: \"In-line document editing, summarization,...\" -> New: \"One tool that does it all. Search, gener...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:10.662Z",
+      "level": "INFO",
+      "message": "Checking live website for Perplexity AI: https://perplexity.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:10.876Z",
+      "level": "WARN",
+      "message": "Crawl request for Perplexity AI returned non-200 block code: 403"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:10.877Z",
+      "level": "INFO",
+      "message": "Checking live website for Adobe Firefly: https://adobe.com/products/firefly.html?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.056Z",
+      "level": "INFO",
+      "message": "Crawl response for Adobe Firefly succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.056Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Adobe Firefly"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.057Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Adobe Firefly. Old: \"Commercially safe generative creative en...\" -> New: \"Create and edit images, audio, and video...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.057Z",
+      "level": "INFO",
+      "message": "Checking live website for Google Gemini: https://gemini.google.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.409Z",
+      "level": "INFO",
+      "message": "Crawl response for Google Gemini succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.410Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Google Gemini"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.412Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Google Gemini. Old: \"Google's highly advanced multimodal AI a...\" -> New: \"Meet Gemini, Google’s AI assistant. Get ...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.412Z",
+      "level": "INFO",
+      "message": "Checking live website for Leonardo AI: https://leonardo.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.497Z",
+      "level": "WARN",
+      "message": "Crawl request for Leonardo AI returned non-200 block code: 403"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.498Z",
+      "level": "INFO",
+      "message": "Checking live website for ElevenLabs: https://elevenlabs.io/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.939Z",
+      "level": "INFO",
+      "message": "Crawl response for ElevenLabs succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.940Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for ElevenLabs"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.942Z",
+      "level": "INFO",
+      "message": "Parsed active currency tags on page: $1"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.942Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for ElevenLabs. Old: \"Industry-standard AI voice generator pro...\" -> New: \"Create lifelike speech with our AI voice...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:11.942Z",
+      "level": "INFO",
+      "message": "Checking live website for Sora by OpenAI: https://openai.com/sora?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:12.769Z",
+      "level": "INFO",
+      "message": "Crawl response for Sora by OpenAI succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:12.769Z",
+      "level": "INFO",
+      "message": "Checking live website for Suno AI: https://suno.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:13.727Z",
+      "level": "INFO",
+      "message": "Crawl response for Suno AI succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:13.727Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Suno AI"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:13.727Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Suno AI. Old: \"Generate high-fidelity complete songs in...\" -> New: \"Create stunning original music for free ...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:13.727Z",
+      "level": "INFO",
+      "message": "Checking live website for Cline: https://github.com/cline/cline?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.724Z",
+      "level": "INFO",
+      "message": "Crawl response for Cline succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.724Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Cline"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.726Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Cline. Old: \"Autonomous, terminal-integrated coding a...\" -> New: \"Autonomous coding agent as an SDK, IDE e...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.727Z",
+      "level": "INFO",
+      "message": "Checking live website for DeepSeek Coder: https://deepseek.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.800Z",
+      "level": "INFO",
+      "message": "Crawl response for DeepSeek Coder succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.801Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for DeepSeek Coder"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.801Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for DeepSeek Coder. Old: \"High-capability open-weight developer mo...\" -> New: \"深度求索（DeepSeek），成立于2023年，专注于研究世界领先的通用人工智能...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.801Z",
+      "level": "INFO",
+      "message": "Checking live website for Replit Agent: https://replit.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.976Z",
+      "level": "INFO",
+      "message": "Crawl response for Replit Agent succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.976Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Replit Agent"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.978Z",
+      "level": "INFO",
+      "message": "Parsed active currency tags on page: $165.00, $145.00, $190.00"
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.978Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Replit Agent. Old: \"Fully autonomous cloud development agent...\" -> New: \"Build and deploy software collaborativel...\""
+    },
+    {
+      "timestamp": "2026-05-22T04:58:14.981Z",
+      "level": "INFO",
+      "message": "Successfully updated tools.json database with 16 changes."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.725Z",
+      "level": "INFO",
+      "message": "Scraper started. Total listings in queue: 20"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.725Z",
+      "level": "INFO",
+      "message": "Checking live website for Cursor: https://cursor.com/?via=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.807Z",
+      "level": "WARN",
+      "message": "Fetch failed for Cursor: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.808Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Cursor. Old: \"Built to make you extraordinarily produc...\" -> New: \"The AI-first code editor designed to mak...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.808Z",
+      "level": "INFO",
+      "message": "Checking live website for GitHub Copilot: https://github.com/features/copilot?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.810Z",
+      "level": "WARN",
+      "message": "Fetch failed for GitHub Copilot: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.810Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for GitHub Copilot. Old: \"GitHub Copilot works alongside you direc...\" -> New: \"The pioneer AI pair programmer providing...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.811Z",
+      "level": "INFO",
+      "message": "Checking live website for v0 by Vercel: https://v0.dev/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.813Z",
+      "level": "WARN",
+      "message": "Fetch failed for v0 by Vercel: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.813Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for v0 by Vercel. Old: \"Your collaborative AI assistant to desig...\" -> New: \"Generative UI system by Vercel producing...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.813Z",
+      "level": "INFO",
+      "message": "Checking live website for Midjourney: https://midjourney.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.814Z",
+      "level": "WARN",
+      "message": "Fetch failed for Midjourney: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.814Z",
+      "level": "INFO",
+      "message": "Checking live website for Stable Diffusion (SDXL): https://stability.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.816Z",
+      "level": "WARN",
+      "message": "Fetch failed for Stable Diffusion (SDXL): fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.816Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Stable Diffusion (SDXL). Old: \"Stability AI is the enterprise-ready cre...\" -> New: \"The ultimate open-source, fully custom t...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.816Z",
+      "level": "INFO",
+      "message": "Checking live website for Runway Gen-2: https://runwayml.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.818Z",
+      "level": "WARN",
+      "message": "Fetch failed for Runway Gen-2: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.818Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Runway Gen-2. Old: \"We are building foundational General Wor...\" -> New: \"Hollywood-grade text-to-video and image-...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.818Z",
+      "level": "INFO",
+      "message": "Checking live website for HeyGen: https://heygen.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.820Z",
+      "level": "WARN",
+      "message": "Fetch failed for HeyGen: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.820Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for HeyGen. Old: \"Create AI videos from your ideas using H...\" -> New: \"Photorealistic AI video spokesperson ava...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.820Z",
+      "level": "INFO",
+      "message": "Checking live website for Claude by Anthropic: https://claude.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.821Z",
+      "level": "WARN",
+      "message": "Fetch failed for Claude by Anthropic: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.821Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Claude by Anthropic. Old: \"Claude is Anthropic's AI, built for prob...\" -> New: \"High-reasoning conversational AI assista...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.821Z",
+      "level": "INFO",
+      "message": "Checking live website for ChatGPT: https://chatgpt.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.825Z",
+      "level": "WARN",
+      "message": "Fetch failed for ChatGPT: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.825Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for ChatGPT. Old: \"ChatGPT helps you get answers, find insp...\" -> New: \"Household name in conversational AI, off...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.825Z",
+      "level": "INFO",
+      "message": "Checking live website for Notion AI: https://notion.so/product/ai?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.827Z",
+      "level": "WARN",
+      "message": "Fetch failed for Notion AI: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.827Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Notion AI. Old: \"One tool that does it all. Search, gener...\" -> New: \"In-line document editing, summarization,...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.827Z",
+      "level": "INFO",
+      "message": "Checking live website for Perplexity AI: https://perplexity.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.828Z",
+      "level": "WARN",
+      "message": "Fetch failed for Perplexity AI: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.828Z",
+      "level": "INFO",
+      "message": "Checking live website for Adobe Firefly: https://adobe.com/products/firefly.html?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.830Z",
+      "level": "WARN",
+      "message": "Fetch failed for Adobe Firefly: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.830Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Adobe Firefly. Old: \"Create and edit images, audio, and video...\" -> New: \"Commercially safe generative creative en...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.830Z",
+      "level": "INFO",
+      "message": "Checking live website for Google Gemini: https://gemini.google.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.832Z",
+      "level": "WARN",
+      "message": "Fetch failed for Google Gemini: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.832Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Google Gemini. Old: \"Meet Gemini, Google’s AI assistant. Get ...\" -> New: \"Google's highly advanced multimodal AI a...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.832Z",
+      "level": "INFO",
+      "message": "Checking live website for Leonardo AI: https://leonardo.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.833Z",
+      "level": "WARN",
+      "message": "Fetch failed for Leonardo AI: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.834Z",
+      "level": "INFO",
+      "message": "Checking live website for ElevenLabs: https://elevenlabs.io/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.835Z",
+      "level": "WARN",
+      "message": "Fetch failed for ElevenLabs: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.835Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for ElevenLabs. Old: \"Create lifelike speech with our AI voice...\" -> New: \"Industry-standard AI voice generator pro...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.835Z",
+      "level": "INFO",
+      "message": "Checking live website for Sora by OpenAI: https://openai.com/sora?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.837Z",
+      "level": "WARN",
+      "message": "Fetch failed for Sora by OpenAI: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.837Z",
+      "level": "INFO",
+      "message": "Checking live website for Suno AI: https://suno.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.839Z",
+      "level": "WARN",
+      "message": "Fetch failed for Suno AI: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.839Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Suno AI. Old: \"Create stunning original music for free ...\" -> New: \"Generate high-fidelity complete songs in...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.839Z",
+      "level": "INFO",
+      "message": "Checking live website for Cline: https://github.com/cline/cline?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.840Z",
+      "level": "WARN",
+      "message": "Fetch failed for Cline: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.840Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Cline. Old: \"Autonomous coding agent as an SDK, IDE e...\" -> New: \"Autonomous, terminal-integrated coding a...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.841Z",
+      "level": "INFO",
+      "message": "Checking live website for DeepSeek Coder: https://deepseek.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.842Z",
+      "level": "WARN",
+      "message": "Fetch failed for DeepSeek Coder: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.842Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for DeepSeek Coder. Old: \"深度求索（DeepSeek），成立于2023年，专注于研究世界领先的通用人工智能...\" -> New: \"High-capability open-weight developer mo...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.842Z",
+      "level": "INFO",
+      "message": "Checking live website for Replit Agent: https://replit.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.844Z",
+      "level": "WARN",
+      "message": "Fetch failed for Replit Agent: fetch failed. Triggering sandbox crawler..."
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.844Z",
+      "level": "UPDATE",
+      "message": "Updating shortDescription for Replit Agent. Old: \"Build and deploy software collaborativel...\" -> New: \"Fully autonomous cloud development agent...\""
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.845Z",
+      "level": "INFO",
+      "message": "Successfully updated tools.json database with 16 changes."
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.095Z",
+      "level": "INFO",
+      "message": "Scraper started. Total listings in queue: 20"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.095Z",
+      "level": "INFO",
+      "message": "Checking live website for Cursor: https://cursor.com/?via=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.301Z",
+      "level": "INFO",
+      "message": "Crawl response for Cursor succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.301Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Cursor"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.304Z",
+      "level": "INFO",
+      "message": "Checking live website for GitHub Copilot: https://github.com/features/copilot?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.926Z",
+      "level": "INFO",
+      "message": "Crawl response for GitHub Copilot succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.926Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for GitHub Copilot"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.930Z",
+      "level": "INFO",
+      "message": "Checking live website for v0 by Vercel: https://v0.dev/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:19.038Z",
+      "level": "INFO",
+      "message": "Crawl response for v0 by Vercel succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:19.039Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for v0 by Vercel"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:19.042Z",
+      "level": "INFO",
+      "message": "Checking live website for Midjourney: https://midjourney.com/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:19.114Z",
+      "level": "WARN",
+      "message": "Crawl request for Midjourney returned non-200 block code: 403"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:19.114Z",
+      "level": "INFO",
+      "message": "Checking live website for Stable Diffusion (SDXL): https://stability.ai/?ref=aitoolsdir"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:19.509Z",
+      "level": "INFO",
+      "message": "Crawl response for Stable Diffusion (SDXL) succeeded (Status: 200)"
+    },
+    {
+      "timestamp": "2026-05-21T19:55:19.509Z",
+      "level": "INFO",
+      "message": "Heuristics matched OpenGraph meta description for Stable Diffusion (SDXL)"
+    }
+  ],
+  "runs": [
+    {
+      "timestamp": "2026-05-22T04:58:04.712Z",
+      "success": true,
+      "successRate": 100,
+      "toolsProcessed": 20,
+      "changesCount": 16,
+      "updatedTools": [
+        "Cursor",
+        "GitHub Copilot",
+        "v0 by Vercel",
+        "Stable Diffusion (SDXL)",
+        "Runway Gen-2",
+        "HeyGen",
+        "Claude by Anthropic",
+        "ChatGPT",
+        "Notion AI",
+        "Adobe Firefly",
+        "Google Gemini",
+        "ElevenLabs",
+        "Suno AI",
+        "Cline",
+        "DeepSeek Coder",
+        "Replit Agent"
+      ],
+      "details": [
+        {
+          "timestamp": "2026-05-22T04:58:05.009Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Cursor. Old: \"The AI-first code editor designed to mak...\" -> New: \"Built to make you extraordinarily produc...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:05.676Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for GitHub Copilot. Old: \"The pioneer AI pair programmer providing...\" -> New: \"GitHub Copilot works alongside you direc...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:06.907Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for v0 by Vercel. Old: \"Generative UI system by Vercel producing...\" -> New: \"Your collaborative AI assistant to desig...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:07.778Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Stable Diffusion (SDXL). Old: \"The ultimate open-source, fully custom t...\" -> New: \"Stability AI is the enterprise-ready cre...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:07.979Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Runway Gen-2. Old: \"Hollywood-grade text-to-video and image-...\" -> New: \"We are building foundational General Wor...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:08.486Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for HeyGen. Old: \"Photorealistic AI video spokesperson ava...\" -> New: \"Create AI videos from your ideas using H...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:08.685Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Claude by Anthropic. Old: \"High-reasoning conversational AI assista...\" -> New: \"Claude is Anthropic's AI, built for prob...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:09.678Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for ChatGPT. Old: \"Household name in conversational AI, off...\" -> New: \"ChatGPT helps you get answers, find insp...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:10.662Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Notion AI. Old: \"In-line document editing, summarization,...\" -> New: \"One tool that does it all. Search, gener...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:11.057Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Adobe Firefly. Old: \"Commercially safe generative creative en...\" -> New: \"Create and edit images, audio, and video...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:11.412Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Google Gemini. Old: \"Google's highly advanced multimodal AI a...\" -> New: \"Meet Gemini, Google’s AI assistant. Get ...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:11.942Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for ElevenLabs. Old: \"Industry-standard AI voice generator pro...\" -> New: \"Create lifelike speech with our AI voice...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:13.727Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Suno AI. Old: \"Generate high-fidelity complete songs in...\" -> New: \"Create stunning original music for free ...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:14.726Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Cline. Old: \"Autonomous, terminal-integrated coding a...\" -> New: \"Autonomous coding agent as an SDK, IDE e...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:14.801Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for DeepSeek Coder. Old: \"High-capability open-weight developer mo...\" -> New: \"深度求索（DeepSeek），成立于2023年，专注于研究世界领先的通用人工智能...\""
+        },
+        {
+          "timestamp": "2026-05-22T04:58:14.978Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Replit Agent. Old: \"Fully autonomous cloud development agent...\" -> New: \"Build and deploy software collaborativel...\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-22T02:20:28.723Z",
+      "success": true,
+      "successRate": 100,
+      "toolsProcessed": 20,
+      "changesCount": 16,
+      "updatedTools": [
+        "Cursor",
+        "GitHub Copilot",
+        "v0 by Vercel",
+        "Stable Diffusion (SDXL)",
+        "Runway Gen-2",
+        "HeyGen",
+        "Claude by Anthropic",
+        "ChatGPT",
+        "Notion AI",
+        "Adobe Firefly",
+        "Google Gemini",
+        "ElevenLabs",
+        "Suno AI",
+        "Cline",
+        "DeepSeek Coder",
+        "Replit Agent"
+      ],
+      "details": [
+        {
+          "timestamp": "2026-05-22T02:20:28.808Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Cursor. Old: \"Built to make you extraordinarily produc...\" -> New: \"The AI-first code editor designed to mak...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.810Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for GitHub Copilot. Old: \"GitHub Copilot works alongside you direc...\" -> New: \"The pioneer AI pair programmer providing...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.813Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for v0 by Vercel. Old: \"Your collaborative AI assistant to desig...\" -> New: \"Generative UI system by Vercel producing...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.816Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Stable Diffusion (SDXL). Old: \"Stability AI is the enterprise-ready cre...\" -> New: \"The ultimate open-source, fully custom t...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.818Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Runway Gen-2. Old: \"We are building foundational General Wor...\" -> New: \"Hollywood-grade text-to-video and image-...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.820Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for HeyGen. Old: \"Create AI videos from your ideas using H...\" -> New: \"Photorealistic AI video spokesperson ava...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.821Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Claude by Anthropic. Old: \"Claude is Anthropic's AI, built for prob...\" -> New: \"High-reasoning conversational AI assista...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.825Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for ChatGPT. Old: \"ChatGPT helps you get answers, find insp...\" -> New: \"Household name in conversational AI, off...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.827Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Notion AI. Old: \"One tool that does it all. Search, gener...\" -> New: \"In-line document editing, summarization,...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.830Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Adobe Firefly. Old: \"Create and edit images, audio, and video...\" -> New: \"Commercially safe generative creative en...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.832Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Google Gemini. Old: \"Meet Gemini, Google’s AI assistant. Get ...\" -> New: \"Google's highly advanced multimodal AI a...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.835Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for ElevenLabs. Old: \"Create lifelike speech with our AI voice...\" -> New: \"Industry-standard AI voice generator pro...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.839Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Suno AI. Old: \"Create stunning original music for free ...\" -> New: \"Generate high-fidelity complete songs in...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.840Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Cline. Old: \"Autonomous coding agent as an SDK, IDE e...\" -> New: \"Autonomous, terminal-integrated coding a...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.842Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for DeepSeek Coder. Old: \"深度求索（DeepSeek），成立于2023年，专注于研究世界领先的通用人工智能...\" -> New: \"High-capability open-weight developer mo...\""
+        },
+        {
+          "timestamp": "2026-05-22T02:20:28.844Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Replit Agent. Old: \"Build and deploy software collaborativel...\" -> New: \"Fully autonomous cloud development agent...\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-21T19:55:17.089Z",
+      "success": true,
+      "successRate": 100,
+      "toolsProcessed": 20,
+      "changesCount": 0,
+      "updatedTools": [],
+      "details": []
+    },
+    {
+      "timestamp": "2026-05-21T19:48:21.376Z",
+      "success": true,
+      "successRate": 100,
+      "toolsProcessed": 20,
+      "changesCount": 0,
+      "updatedTools": [],
+      "details": []
+    },
+    {
+      "timestamp": "2026-05-21T19:47:00.346Z",
+      "success": true,
+      "successRate": 100,
+      "toolsProcessed": 20,
+      "changesCount": 6,
+      "updatedTools": [
+        "Google Gemini",
+        "ElevenLabs",
+        "Suno AI",
+        "Cline",
+        "DeepSeek Coder",
+        "Replit Agent"
+      ],
+      "details": [
+        {
+          "timestamp": "2026-05-21T19:47:05.977Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Google Gemini. Old: \"Google's highly advanced multimodal AI a...\" -> New: \"Meet Gemini, Google’s AI assistant. Get ...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:47:06.512Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for ElevenLabs. Old: \"Industry-standard AI voice generator pro...\" -> New: \"Create lifelike speech with our AI voice...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:47:07.513Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Suno AI. Old: \"Generate high-fidelity complete songs in...\" -> New: \"Create stunning original music for free ...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:47:08.353Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Cline. Old: \"Autonomous, terminal-integrated coding a...\" -> New: \"Autonomous coding agent as an SDK, IDE e...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:47:08.652Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for DeepSeek Coder. Old: \"High-capability open-weight developer mo...\" -> New: \"深度求索（DeepSeek），成立于2023年，专注于研究世界领先的通用人工智能...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:47:08.777Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Replit Agent. Old: \"Fully autonomous cloud development agent...\" -> New: \"Build and deploy software collaborativel...\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-21T19:42:49.765Z",
+      "success": true,
+      "successRate": 100,
+      "toolsProcessed": 12,
+      "changesCount": 1,
+      "updatedTools": [
+        "ChatGPT"
+      ],
+      "details": [
+        {
+          "timestamp": "2026-05-21T19:42:53.100Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for ChatGPT. Old: \"Household name in conversational AI, off...\" -> New: \"ChatGPT helps you get answers, find insp...\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-21T19:42:16.338Z",
+      "success": true,
+      "successRate": 100,
+      "toolsProcessed": 12,
+      "changesCount": 1,
+      "updatedTools": [
+        "ChatGPT"
+      ],
+      "details": [
+        {
+          "timestamp": "2026-05-21T19:42:25.343Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for ChatGPT. Old: \"ChatGPT helps you get answers, find insp...\" -> New: \"Household name in conversational AI, off...\""
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-21T19:39:37.562Z",
+      "success": true,
+      "successRate": 100,
+      "toolsProcessed": 12,
+      "changesCount": 12,
+      "updatedTools": [
+        "Cursor",
+        "GitHub Copilot",
+        "v0 by Vercel",
+        "Midjourney",
+        "Stable Diffusion (SDXL)",
+        "Runway Gen-2",
+        "HeyGen",
+        "Claude by Anthropic",
+        "ChatGPT",
+        "Notion AI",
+        "Perplexity AI",
+        "Adobe Firefly"
+      ],
+      "details": [
+        {
+          "timestamp": "2026-05-21T19:39:37.765Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Cursor. Old: \"The AI-first code editor designed to mak...\" -> New: \"Built to make you extraordinarily produc...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:37.765Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for Cursor. Old: \"Free tier with 50 fast premium uses; Pro at $20/month for unlimited completions.\" -> New: \"Free tier with 50 fast premium uses; Pro plan currently starting at $20/month.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:38.637Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for GitHub Copilot. Old: \"The original AI pair programmer that pro...\" -> New: \"GitHub Copilot works alongside you direc...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:38.638Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for GitHub Copilot. Old: \"Individual plan is $10/month or $100/year. Free for students and popular open source maintainers.\" -> New: \"Individual plan is $10/month or $100/year. Free tier available for students and open source maintainers.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:39.713Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for v0 by Vercel. Old: \"A generative UI system by Vercel that pr...\" -> New: \"Your collaborative AI assistant to desig...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:39.713Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for v0 by Vercel. Old: \"Free plan with 200 monthly credits. Premium plans starting at $20/month.\" -> New: \"Free basic tier with 200 monthly credits. Pro tier starts at $20/month for advanced generations.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:39.785Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Midjourney. Old: \"An incredibly artistic, industry-standar...\" -> New: \"Highly artistic, industry-standard gener...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:39.785Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for Midjourney. Old: \"Plans start at $10/month (Basic plan with fast GPU hours) up to $120/month.\" -> New: \"Basic tier starting at $10/month (fast GPU hours). Standard, Pro, and Mega tiers scaling to $120/month.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:40.414Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Stable Diffusion (SDXL). Old: \"The ultimate open-source, highly customi...\" -> New: \"Stability AI is the enterprise-ready cre...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:40.414Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for Stable Diffusion (SDXL). Old: \"Open source and 100% free to download and run locally. Commercial cloud hosting variants exist.\" -> New: \"Open-source and 100% free to run locally. Developer API features pricing scales on micro-credit tokens.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:40.531Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Runway Gen-2. Old: \"A pioneering text-to-video and image-to-...\" -> New: \"We are building foundational General Wor...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:40.531Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for Runway Gen-2. Old: \"Free trial includes 125 credits. Subscriptions range from $15/month (Standard) to $95/month (Unlimited).\" -> New: \"Free plan includes 125 credits. Standard subscription starts at $15/month up to Unlimited at $95/month.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:40.895Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for HeyGen. Old: \"An AI-powered video avatar platform that...\" -> New: \"Create AI videos from your ideas using H...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:40.895Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for HeyGen. Old: \"Free tier offers 1 credit/month. Creator plans start at $29/mo, custom plans available.\" -> New: \"Free tier offers 1 credit/month. Creator plans begin at $29/month, custom enterprise tiers available.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:41.336Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Claude by Anthropic. Old: \"A highly intelligent, secure conversatio...\" -> New: \"Claude is Anthropic's AI, built for prob...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:41.337Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for Claude by Anthropic. Old: \"Free web version with limits. Claude Pro is $20/month offering 5x usage.\" -> New: \"Free version with basic rate limits. Claude Pro starts at $20/month offering 5x higher usage.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:41.584Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for ChatGPT. Old: \"The household name in conversational AI,...\" -> New: \"ChatGPT helps you get answers, find insp...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:41.584Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for ChatGPT. Old: \"Free tier uses GPT-4o-mini. Plus plan is $20/month for advanced GPT-4o access and custom GPTs.\" -> New: \"Free access powered by GPT-4o-mini. ChatGPT Plus is $20/month for premium reasoning models and Custom GPTs.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:42.831Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Notion AI. Old: \"An embedded writing, summarization, and ...\" -> New: \"One tool that does it all. Search, gener...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:42.831Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for Notion AI. Old: \"Available as an add-on to Notion workspace plans for $8-$10/user/month.\" -> New: \"Available as an embedded add-on to existing Notion plans at $8 to $10/user/month.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:43.135Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Perplexity AI. Old: \"A revolutionary conversational search en...\" -> New: \"Answers engine synthesizing live search ...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:43.135Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for Perplexity AI. Old: \"Free version with standard queries. Pro is $20/month with access to Opus, GPT-4o, and unlimited search files.\" -> New: \"Free standard answers. Perplexity Pro is $20/month for deep reasoning models and academic collections.\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:43.652Z",
+          "level": "UPDATE",
+          "message": "Updating shortDescription for Adobe Firefly. Old: \"Safe-for-commercial-use generative AI mo...\" -> New: \"Create and edit images, audio, and video...\""
+        },
+        {
+          "timestamp": "2026-05-21T19:39:43.652Z",
+          "level": "UPDATE",
+          "message": "Updating pricingDetails for Adobe Firefly. Old: \"Free tier gives 25 monthly generative credits. Premium starts at $4.99/mo.\" -> New: \"Free plan offers 25 credits monthly. Premium commercial licenses starting at $4.99/month.\""
+        }
+      ]
+    }
+  ]
+}
