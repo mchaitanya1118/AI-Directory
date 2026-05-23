@@ -6,7 +6,9 @@ COPY package*.json ./
 COPY prisma ./prisma/
 RUN npm ci
 COPY . .
+ENV DATABASE_URL="file:./dev.db"
 RUN npx prisma generate
+RUN npx prisma db push --accept-data-loss
 RUN npm run build
 
 # --- Runner Stage ---
