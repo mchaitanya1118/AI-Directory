@@ -17,6 +17,8 @@ RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 ENV NODE_ENV=production
 ENV DATABASE_URL="file:/data/dev.db"
+ENV NEXTAUTH_SECRET="auraai_super_secret_jwt_key_2026_production_fallback"
+ENV NEXTAUTH_URL="https://ai.neqtra.com"
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
