@@ -137,8 +137,8 @@ export default function NewsletterBox() {
             ✓ {msg}
           </div>
         ) : (
-          <form onSubmit={handleSubmit} style={{ display: "flex", gap: "0.5rem", maxWidth: "480px", margin: "0 auto" }}>
-            <div style={{ flex: 1, position: "relative" }}>
+          <form onSubmit={handleSubmit} suppressHydrationWarning style={{ display: "flex", gap: "0.5rem", maxWidth: "480px", margin: "0 auto" }}>
+            <div suppressHydrationWarning style={{ flex: 1, position: "relative" }}>
               <input
                 type="email"
                 placeholder="Enter your email address"
