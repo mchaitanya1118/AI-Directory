@@ -25,7 +25,7 @@ export default async function AdminDashboardPage() {
   }
 
   // Fetch initial rosters
-  const [rawTools, users, reviews, totalBookmarks] = await Promise.all([
+  const [rawTools, users, reviews, totalBookmarks, subscribers] = await Promise.all([
     prisma.tool.findMany({
       include: {
         reviews: true,
@@ -59,6 +59,11 @@ export default async function AdminDashboardPage() {
       }
     }),
     prisma.bookmark.count(),
+    prisma.newsletterSubscriber.findMany({
+      orderBy: {
+        createdAt: "desc"
+      }
+    })
   ]);
 
   // Cleanly parse SQLite strings into proper arrays/objects for client rendering
@@ -81,6 +86,7 @@ export default async function AdminDashboardPage() {
       description: t.description,
       website: t.website,
       sponsored: !!t.sponsored,
+      approved: !!t.approved,
       features: safeParse(t.features, []),
       pros: safeParse(t.pros, []),
       cons: safeParse(t.cons, []),
@@ -96,6 +102,7 @@ export default async function AdminDashboardPage() {
       initialUsers={users}
       initialReviews={reviews}
       totalBookmarks={totalBookmarks}
+      initialSubscribers={subscribers}
     />
   );
 }

@@ -168,6 +168,11 @@ export default function WorkflowsClient({ initialWorkflows = [], allTools = [] }
         <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", marginTop: "0.5rem", maxWidth: "600px", margin: "0.5rem auto 0" }}>
           Browse proven industry-standard AI configurations, or assemble a personalized custom stack in seconds.
         </p>
+        <div style={{ marginTop: "1.25rem" }}>
+          <Link href="/workflows/create" className="cta-btn action-primary" style={{ textDecoration: "none", fontSize: "0.85rem", padding: "0.5rem 1.25rem", borderRadius: "20px", fontWeight: "700", display: "inline-block" }}>
+            🛠️ Build Workflow Stack
+          </Link>
+        </div>
       </div>
 
       {/* Grid: 2 Columns (Stack Builder Left, Marketplace Right) */}

@@ -91,6 +91,11 @@ export default function PromptsClient({ initialPrompts = [] }) {
         <p style={{ color: "var(--text-muted)", fontSize: "1.05rem", marginTop: "0.5rem", maxWidth: "600px", margin: "0.5rem auto 0" }}>
           Unleash the full potential of ChatGPT, Claude, and Midjourney with engineering-grade copyable templates.
         </p>
+        <div style={{ marginTop: "1.25rem" }}>
+          <Link href="/prompts/create" className="cta-btn action-primary" style={{ textDecoration: "none", fontSize: "0.85rem", padding: "0.5rem 1.25rem", borderRadius: "20px", fontWeight: "700", display: "inline-block" }}>
+            💡 Share a Prompt
+          </Link>
+        </div>
       </div>
 
       {/* Control Panel: Search & Categories */}

@@ -5,6 +5,7 @@ import { useApp } from "@/context/AppContext";
 import ToolCard from "@/components/ToolCard";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import NewsletterBox from "@/components/NewsletterBox";
 
 export default function HomeClient({ initialTools }) {
   const { startComparison } = useApp();
@@ -293,6 +294,10 @@ export default function HomeClient({ initialTools }) {
             <Link href="/curated/ai-architects" className="read-more-link">Read Blueprint Guide &rarr;</Link>
           </div>
         </div>
+      </section>
+
+      <section className="newsletter-lead-capture" style={{ marginTop: "6rem", marginBottom: "4rem" }}>
+        <NewsletterBox />
       </section>
     </div>
   );

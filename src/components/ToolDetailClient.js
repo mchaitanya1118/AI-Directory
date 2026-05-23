@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import AdPlacement from "@/components/AdPlacement";
 import SchemaMarkup from "@/components/SchemaMarkup";
+import InternalLinks from "@/components/InternalLinks";
 
 export default function ToolDetailClient({ tool, similarTools, betterAlternatives = [], usersAlsoLiked = [] }) {
   const ensureAbsoluteUrl = (url) => {
@@ -952,6 +953,10 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           </div>
 
         </div>
+
+        {/* Dynamic Contextual SEO Internal Linking Grid */}
+        <InternalLinks currentTool={tool} />
+
       </div>
     </div>
   );

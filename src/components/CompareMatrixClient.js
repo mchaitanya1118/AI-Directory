@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import { useApp } from "@/context/AppContext";
 import Link from "next/link";
+import InternalLinks from "@/components/InternalLinks";
 
 export default function CompareMatrixClient({ initialComparedTools = [] }) {
   const { tools, comparedTools, clearCompare, isMounted } = useApp();
@@ -231,6 +232,11 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
           </tbody>
         </table>
       </div>
+
+      {/* Dynamic Contextual SEO Internal Linking Grid */}
+      {comparedObjs.length > 0 && (
+        <InternalLinks comparedTools={comparedObjs} />
+      )}
     </div>
   );
 }

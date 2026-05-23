@@ -60,6 +60,7 @@ model Tool {
   description      String
   website          String
   sponsored        Boolean
+  approved         Boolean  @default(true)
 
   features         String
   pros             String
@@ -147,3 +148,9 @@ model ToolLaunch {
   tool        Tool     @relation(fields: [toolId], references: [id])
 }
 
+// NEWSLETTER SUBSCRIBERS
+model NewsletterSubscriber {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  createdAt DateTime @default(now())
+}

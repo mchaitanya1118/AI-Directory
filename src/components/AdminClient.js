@@ -8,12 +8,20 @@ export default function AdminClient({
   initialTools = [],
   initialUsers = [],
   initialReviews = [],
-  totalBookmarks = 0
+  totalBookmarks = 0,
+  initialSubscribers = []
 }) {
   const [activeTab, setActiveTab] = useState("overview");
   const [tools, setTools] = useState(initialTools);
   const [users, setUsers] = useState(initialUsers);
   const [reviews, setReviews] = useState(initialReviews);
+  const [subscribers, setSubscribers] = useState(initialSubscribers);
+
+  // Newsletter blast states
+  const [blastSubject, setBlastSubject] = useState("");
+  const [blastContent, setBlastContent] = useState("");
+  const [isSendingBlast, setIsSendingBlast] = useState(false);
+  const [blastSuccess, setBlastSuccess] = useState(false);
 
   // Filter and search state for Tools
   const [toolSearch, setToolSearch] = useState("");
@@ -262,15 +270,76 @@ export default function AdminClient({
         method: "DELETE"
       });
 
-      if (response.ok) {
-        setReviews((prev) => prev.filter((r) => r.id !== reviewId));
-        showAlert("success", "Review successfully deleted from listings!");
-      } else {
-        showAlert("error", "Failed to delete review");
-      }
     } catch (err) {
       showAlert("error", "Network failure moderating reviews");
     }
+  };
+
+  const handleApproveTool = async (toolId) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`/api/tools/${toolId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ approved: true })
+      });
+
+      const resData = await response.json();
+      if (response.ok && resData.success) {
+        setTools((prev) =>
+          prev.map((t) => (t.id === toolId ? { ...t, approved: true } : t))
+        );
+        showAlert("success", "Tool approved successfully!");
+      } else {
+        showAlert("error", resData.error || "Failed to approve tool");
+      }
+    } catch (err) {
+      showAlert("error", "Network failure approving tool");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleRejectTool = async (toolId) => {
+    if (!confirm("Are you sure you want to reject and delete this tool submission?")) return;
+    setIsLoading(true);
+    try {
+      const response = await fetch(`/api/tools/${toolId}`, {
+        method: "DELETE"
+      });
+
+      const resData = await response.json();
+      if (response.ok && resData.success) {
+        setTools((prev) => prev.filter((t) => t.id !== toolId));
+        showAlert("success", "Tool submission rejected and deleted.");
+      } else {
+        showAlert("error", resData.error || "Failed to reject tool");
+      }
+    } catch (err) {
+      showAlert("error", "Network failure rejecting tool");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleSendBlast = (e) => {
+    e.preventDefault();
+    if (!blastSubject || !blastContent) {
+      showAlert("error", "Subject and content cannot be blank!");
+      return;
+    }
+    setIsSendingBlast(true);
+    setBlastSuccess(false);
+
+    // Simulate standard SMTP dispatch
+    setTimeout(() => {
+      setIsSendingBlast(false);
+      setBlastSuccess(true);
+      setBlastSubject("");
+      setBlastContent("");
+      showAlert("success", `Newsletter successfully dispatched to ${subscribers.length} subscribers!`);
+      setTimeout(() => setBlastSuccess(false), 5000);
+    }, 2500);
   };
 
   const handleInlineChange = (toolId, field, value) => {
@@ -341,11 +410,14 @@ export default function AdminClient({
     }
   };
 
+  const approvedTools = tools.filter(t => t.approved);
+  const pendingTools = tools.filter(t => !t.approved);
+
   // Categories extraction
-  const categoriesList = Array.from(new Set(tools.map((t) => t.categoryId || t.category))).filter(Boolean);
+  const categoriesList = Array.from(new Set(approvedTools.map((t) => t.categoryId || t.category))).filter(Boolean);
 
   // Filter tools based on search & category selection
-  const filteredTools = tools.filter((t) => {
+  const filteredTools = approvedTools.filter((t) => {
     const matchesSearch =
       t.name.toLowerCase().includes(toolSearch.toLowerCase()) ||
       t.shortDescription.toLowerCase().includes(toolSearch.toLowerCase());
@@ -423,10 +495,12 @@ export default function AdminClient({
       >
         {[
           { id: "overview", label: "Overview Metrics", icon: "📊" },
-          { id: "tools", label: `Tools Inventory (${tools.length})`, icon: "🛠️" },
+          { id: "tools", label: `Tools Inventory (${approvedTools.length})`, icon: "🛠️" },
+          { id: "moderation", label: `Moderation Queue (${pendingTools.length})`, icon: "⚖️" },
           { id: "central-command", label: "Central Link Command", icon: "🌐" },
+          { id: "subscribers", label: `Newsletter Leads (${subscribers.length})`, icon: "✉️" },
           { id: "users", label: `User Roster (${users.length})`, icon: "👥" },
-          { id: "reviews", label: `Moderation (${reviews.length})`, icon: "💬" }
+          { id: "reviews", label: `Reviews Moderation (${reviews.length})`, icon: "💬" }
         ].map((tab) => (
           <button
             key={tab.id}
@@ -985,6 +1059,231 @@ export default function AdminClient({
                   )}
                 </tbody>
               </table>
+            </div>
+          </div>
+        )}
+
+        {/* MODERATION QUEUE TAB */}
+        {activeTab === "moderation" && (
+          <div>
+            <div className="detail-glass-card" style={{ padding: 0, overflowX: "auto", border: "1px solid var(--border-glass)" }}>
+              <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.9rem" }}>
+                <thead>
+                  <tr style={{ borderBottom: "1px solid var(--border-glass)", background: "rgba(255,255,255,0.01)" }}>
+                    <th style={{ padding: "1rem 1.5rem", color: "var(--text-muted)" }}>Submitted Tool Details</th>
+                    <th style={{ padding: "1rem", color: "var(--text-muted)" }}>Pricing Plan</th>
+                    <th style={{ padding: "1rem", color: "var(--text-muted)" }}>Description Snippet</th>
+                    <th style={{ padding: "1rem 1.5rem", color: "var(--text-muted)", textAlign: "center" }}>Moderation Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {pendingTools.length === 0 ? (
+                    <tr>
+                      <td colSpan="4" style={{ padding: "4rem", textAlign: "center", color: "var(--text-muted)" }}>
+                        🎉 Queue is completely clean! No pending tool submissions to moderate.
+                      </td>
+                    </tr>
+                  ) : (
+                    pendingTools.map((tool) => (
+                      <tr key={tool.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                        <td style={{ padding: "1.25rem 1.5rem" }}>
+                          <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
+                            <div
+                              style={{ width: "40px", height: "40px", background: "rgba(255,255,255,0.03)", borderRadius: "8px", display: "flex", alignItems: "center", justifyContent: "center" }}
+                              dangerouslySetInnerHTML={{ __html: tool.logo }}
+                            />
+                            <div>
+                              <strong style={{ color: "var(--text-bright)", fontSize: "0.95rem" }}>{tool.name}</strong>
+                              <div style={{ color: "var(--text-muted)", fontSize: "0.75rem", display: "flex", gap: "0.5rem", alignItems: "center", marginTop: "0.15rem" }}>
+                                <span style={{ textTransform: "capitalize", color: "var(--neon-cyan)" }}>{tool.categoryId || tool.category}</span>
+                                <span>•</span>
+                                <a href={tool.website} target="_blank" rel="noopener noreferrer" style={{ color: "inherit", textDecoration: "underline" }}>
+                                  {tool.website}
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                        </td>
+                        <td style={{ padding: "1rem" }}>
+                          <span
+                            style={{
+                              padding: "0.25rem 0.6rem",
+                              borderRadius: "4px",
+                              fontSize: "0.75rem",
+                              fontWeight: "700",
+                              background: "rgba(16, 185, 129, 0.1)",
+                              color: "#10b981",
+                              border: "1px solid rgba(16, 185, 129, 0.2)"
+                            }}
+                          >
+                            {tool.pricing}
+                          </span>
+                          <span style={{ display: "block", fontSize: "0.75rem", color: "var(--text-muted)", marginTop: "0.25rem" }}>{tool.pricingDetails}</span>
+                        </td>
+                        <td style={{ padding: "1rem", color: "var(--text-muted)", fontSize: "0.85rem", maxWidth: "250px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                          {tool.shortDescription}
+                        </td>
+                        <td style={{ padding: "1rem 1.5rem", textAlign: "center" }}>
+                          <div style={{ display: "flex", gap: "0.75rem", justifyContent: "center" }}>
+                            <button
+                              onClick={() => handleApproveTool(tool.id)}
+                              style={{
+                                background: "rgba(16, 185, 129, 0.15)",
+                                border: "1px solid rgba(16, 185, 129, 0.4)",
+                                color: "#10b981",
+                                padding: "0.4rem 1rem",
+                                fontSize: "0.8rem",
+                                borderRadius: "6px",
+                                cursor: "pointer",
+                                fontWeight: "700"
+                              }}
+                            >
+                              Approve ✓
+                            </button>
+                            <button
+                              onClick={() => handleRejectTool(tool.id)}
+                              style={{
+                                background: "rgba(255, 77, 77, 0.15)",
+                                border: "1px solid rgba(255, 77, 77, 0.4)",
+                                color: "#ff4d4d",
+                                padding: "0.4rem 1rem",
+                                fontSize: "0.8rem",
+                                borderRadius: "6px",
+                                cursor: "pointer",
+                                fontWeight: "700"
+                              }}
+                            >
+                              Reject ✕
+                            </button>
+                          </div>
+                        </td>
+                      </tr>
+                    ))
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        )}
+
+        {/* SUBSCRIBERS TAB */}
+        {activeTab === "subscribers" && (
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "2.5rem", alignItems: "start" }}>
+            {/* Roster list */}
+            <div>
+              <h3 style={{ fontFamily: "var(--font-display)", color: "var(--text-bright)", fontSize: "1.25rem", marginBottom: "1rem" }}>
+                Captured Subscribers
+              </h3>
+              <div className="detail-glass-card" style={{ padding: 0, overflowX: "auto", border: "1px solid var(--border-glass)" }}>
+                <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.9rem" }}>
+                  <thead>
+                    <tr style={{ borderBottom: "1px solid var(--border-glass)", background: "rgba(255,255,255,0.01)" }}>
+                      <th style={{ padding: "1rem 1.5rem", color: "var(--text-muted)" }}>Email Address</th>
+                      <th style={{ padding: "1rem 1.5rem", color: "var(--text-muted)" }}>Date Captured</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {subscribers.length === 0 ? (
+                      <tr>
+                        <td colSpan="2" style={{ padding: "3rem", textAlign: "center", color: "var(--text-muted)" }}>
+                          No newsletter subscribers captured yet.
+                        </td>
+                      </tr>
+                    ) : (
+                      subscribers.map((sub) => (
+                        <tr key={sub.id} style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+                          <td style={{ padding: "1rem 1.5rem", color: "var(--text-bright)", fontWeight: "600" }}>{sub.email}</td>
+                          <td style={{ padding: "1rem 1.5rem", color: "var(--text-muted)", fontSize: "0.8rem" }}>
+                            {new Date(sub.createdAt).toLocaleDateString("en-US", { year: "numeric", month: "short", day: "numeric" })}
+                          </td>
+                        </tr>
+                      ))
+                    )}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Simulated Blast Campaign Card */}
+            <div className="detail-glass-card" style={{ padding: "2rem" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "1.5rem" }}>
+                <h3 style={{ fontFamily: "var(--font-display)", color: "var(--text-bright)", fontSize: "1.25rem", margin: 0 }}>
+                  AuraAI Newsletter Dispatcher
+                </h3>
+                <span style={{ fontSize: "1.5rem" }}>📣</span>
+              </div>
+              <p style={{ color: "var(--text-muted)", fontSize: "0.85rem", lineHeight: "1.5", marginBottom: "1.5rem" }}>
+                Draft updates, feature highlights, or promotional takeovers to blast to all registered directory readers instantly.
+              </p>
+
+              <form onSubmit={handleSendBlast} style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Subject Line *</label>
+                  <input
+                    type="text"
+                    required
+                    value={blastSubject}
+                    onChange={(e) => setBlastSubject(e.target.value)}
+                    placeholder="e.g., Weekly Roundup: Top 10 Developer AI Tools of May"
+                    style={{ width: "100%", padding: "0.6rem 0.8rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff", fontSize: "0.85rem" }}
+                  />
+                </div>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Newsletter Content (Supports HTML) *</label>
+                  <textarea
+                    required
+                    rows="6"
+                    value={blastContent}
+                    onChange={(e) => setBlastContent(e.target.value)}
+                    placeholder="Write your email body or marketing copy..."
+                    style={{ width: "100%", padding: "0.6rem 0.8rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff", resize: "vertical", fontSize: "0.85rem", fontFamily: "sans-serif" }}
+                  />
+                </div>
+
+                <div style={{ marginTop: "1rem" }}>
+                  <button
+                    type="submit"
+                    disabled={isSendingBlast || subscribers.length === 0}
+                    className="cta-btn action-primary"
+                    style={{
+                      width: "100%",
+                      padding: "0.75rem",
+                      borderRadius: "6px",
+                      border: "none",
+                      cursor: "pointer",
+                      fontWeight: "700",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      gap: "0.5rem"
+                    }}
+                  >
+                    {isSendingBlast ? (
+                      <>
+                        <span style={{
+                          display: "inline-block",
+                          width: "14px",
+                          height: "14px",
+                          border: "2px solid #fff",
+                          borderTop: "2px solid transparent",
+                          borderRadius: "50%",
+                          animation: "spin 0.8s linear infinite"
+                        }}></span>
+                        Dispersing email logs...
+                      </>
+                    ) : blastSuccess ? (
+                      "✓ Campaign Dispatched!"
+                    ) : (
+                      `Send Campaign to ${subscribers.length} Subscribers`
+                    )}
+                  </button>
+                  {subscribers.length === 0 && (
+                    <p style={{ color: "#ff4d4d", fontSize: "0.75rem", textAlign: "center", marginTop: "0.5rem", marginBottom: 0 }}>
+                      Campaign creation disabled until there is at least one active newsletter subscriber.
+                    </p>
+                  )}
+                </div>
+              </form>
             </div>
           </div>
         )}

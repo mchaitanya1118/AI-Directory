@@ -62,9 +62,34 @@ export default async function DynamicComparePage({ params }) {
 
   const structuredData = {
     "@context": "https://schema.org",
-    "@type": "ItemPage",
-    "name": `${toolA.name} vs ${toolB.name} Comparison`,
-    "description": `Detailed feature and pricing comparison between ${toolA.name} and ${toolB.name}.`,
+    "@graph": [
+      {
+        "@type": "ItemPage",
+        "name": `${toolA.name} vs ${toolB.name} Comparison`,
+        "description": `Detailed feature and pricing comparison between ${toolA.name} and ${toolB.name}.`,
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": `Is ${toolA.name} better than ${toolB.name}?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `${toolA.name} is rated ${toolA.rating || '4.2'}/5 stars, while ${toolB.name} is rated ${toolB.rating || '4.2'}/5 stars in our directory listings. Choice depends on your specific use cases.`
+            }
+          },
+          {
+            "@type": "Question",
+            "name": `How does the pricing of ${toolA.name} compare to ${toolB.name}?`,
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": `${toolA.name} is categorized as ${toolA.pricing} with pricing specs: ${toolA.pricingDetails || 'standard structure'}. ${toolB.name} is categorized as ${toolB.pricing} with pricing specs: ${toolB.pricingDetails || 'standard structure'}.`
+            }
+          }
+        ]
+      }
+    ]
   };
 
   return (

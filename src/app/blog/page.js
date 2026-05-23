@@ -43,6 +43,11 @@ export default async function BlogIndex({ searchParams }) {
         <p style={{ color: "var(--text-muted)", fontSize: "0.95rem", maxWidth: "600px", margin: "0.75rem auto 0", lineHeight: "1.5" }}>
           Explore professional workflow automations, detailed comparisons of AI large language models, local setups, and high-impact software stacks.
         </p>
+        <div style={{ marginTop: "1.25rem" }}>
+          <Link href="/blog/create" className="cta-btn action-primary" style={{ textDecoration: "none", fontSize: "0.85rem", padding: "0.5rem 1.25rem", borderRadius: "20px", fontWeight: "700", display: "inline-block" }}>
+            ✍️ Publish an Article
+          </Link>
+        </div>
       </div>
 
       {/* BILLBOARD AD PLACEMENT */}

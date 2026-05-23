@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { getServerSession } from "next-auth/next";
+import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 
 function safeParse(str, fallback) {
   if (!str) return fallback;
@@ -13,7 +15,11 @@ function safeParse(str, fallback) {
 // GET /api/tools - Serves the current parsed data from SQLite database dynamically
 export async function GET() {
   try {
+    const session = await getServerSession(authOptions);
+    const isAdmin = session && session.user.role === "ADMIN";
+
     const tools = await prisma.tool.findMany({
+      where: isAdmin ? {} : { approved: true },
       include: {
         reviews: true,
         tags: { include: { tag: true } }
@@ -162,6 +168,7 @@ export async function POST(request) {
         description: description.trim(),
         website: website.trim(),
         sponsored: !!sponsored,
+        approved: !!sponsored, // Free tools require moderation, sponsored go live instantly
         features: JSON.stringify(finalFeatures),
         pros: JSON.stringify(finalPros),
         cons: JSON.stringify(finalCons),
