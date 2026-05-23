@@ -16,6 +16,7 @@ FROM node:20-alpine AS runner
 RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 ENV NODE_ENV=production
+ENV DATABASE_URL="file:/data/dev.db"
 COPY --from=builder /app/package*.json ./
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
