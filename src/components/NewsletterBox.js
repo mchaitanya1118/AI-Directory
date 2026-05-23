@@ -143,6 +143,7 @@ export default function NewsletterBox() {
                 type="email"
                 placeholder="Enter your email address"
                 value={email}
+                suppressHydrationWarning
                 onChange={(e) => {
                   setEmail(e.target.value);
                   if (status === "error") setStatus("idle");
