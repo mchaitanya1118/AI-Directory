@@ -67,7 +67,7 @@ export default function HomeClient({ initialTools }) {
             </p>
             <div className="hero-cta-buttons">
               <Link href="/category/all" className="cta-btn primary">Start the Search</Link>
-              <Link href="/quiz" className="cta-btn secondary" style={{ background: '#dcdcdc', color: '#000' }}>Start the Search</Link>
+              <Link href="/quiz" className="cta-btn secondary" style={{ background: '#ebebeb', color: '#000' }}>AI Finder Quiz ⚡</Link>
             </div>
           </div>
 
