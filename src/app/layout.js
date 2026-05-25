@@ -5,6 +5,8 @@ import CompareTray from "@/components/CompareTray";
 import Header from "@/components/Header";
 import Link from "next/link";
 
+export const dynamic = "force-dynamic";
+
 export const metadata = {
   title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
   description:
