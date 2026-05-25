@@ -12,7 +12,12 @@ export default function HomeClient({ initialTools }) {
   const { startComparison } = useApp();
   const [searchVal, setSearchVal] = useState("");
   const [homeCategory, setHomeCategory] = useState("all");
+  const [isMounted, setIsMounted] = React.useState(false);
   const router = useRouter();
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const getAverageRating = (t) => {
     if (!t.reviews || t.reviews.length === 0) return t.rating || 0;
@@ -80,14 +85,18 @@ export default function HomeClient({ initialTools }) {
               />
             </div>
             <div className="search-wrapper">
-              <input
-                type="text"
-                className="search-input"
-                placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
-                value={searchVal}
-                onChange={(e) => setSearchVal(e.target.value)}
-                onKeyDown={handleSearchSubmit}
-              />
+              {isMounted ? (
+                <input
+                  type="text"
+                  className="search-input"
+                  placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
+                  value={searchVal}
+                  onChange={(e) => setSearchVal(e.target.value)}
+                  onKeyDown={handleSearchSubmit}
+                />
+              ) : (
+                <div style={{ height: "50px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "25px", border: "1px solid rgba(255,255,255,0.12)" }}></div>
+              )}
               <svg
                 className="search-icon-svg"
                 fill="none"
