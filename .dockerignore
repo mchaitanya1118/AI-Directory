@@ -7,3 +7,6 @@ Dockerfile
 README.md
 dev.db
 prisma/dev.db
+.env
+.env*
+

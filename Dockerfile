@@ -22,8 +22,9 @@ COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/prisma ./prisma
+COPY --from=builder /app/scripts ./scripts
 
 EXPOSE 3000
 
 # Push schema changes on startup, then launch Next.js
-CMD ["sh", "-c", "npx prisma db push && npm run start"]
+CMD ["sh", "-c", "node scripts/validate-db-url.js && npx prisma db push && npm run start"]
