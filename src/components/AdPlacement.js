@@ -121,7 +121,7 @@ export default function AdPlacement({ type = "in-content" }) {
         <a
           href={ad.link}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow sponsored"
           className="cta-btn action-primary"
           style={{
             display: "inline-flex",

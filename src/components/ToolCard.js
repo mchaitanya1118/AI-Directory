@@ -105,7 +105,7 @@ export default function ToolCard({ tool }) {
         <a
           href={ensureAbsoluteUrl(tool.website)}
           target="_blank"
-          rel="noopener noreferrer"
+          rel="noopener noreferrer nofollow sponsored"
           className="card-btn action-primary"
           style={{ width: '100%', marginTop: '0.75rem', padding: '0.6rem' }}
         >

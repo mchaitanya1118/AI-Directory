@@ -15,10 +15,34 @@ export async function generateMetadata({ params }) {
     };
   }
 
+  const title = `${tool.name} Reviews, Pricing & Alternatives 2026 | AuraAI`;
+  const description = tool.shortDescription;
+  const logoUrl = `https://auraai.directory/logos/${tool.id}.svg`;
+
   return {
-    title: `${tool.name} Reviews, Pricing & Alternatives 2026 | AuraAI`,
-    description: tool.shortDescription,
+    title,
+    description,
     keywords: [tool.name, "AI tool", tool.category, "reviews", "pricing", "alternatives"],
+    openGraph: {
+      title,
+      description,
+      url: `https://auraai.directory/tool/${tool.id}`,
+      type: "website",
+      images: [
+        {
+          url: logoUrl,
+          width: 800,
+          height: 600,
+          alt: `${tool.name} Logo`,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: [logoUrl],
+    },
   };
 }
 

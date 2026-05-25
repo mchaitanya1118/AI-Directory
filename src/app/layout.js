@@ -11,6 +11,28 @@ export const metadata = {
   title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
   description:
     "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools. Verified user ratings and affiliate updates.",
+  openGraph: {
+    title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
+    description: "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools.",
+    url: "https://auraai.directory",
+    siteName: "AuraAI Directory",
+    locale: "en_US",
+    type: "website",
+    images: [
+      {
+        url: "https://auraai.directory/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "AuraAI Directory Banner",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
+    description: "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools.",
+    images: ["https://auraai.directory/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }) {

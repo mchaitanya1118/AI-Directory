@@ -31,7 +31,9 @@ export default function HomeClient({ initialTools }) {
 
   const safeTools = initialTools || [];
   const sponsoredList = safeTools.filter((t) => t.sponsored);
+  // Deduplicate: filter out sponsored tools from popular list
   const popularList = [...safeTools]
+    .filter((t) => !t.sponsored)
     .sort((a, b) => getAverageRating(b) - getAverageRating(a))
     .slice(0, 4);
 
@@ -261,7 +263,7 @@ export default function HomeClient({ initialTools }) {
 
         <div className="sponsored-carousel" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", display: "grid", gap: "1.5rem" }}>
           {safeTools
-            .filter((t) => homeCategory === "all" || t.categoryId === homeCategory)
+            .filter((t) => homeCategory === "all" ? !t.sponsored : t.categoryId === homeCategory)
             .map((t) => (
               <ToolCard key={t.id} tool={t} />
             ))}

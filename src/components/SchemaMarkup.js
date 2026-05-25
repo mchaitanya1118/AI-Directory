@@ -8,10 +8,11 @@ export default function SchemaMarkup({ type, data }) {
   let schemaObj = null;
 
   try {
-    if (type === "product") {
+    if (type === "product" || type === "software") {
+      const isSoftware = type === "software";
       schemaObj = {
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": isSoftware ? "SoftwareApplication" : "Product",
         "name": data.name,
         "description": data.shortDescription || data.description,
         "image": "https://auraai.directory/logos/" + data.id + ".svg", // mock absolute url for seo validation
@@ -36,6 +37,11 @@ export default function SchemaMarkup({ type, data }) {
           "ratingCount": data.totalReviewsCount || 10
         }
       };
+
+      if (isSoftware) {
+        schemaObj.operatingSystem = "Web, macOS, Windows, Linux";
+        schemaObj.applicationCategory = "BusinessApplication";
+      }
 
       if (data.reviews && data.reviews.length > 0) {
         schemaObj.review = data.reviews.map((rev) => ({
@@ -76,6 +82,17 @@ export default function SchemaMarkup({ type, data }) {
           "position": idx + 1,
           "name": item.name,
           "item": "https://auraai.directory" + item.path
+        }))
+      };
+    } else if (type === "itemList") {
+      schemaObj = {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": data.map((item, idx) => ({
+          "@type": "ListItem",
+          "position": idx + 1,
+          "url": "https://auraai.directory/tool/" + item.id,
+          "name": item.name
         }))
       };
     }

@@ -168,7 +168,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
   return (
     <div className="tool-detail-container">
       <SchemaMarkup
-        type="product"
+        type="software"
         data={{
           id: tool.id,
           name: tool.name,
@@ -260,7 +260,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
               <a
                 href={ensureAbsoluteUrl(tool.website)}
                 target="_blank"
-                rel="noopener noreferrer"
+                rel="noopener noreferrer nofollow sponsored"
                 className="cta-btn action-primary"
                 style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", height: "46px", padding: "0 1.5rem", borderRadius: "8px", fontWeight: "600", textDecoration: "none" }}
               >

@@ -63,7 +63,26 @@ async function main() {
 
     await prisma.tool.upsert({
       where: { id: t.id },
-      update: {},
+      update: {
+        name: t.name,
+        categoryId: t.category.toLowerCase(),
+        logo: t.logo,
+        rating: t.rating || 0,
+        ratingCount: t.ratingCount || 0,
+        pricing: t.pricing || 'Unknown',
+        pricingDetails: t.pricingDetails || '',
+        shortDescription: t.shortDescription || '',
+        description: t.description || '',
+        website: t.website || '',
+        sponsored: t.sponsored || false,
+        features,
+        pros,
+        cons,
+        useCases,
+        comparisons,
+        faqs,
+        specs
+      },
       create: {
         id: t.id,
         name: t.name,

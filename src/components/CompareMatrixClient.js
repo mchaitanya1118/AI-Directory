@@ -212,7 +212,7 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
                     <a
                       href={ensureAbsoluteUrl(t.website)}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow sponsored"
                       className="cta-btn action-primary"
                       style={{ fontSize: "0.85rem", padding: "0.5rem 1rem" }}
                     >
