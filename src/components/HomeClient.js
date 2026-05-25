@@ -120,6 +120,7 @@ export default function HomeClient({ initialTools }) {
                 loading="eager"
                 style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
               />
+            </div>
           </div>
         </div>
 
