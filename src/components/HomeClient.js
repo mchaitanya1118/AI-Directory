@@ -120,27 +120,28 @@ export default function HomeClient({ initialTools }) {
                 loading="eager"
                 style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
               />
-            </div>
+          </div>
+        </div>
 
-            <div className="hero-telemetry-grid">
-              <div className="telemetry-card">
-                <div className="telemetry-number">
-                  <span>{safeTools.length}+</span>
-                </div>
-                <div className="telemetry-label">Prime AI Engines</div>
+        <div style={{ maxWidth: "1200px", margin: "3rem auto 0 auto", width: "100%" }}>
+          <div className="hero-telemetry-grid">
+            <div className="telemetry-card">
+              <div className="telemetry-number">
+                <span>{safeTools.length}+</span>
               </div>
-              <div className="telemetry-card">
-                <div className="telemetry-number">
-                  <span>100%</span>
-                </div>
-                <div className="telemetry-label">Crawl Sync Secure</div>
+              <div className="telemetry-label">Prime AI Engines</div>
+            </div>
+            <div className="telemetry-card">
+              <div className="telemetry-number">
+                <span>100%</span>
               </div>
-              <div className="telemetry-card">
-                <div className="telemetry-number">
-                  <span>4.8 ★</span>
-                </div>
-                <div className="telemetry-label">Avg Quality Score</div>
+              <div className="telemetry-label">Crawl Sync Secure</div>
+            </div>
+            <div className="telemetry-card">
+              <div className="telemetry-number">
+                <span>4.8 ★</span>
               </div>
+              <div className="telemetry-label">Avg Quality Score</div>
             </div>
           </div>
         </div>
