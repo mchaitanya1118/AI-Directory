@@ -42,11 +42,15 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const links = [
-    { href: "/", label: "Home" },
-    { href: "/category/all", label: "Categories" },
-    { href: "/reviews", label: "Reviews" },
+    { href: "/category/all", label: "All Tools" },
+    { href: "/category/coding", label: "Coding" },
+    { href: "/category/image", label: "Design" },
+    { href: "/category/video", label: "Video" },
+    { href: "/category/productivity", label: "Productivity" },
     { href: "/blog", label: "Blog" },
-    { href: "/about", label: "About" },
+    { href: "/quiz", label: "AI Finder ⚡" },
+    { href: "/prompts", label: "Prompts" },
+    { href: "/workflows", label: "Workflows" },
   ];
 
   // Debounced search effect
@@ -101,17 +105,11 @@ export default function Header() {
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%', maxWidth: '1200px', padding: '0 1rem', margin: '0 auto' }}>
         
         {/* 1. Left Logo */}
-        <Link href="/" className="logo-container" style={{ flexShrink: 0, gap: '0.75rem', textDecoration: 'none' }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M12 2L14.5 9.5L22 12L14.5 14.5L12 22L9.5 14.5L2 12L9.5 9.5L12 2Z" fill="url(#paint0_linear_logo)" />
-            <defs>
-              <linearGradient id="paint0_linear_logo" x1="2" y1="2" x2="22" y2="22" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#6C63FF" />
-                <stop offset="1" stopColor="#8B5CF6" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <span style={{ fontFamily: 'var(--font-display)', fontWeight: 700, fontSize: '1.25rem', color: 'var(--text-main)', letterSpacing: '-0.5px' }}>Aitool Hub</span>
+        <Link href="/" className="logo-container" style={{ flexShrink: 0, gap: '0.5rem' }}>
+          <div className="logo-glow">
+            <span>A</span>
+          </div>
+          <h1 className="brand-name" style={{ display: 'none' }}>AuraAI</h1>
         </Link>
 
         {/* 2. Desktop Navigation Links */}
@@ -130,21 +128,119 @@ export default function Header() {
           })}
         </nav>
 
-        {/* 3. Header Action Controls (Sign In, Get Started) */}
-        <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexShrink: 0 }}>
-          <Link href="/login" style={{ fontSize: '0.875rem', fontWeight: 500, color: 'var(--text-main)', textDecoration: 'none' }}>Sign In</Link>
-          <Link href="/register" style={{ 
-            background: 'var(--gradient-main)', 
-            color: '#fff', 
-            padding: '0.5rem 1.25rem', 
-            borderRadius: '8px', 
-            fontSize: '0.875rem', 
-            fontWeight: 500, 
-            textDecoration: 'none',
-            boxShadow: '0 4px 14px rgba(108, 99, 255, 0.25)'
-          }}>
-            Get Started
-          </Link>
+        {/* 3. Header Action Controls (Search, Auth, CTA, Mobile Toggle) */}
+        <div className="header-actions" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexShrink: 0 }}>
+          {/* Search Wrapper */}
+          <div className="header-search-container" ref={dropdownRef} style={{ position: 'relative' }}>
+            <div className="search-wrapper" style={{ margin: 0, width: '140px', display: 'flex', alignItems: 'center', background: 'rgba(255,255,255,0.15)', borderRadius: '20px', border: 'none', transition: 'width 0.25s' }}>
+              <svg
+                className="search-icon-svg"
+                style={{ position: 'absolute', left: '0.75rem', width: '0.9rem', height: '0.9rem', color: '#f5f5f7' }}
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+              </svg>
+              <input
+                type="text"
+                className="search-input"
+                suppressHydrationWarning
+                style={{ 
+                  padding: '0.35rem 0.5rem 0.35rem 2.25rem', 
+                  fontSize: '0.75rem', 
+                  background: 'transparent',
+                  color: '#ffffff',
+                  border: 'none',
+                  width: '100%',
+                  boxShadow: 'none',
+                  borderRadius: '0'
+                }}
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setShowDropdown(true);
+                }}
+                onFocus={() => {
+                  if (searchQuery.trim()) setShowDropdown(true);
+                }}
+                onKeyDown={handleSearchSubmit}
+              />
+            </div>
+
+            {/* Live Search Dropdown */}
+            {showDropdown && (searchQuery.trim().length > 0) && (
+              <div 
+                className="detail-glass-card search-dropdown" 
+                style={{ 
+                  position: 'absolute', 
+                  top: '150%', 
+                  right: 0, 
+                  width: '300px', 
+                  padding: '0.5rem',
+                  zIndex: 1000,
+                  maxHeight: '400px',
+                  overflowY: 'auto',
+                  background: 'rgba(20,20,20,0.95)',
+                  border: '1px solid rgba(255,255,255,0.1)',
+                  boxShadow: '0 10px 40px rgba(0,0,0,0.5)',
+                  borderRadius: '12px'
+                }}
+              >
+                {isSearching ? (
+                  <div style={{ padding: '1rem', textAlign: 'center', color: '#86868b', fontSize: '0.75rem' }}>
+                    Searching...
+                  </div>
+                ) : searchResults.length > 0 ? (
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
+                    {searchResults.map((t) => (
+                      <Link 
+                        href={`/tool/${t.id}`} 
+                        key={t.id}
+                        onClick={() => setShowDropdown(false)}
+                        style={{ 
+                          display: 'flex', 
+                          alignItems: 'center', 
+                          gap: '0.75rem',
+                          padding: '0.5rem',
+                          textDecoration: 'none',
+                          borderRadius: '8px',
+                          transition: 'background 0.2s'
+                        }}
+                        className="search-dropdown-item"
+                      >
+                        <div 
+                          style={{ width: '20px', height: '20px', flexShrink: 0 }}
+                          dangerouslySetInnerHTML={{ __html: t.logo }}
+                        />
+                        <div style={{ overflow: 'hidden' }}>
+                          <div style={{ color: '#f5f5f7', fontSize: '0.8rem', fontWeight: '500', whiteSpace: 'nowrap', textOverflow: 'ellipsis', overflow: 'hidden' }}>
+                            {t.name}
+                          </div>
+                        </div>
+                      </Link>
+                    ))}
+                    <div 
+                      style={{ padding: '0.5rem', textAlign: 'center', fontSize: '0.75rem', color: '#0071e3', cursor: 'pointer' }}
+                      onClick={() => {
+                        setShowDropdown(false);
+                        router.push(`/category/all?search=${encodeURIComponent(searchQuery.trim())}`);
+                      }}
+                    >
+                      View all results &rarr;
+                    </div>
+                  </div>
+                ) : (
+                  <div style={{ padding: '1rem', textAlign: 'center', color: '#86868b', fontSize: '0.75rem' }}>
+                    No tools found for "{searchQuery}"
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
 
           {/* User / Auth dropdown section */}
           {status !== "loading" && session ? (

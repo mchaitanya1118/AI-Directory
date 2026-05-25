@@ -7,8 +7,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NewsletterBox from "@/components/NewsletterBox";
-import { motion } from "framer-motion";
-import { ArrowRight, LayoutGrid } from "lucide-react";
 
 export default function HomeClient({ initialTools }) {
   const { startComparison } = useApp();
@@ -54,103 +52,91 @@ export default function HomeClient({ initialTools }) {
 
   return (
     <div>
-      <section className="hero-section" style={{ position: 'relative', overflow: 'hidden', padding: '6rem 0 4rem 0', background: 'var(--bg-dark)' }}>
-        {/* Decorative Grid Pattern */}
-        <div style={{ position: 'absolute', inset: 0, backgroundImage: 'linear-gradient(rgba(108, 99, 255, 0.05) 1px, transparent 1px), linear-gradient(90deg, rgba(108, 99, 255, 0.05) 1px, transparent 1px)', backgroundSize: '40px 40px', zIndex: 0 }}></div>
-        
-        {/* Radial Blur Glows */}
-        <div style={{ position: 'absolute', top: '10%', right: '10%', width: '600px', height: '600px', background: 'radial-gradient(circle, var(--neon-purple-glow) 0%, transparent 60%)', filter: 'blur(60px)', zIndex: 0, opacity: 0.8 }}></div>
-        <div style={{ position: 'absolute', bottom: '-10%', left: '-10%', width: '500px', height: '500px', background: 'radial-gradient(circle, var(--neon-cyan-glow) 0%, transparent 60%)', filter: 'blur(50px)', zIndex: 0, opacity: 0.6 }}></div>
-
-        <div className="app-container" style={{ position: 'relative', zIndex: 10, display: 'flex', flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: '2rem', flexWrap: 'wrap' }}>
-          
+      <section className="hero-section">
+        <div className="hero-container">
           {/* LEFT COLUMN */}
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            style={{ flex: '1 1 450px', maxWidth: '600px' }}
-          >
-            <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '4.5rem', fontWeight: 800, lineHeight: 1.1, color: 'var(--text-main)', marginBottom: '1.5rem', letterSpacing: '-0.02em' }}>
-              Discover the best <br/>
-              <span style={{ background: 'var(--gradient-main)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent', display: 'inline-block' }}>AI Tools</span> for your<br/>
+          <div className="hero-content-left">
+            <h2 className="hero-title">
+              Discover the best<br/>
+              <span>AI Tools</span> for your<br/>
               workflow!
-            </h1>
-            <p style={{ fontSize: '1.25rem', color: 'var(--text-muted)', marginBottom: '2.5rem', lineHeight: 1.6, maxWidth: '90%' }}>
-              Explore top AI tools to boost productivity, automate tasks, and achieve more in less time.
+            </h2>
+            <p className="hero-subtitle">
+              Compare pricing models, explore verified user reviews, and filter
+              through industry-standard AI productivity, coding, image, and video generators.
             </p>
-            
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.5rem' }}>
-              <Link href="/category/all" style={{ 
-                display: 'flex', alignItems: 'center', gap: '0.5rem',
-                background: 'var(--gradient-main)', color: '#fff', 
-                padding: '1rem 1.75rem', borderRadius: '12px', 
-                fontSize: '1rem', fontWeight: 600, textDecoration: 'none',
-                boxShadow: '0 10px 30px rgba(108, 99, 255, 0.3)',
-                transition: 'transform 0.2s', cursor: 'pointer'
-              }} onMouseOver={(e) => e.currentTarget.style.transform = 'translateY(-2px)'} onMouseOut={(e) => e.currentTarget.style.transform = 'translateY(0)'}>
-                Explore Tools <ArrowRight size={20} />
-              </Link>
-              
-              <Link href="/category/all" style={{ 
-                display: 'flex', alignItems: 'center', gap: '0.5rem',
-                background: '#ffffff', color: 'var(--text-main)', 
-                padding: '1rem 1.75rem', borderRadius: '12px', 
-                fontSize: '1rem', fontWeight: 600, textDecoration: 'none',
-                border: '1px solid var(--border-glass)',
-                boxShadow: '0 4px 20px rgba(0, 0, 0, 0.05)',
-                transition: 'all 0.2s', cursor: 'pointer'
-              }} onMouseOver={(e) => { e.currentTarget.style.transform = 'translateY(-2px)'; e.currentTarget.style.borderColor = 'rgba(108, 99, 255, 0.3)' }} onMouseOut={(e) => { e.currentTarget.style.transform = 'translateY(0)'; e.currentTarget.style.borderColor = 'var(--border-glass)' }}>
-                Browse Categories <LayoutGrid size={20} />
-              </Link>
+            <div className="hero-cta-buttons">
+              <Link href="/category/all" className="cta-btn primary">Start the Search</Link>
+              <Link href="/quiz" className="cta-btn secondary">AI Finder Quiz ⚡</Link>
             </div>
             
-            <div className="hero-telemetry-grid">
-              <div className="telemetry-card" style={{ padding: '1.25rem 1rem' }}>
-                <div className="telemetry-number" style={{ fontSize: '1.5rem' }}>
-                  <span>{safeTools.length}+</span>
-                </div>
-                <div className="telemetry-label" style={{ fontSize: '0.8rem' }}>Prime AI Engines</div>
-              </div>
-              <div className="telemetry-card" style={{ padding: '1.25rem 1rem' }}>
-                <div className="telemetry-number" style={{ fontSize: '1.5rem' }}>
-                  <span>100%</span>
-                </div>
-                <div className="telemetry-label" style={{ fontSize: '0.8rem' }}>Crawl Sync Secure</div>
-              </div>
-              <div className="telemetry-card" style={{ padding: '1.25rem 1rem' }}>
-                <div className="telemetry-number" style={{ fontSize: '1.5rem' }}>
-                  <span>4.8 ★</span>
-                </div>
-                <div className="telemetry-label" style={{ fontSize: '0.8rem' }}>Avg Quality Score</div>
-              </div>
+            <div className="search-wrapper" style={{ marginTop: '2rem' }}>
+              {isMounted ? (
+                <input
+                  type="text"
+                  className="search-input"
+                  placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
+                  value={searchVal}
+                  onChange={(e) => setSearchVal(e.target.value)}
+                  onKeyDown={handleSearchSubmit}
+                />
+              ) : (
+                <div style={{ height: "50px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "25px", border: "1px solid rgba(255,255,255,0.12)" }}></div>
+              )}
+              <svg
+                className="search-icon-svg"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                ></path>
+              </svg>
             </div>
-          </motion.div>
-          
+          </div>
+
           {/* RIGHT COLUMN */}
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
-            style={{ flex: '1 1 500px', display: 'flex', justifyContent: 'center', alignItems: 'center', position: 'relative' }}
-          >
-            <motion.div 
-              animate={{ y: [-15, 15, -15] }}
-              transition={{ repeat: Infinity, duration: 6, ease: "easeInOut" }}
-              style={{ width: '100%', maxWidth: '750px', transform: 'translateX(5%)' }}
-            >
+          <div className="hero-content-right">
+            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
               <Image
-                src="/hero-mockup-3d.png"
-                alt="3D Floating SaaS Dashboard"
-                width={800}
-                height={800}
+                src="/hero-image.png"
+                alt="AuraAI Hero"
+                width={1200}
+                height={600}
                 priority={true}
                 loading="eager"
-                style={{ width: '100%', height: 'auto', filter: 'drop-shadow(0 30px 60px rgba(108, 99, 255, 0.25))' }}
+                style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
               />
-            </motion.div>
-          </motion.div>
-          
+            </div>
+          </div>
+        </div>
+
+        <div style={{ maxWidth: "1200px", margin: "3rem auto 0 auto", width: "100%" }}>
+          <div className="hero-telemetry-grid">
+            <div className="telemetry-card">
+              <div className="telemetry-number">
+                <span>{safeTools.length}+</span>
+              </div>
+              <div className="telemetry-label">Prime AI Engines</div>
+            </div>
+            <div className="telemetry-card">
+              <div className="telemetry-number">
+                <span>100%</span>
+              </div>
+              <div className="telemetry-label">Crawl Sync Secure</div>
+            </div>
+            <div className="telemetry-card">
+              <div className="telemetry-number">
+                <span>4.8 ★</span>
+              </div>
+              <div className="telemetry-label">Avg Quality Score</div>
+            </div>
+          </div>
         </div>
       </section>
 
