@@ -7,7 +7,9 @@ export async function generateMetadata({ params }) {
   return {
     title: `Best ${categoryName} Directory 2026 | AuraAI`,
     description: `Explore the top-rated ${categoryName} applications, compare pricing, and read verified reviews.`,
-    keywords: [categoryName, "AI tools", "software", "directory"],
+    alternates: {
+      canonical: `/category/${id}`,
+    },
   };
 }
 

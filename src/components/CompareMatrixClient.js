@@ -214,9 +214,10 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
                       target="_blank"
                       rel="noopener noreferrer nofollow sponsored"
                       className="cta-btn action-primary"
-                      style={{ fontSize: "0.85rem", padding: "0.5rem 1rem" }}
+                      style={{ fontSize: "0.85rem", padding: "0.5rem 1rem", display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.3rem' }}
                     >
-                      Visit Site &rarr;
+                      <span>Visit Site</span>
+                      <span className="affiliate-badge" style={{ margin: 0 }}>Affiliate</span>
                     </a>
                     <Link
                       href={`/tool/${t.id}`}

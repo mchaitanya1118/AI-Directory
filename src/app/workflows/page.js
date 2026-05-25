@@ -4,7 +4,9 @@ import WorkflowsClient from "@/components/WorkflowsClient";
 export const metadata = {
   title: "AI Workflow Marketplace & Dynamic Stack Builder | AuraAI",
   description: "Explore industry-standard AI tool workflows or build your own custom AI stack. Curated productivity stacks for Developers, Designers, and Content Creators.",
-  keywords: ["AI workflows", "AI stack builder", "AI stack", "developer tools", "creator workflow", "SaaS automation"],
+  alternates: {
+    canonical: "/workflows",
+  },
 };
 
 export default async function WorkflowsPage() {

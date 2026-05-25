@@ -192,8 +192,15 @@ export default function BlogClient({ article, relatedToolObjs }) {
                         <Link href={`/tool/${st.id}`} className="btn-secondary" style={{ fontSize: "0.75rem", padding: "0.25rem 0.5rem", flexGrow: 1, textAlign: "center" }}>
                           Reviews
                         </Link>
-                        <a href={ensureAbsoluteUrl(st.website)} target="_blank" rel="noopener noreferrer" className="cta-btn action-primary" style={{ fontSize: "0.75rem", padding: "0.25rem 0.5rem", flexGrow: 1, textAlign: "center", textDecoration: "none" }}>
-                          Visit Site
+                         <a 
+                          href={ensureAbsoluteUrl(st.website)} 
+                          target="_blank" 
+                          rel="noopener noreferrer nofollow sponsored" 
+                          className="cta-btn action-primary" 
+                          style={{ fontSize: "0.75rem", padding: "0.25rem 0.5rem", flexGrow: 1, textAlign: "center", textDecoration: "none", display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "0.25rem" }}
+                        >
+                          <span>Visit Site</span>
+                          <span className="affiliate-badge" style={{ margin: 0, fontSize: "0.55rem", padding: "0.1rem 0.25rem" }}>Affiliate</span>
                         </a>
                       </div>
                     </div>

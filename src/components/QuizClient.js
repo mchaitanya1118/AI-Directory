@@ -595,12 +595,12 @@ export default function QuizClient({ tools = [] }) {
                         <a
                           href={ensureAbsoluteUrl(t.website)}
                           target="_blank"
-                          rel="noopener noreferrer"
+                          rel="noopener noreferrer nofollow sponsored"
                           className="cta-btn action-primary"
                           style={{
                             display: "inline-flex",
                             alignItems: "center",
-                            gap: "0.25rem",
+                            gap: "0.4rem",
                             padding: "0.6rem 1.25rem",
                             borderRadius: "8px",
                             fontWeight: "600",
@@ -608,7 +608,8 @@ export default function QuizClient({ tools = [] }) {
                             textDecoration: "none"
                           }}
                         >
-                          Visit Website &rarr;
+                          <span>Visit Website</span>
+                          <span className="affiliate-badge" style={{ margin: 0 }}>Affiliate</span>
                         </a>
                         
                         <Link

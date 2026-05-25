@@ -4,7 +4,9 @@ import QuizClient from "@/components/QuizClient";
 export const metadata = {
   title: "Interactive AI Tool Finder Quiz | AuraAI",
   description: "Answer 3 quick questions to discover the perfect AI tools for your specific workflow, profession, and budget. Get your personalized AI stack instantly.",
-  keywords: ["AI finder", "AI stack builder", "AI recommendation quiz", "best AI tools", "personalized AI tools"],
+  alternates: {
+    canonical: "/quiz",
+  },
 };
 
 export default async function QuizPage() {

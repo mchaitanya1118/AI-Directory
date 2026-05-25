@@ -264,7 +264,8 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
                 className="cta-btn action-primary"
                 style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", height: "46px", padding: "0 1.5rem", borderRadius: "8px", fontWeight: "600", textDecoration: "none" }}
               >
-                Visit Official Site &rarr;
+                <span>Visit Official Site</span>
+                <span className="affiliate-badge" style={{ margin: 0 }}>Affiliate</span>
               </a>
             </div>
             <span style={{ fontSize: "0.7rem", color: "var(--text-muted)" }}>Affiliate Direct Referral Link</span>

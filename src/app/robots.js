@@ -3,8 +3,8 @@ export default function robots() {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: "/admin/",
+      disallow: ["/api/", "/admin/"],
     },
-    sitemap: "https://auraai.com/sitemap.xml",
+    sitemap: "https://ai.neqtra.com/sitemap.xml",
   };
 }

@@ -15,14 +15,12 @@ export async function generateMetadata({ params }) {
     };
   }
 
-  const keywords = (() => {
-    try { return JSON.parse(article.keywords) || []; } catch(e) { return []; }
-  })();
-
   return {
     title: `${article.title} | AuraAI Blog`,
     description: article.summary,
-    keywords: keywords,
+    alternates: {
+      canonical: `/blog/${article.id}`,
+    },
   };
 }
 

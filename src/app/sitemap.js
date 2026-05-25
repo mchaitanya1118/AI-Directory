@@ -1,7 +1,8 @@
 import { prisma } from "@/lib/prisma";
+import { CURATED_PAGES } from "@/data/data";
 
 export default async function sitemap() {
-  const baseUrl = "https://auraai.com";
+  const baseUrl = "https://ai.neqtra.com";
 
   // 1. Core pages
   const corePages = [
@@ -44,7 +45,15 @@ export default async function sitemap() {
       priority: 0.6
     }));
 
-    // 6. Dynamic Programmatic SEO Pages (PSEO)
+    // 6. Dynamic Curated Guide Pages
+    const curatedUrls = Object.keys(CURATED_PAGES).map((slug) => ({
+      url: `${baseUrl}/curated/${slug}`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8
+    }));
+
+    // 7. Dynamic Programmatic SEO Pages (PSEO)
     // For every category, we generate a "best-ai-tools-for-[cat]" and a "free-ai-tools-for-[cat]" page
     const pseoIntents = [];
     categories.forEach((cat) => {
@@ -69,7 +78,7 @@ export default async function sitemap() {
       priority: 0.8
     }));
 
-    // 7. Head-to-Head Comparison Pages
+    // 8. Head-to-Head Comparison Pages
     // For each category, combine every pairwise tool combo to build comparison sitemaps
     const compareUrls = [];
     categories.forEach((cat) => {
@@ -97,6 +106,7 @@ export default async function sitemap() {
       ...categoryUrls,
       ...toolUrls,
       ...blogUrls,
+      ...curatedUrls,
       ...pseoUrls,
       ...compareUrls
     ];

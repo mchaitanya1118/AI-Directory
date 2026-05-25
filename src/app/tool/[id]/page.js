@@ -17,16 +17,18 @@ export async function generateMetadata({ params }) {
 
   const title = `${tool.name} Reviews, Pricing & Alternatives 2026 | AuraAI`;
   const description = tool.shortDescription;
-  const logoUrl = `https://auraai.directory/logos/${tool.id}.svg`;
+  const logoUrl = `https://ai.neqtra.com/logos/${tool.id}.svg`;
 
   return {
     title,
     description,
-    keywords: [tool.name, "AI tool", tool.category, "reviews", "pricing", "alternatives"],
+    alternates: {
+      canonical: `/tool/${tool.id}`,
+    },
     openGraph: {
       title,
       description,
-      url: `https://auraai.directory/tool/${tool.id}`,
+      url: `https://ai.neqtra.com/tool/${tool.id}`,
       type: "website",
       images: [
         {
@@ -103,12 +105,91 @@ export default async function ToolDetailPage({ params }) {
     include: { reviews: true }
   });
 
+  // Build JSON-LD schemas
+  const softwareSchema = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": tool.name,
+    "operatingSystem": "All",
+    "applicationCategory": `${tool.categoryId.charAt(0).toUpperCase()}${tool.categoryId.slice(1)}Application`,
+    "offers": {
+      "@type": "Offer",
+      "price": tool.pricing === "Free" ? "0.00" : "0.00", // Standard fallback
+      "priceCurrency": "USD",
+      "description": tool.pricingDetails
+    },
+    "description": tool.shortDescription
+  };
+
+  if (tool.ratingCount > 0) {
+    softwareSchema.aggregateRating = {
+      "@type": "AggregateRating",
+      "ratingValue": tool.rating,
+      "ratingCount": tool.ratingCount,
+      "bestRating": "5",
+      "worstRating": "1"
+    };
+  }
+
+  if (tool.reviews && tool.reviews.length > 0) {
+    softwareSchema.review = tool.reviews.map((r) => ({
+      "@type": "Review",
+      "author": {
+        "@type": "Person",
+        "name": r.username
+      },
+      "datePublished": r.date,
+      "reviewBody": r.comment,
+      "reviewRating": {
+        "@type": "Rating",
+        "ratingValue": r.rating,
+        "bestRating": "5",
+        "worstRating": "1"
+      }
+    }));
+  }
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ai.neqtra.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": `${tool.categoryId.charAt(0).toUpperCase()}${tool.categoryId.slice(1)} Tools`,
+        "item": `https://ai.neqtra.com/category/${tool.categoryId}`
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": tool.name,
+        "item": `https://ai.neqtra.com/tool/${tool.id}`
+      }
+    ]
+  };
+
   return (
-    <ToolDetailClient 
-      tool={tool} 
-      similarTools={similarTools} 
-      betterAlternatives={betterAlternatives}
-      usersAlsoLiked={usersAlsoLiked}
-    />
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(softwareSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <ToolDetailClient 
+        tool={tool} 
+        similarTools={similarTools} 
+        betterAlternatives={betterAlternatives}
+        usersAlsoLiked={usersAlsoLiked}
+      />
+    </>
   );
 }

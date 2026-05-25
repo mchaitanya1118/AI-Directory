@@ -4,23 +4,29 @@ import { NextAuthProvider } from "@/components/NextAuthProvider";
 import CompareTray from "@/components/CompareTray";
 import Header from "@/components/Header";
 import Link from "next/link";
+import Script from "next/script";
+import AffiliateBanner from "@/components/AffiliateBanner";
 
 export const dynamic = "force-dynamic";
 
 export const metadata = {
+  metadataBase: new URL("https://ai.neqtra.com"),
+  alternates: {
+    canonical: "/",
+  },
   title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
   description:
     "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools. Verified user ratings and affiliate updates.",
   openGraph: {
     title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
     description: "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools.",
-    url: "https://auraai.directory",
+    url: "https://ai.neqtra.com/",
     siteName: "AuraAI Directory",
     locale: "en_US",
     type: "website",
     images: [
       {
-        url: "https://auraai.directory/og-image.png",
+        url: "https://ai.neqtra.com/og-image.png",
         width: 1200,
         height: 630,
         alt: "AuraAI Directory Banner",
@@ -31,7 +37,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
     description: "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools.",
-    images: ["https://auraai.directory/og-image.png"],
+    images: ["https://ai.neqtra.com/og-image.png"],
   },
 };
 
@@ -39,6 +45,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
+        {/* Google AdSense Script - Optimized to lazyOnload */}
+        <Script 
+          async 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9876543210123456" 
+          strategy="lazyOnload" 
+          crossOrigin="anonymous" 
+        />
         <NextAuthProvider>
           <AppProvider>
             <div className="app-container">
@@ -48,6 +61,9 @@ export default function RootLayout({ children }) {
 
             {/* DYNAMIC CHILD PAGES */}
             <main id="app-main-content">
+              {/* STATEFUL DISMISSIBLE AFFILIATE BANNER */}
+              <AffiliateBanner />
+
               {/* MOCK ADSENSE BANNER TOP */}
               <div className="adsense-placement" id="top-ad-banner">
                 <span className="ad-label">Sponsored Placement</span>
@@ -60,14 +76,17 @@ export default function RootLayout({ children }) {
                       multi-file edits.
                     </span>
                   </div>
-                  <a
-                    href="https://cursor.com/?via=aitoolsdir"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="ad-badge-button"
-                  >
-                    Get Started For Free
-                  </a>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <a
+                      href="https://cursor.com/?via=aitoolsdir"
+                      target="_blank"
+                      rel="nofollow sponsored"
+                      className="ad-badge-button"
+                    >
+                      Get Started For Free
+                    </a>
+                    <span className="affiliate-badge">Affiliate</span>
+                  </div>
                 </div>
               </div>
 

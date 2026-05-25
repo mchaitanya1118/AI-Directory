@@ -2353,3 +2353,92 @@ footer.app-footer {
   box-shadow: 0 0 10px rgba(0, 242, 254, 0.3);
 }
 
+/* --- DISMISSIBLE AFFILIATE DISCLOSURE BANNER --- */
+.affiliate-disclosure-banner {
+  background: rgba(255, 255, 255, 0.45);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  padding: 0.6rem 1.25rem;
+  border-radius: 12px;
+  margin-bottom: 1.25rem;
+  z-index: 998;
+  position: relative;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+}
+
+/* For dark mode / theme-aware styling */
+:root[class~="dark"] .affiliate-disclosure-banner {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.affiliate-disclosure-banner .banner-content {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  position: relative;
+  padding-right: 2rem;
+}
+
+.affiliate-disclosure-banner .banner-icon {
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.affiliate-disclosure-banner .banner-text {
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--text-main);
+  margin: 0;
+}
+
+.affiliate-disclosure-banner .banner-text strong {
+  color: var(--text-bright);
+  font-weight: 600;
+}
+
+.affiliate-disclosure-banner .banner-close-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  font-size: 1.25rem;
+  cursor: pointer;
+  padding: 0.25rem;
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.2s;
+  line-height: 1;
+}
+
+.affiliate-disclosure-banner .banner-close-btn:hover {
+  color: var(--text-bright);
+}
+
+/* --- INLINE AFFILIATE BADGES --- */
+.affiliate-badge {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 159, 10, 0.1);
+  color: #ff9f0a;
+  border: 1px solid rgba(255, 159, 10, 0.25);
+  font-size: 0.62rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  padding: 0.15rem 0.35rem;
+  border-radius: 4px;
+  letter-spacing: 0.25px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+  transition: all 0.2s ease;
+}
+
+.affiliate-badge:hover {
+  background: rgba(255, 159, 10, 0.15);
+  border-color: rgba(255, 159, 10, 0.4);
+}
+
+

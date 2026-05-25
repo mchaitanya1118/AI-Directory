@@ -107,9 +107,10 @@ export default function ToolCard({ tool }) {
           target="_blank"
           rel="noopener noreferrer nofollow sponsored"
           className="card-btn action-primary"
-          style={{ width: '100%', marginTop: '0.75rem', padding: '0.6rem' }}
+          style={{ width: '100%', marginTop: '0.75rem', padding: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
         >
-          Visit Site
+          <span>Visit Site</span>
+          <span className="affiliate-badge" style={{ margin: 0 }}>Affiliate</span>
         </a>
       </div>
     </div>

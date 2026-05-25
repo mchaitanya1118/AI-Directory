@@ -132,11 +132,12 @@ export default function CuratedPage({ params }) {
                     <a
                       href={ensureAbsoluteUrl(t.website)}
                       target="_blank"
-                      rel="noopener noreferrer"
+                      rel="noopener noreferrer nofollow sponsored"
                       className="cta-btn action-primary"
-                      style={{ fontSize: "0.8rem", padding: "0.4rem 0.8rem" }}
+                      style={{ fontSize: "0.8rem", padding: "0.4rem 0.8rem", display: "inline-flex", alignItems: "center", gap: "0.25rem" }}
                     >
-                      Visit Website
+                      <span>Visit Website</span>
+                      <span className="affiliate-badge" style={{ margin: 0, fontSize: "0.55rem", padding: "0.1rem 0.25rem" }}>Affiliate</span>
                     </a>
                   </div>
                 </div>

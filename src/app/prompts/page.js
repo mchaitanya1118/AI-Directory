@@ -4,7 +4,9 @@ import PromptsClient from "@/components/PromptsClient";
 export const metadata = {
   title: "AI Prompt Library: Copy Top ChatGPT, Claude & Midjourney Prompts | AuraAI",
   description: "Browse our premium curated AI Prompt Library. Copy industry-standard prompts for Coding, Marketing, Writing, and Midjourney image generation in one click.",
-  keywords: ["best AI prompts", "ChatGPT prompts", "Claude prompts", "Midjourney prompts", "copy AI prompts", "coding prompts"],
+  alternates: {
+    canonical: "/prompts",
+  },
 };
 
 export default async function PromptsPage() {
