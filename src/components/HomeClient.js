@@ -69,22 +69,8 @@ export default function HomeClient({ initialTools }) {
               <Link href="/category/all" className="cta-btn primary">Start the Search</Link>
               <Link href="/quiz" className="cta-btn secondary">AI Finder Quiz ⚡</Link>
             </div>
-          </div>
-
-          {/* RIGHT COLUMN */}
-          <div className="hero-content-right">
-            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
-              <Image
-                src="/hero-image.png"
-                alt="AuraAI Hero"
-                width={1200}
-                height={600}
-                priority={true}
-                loading="eager"
-                style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
-              />
-            </div>
-            <div className="search-wrapper">
+            
+            <div className="search-wrapper" style={{ marginTop: '2rem' }}>
               {isMounted ? (
                 <input
                   type="text"
@@ -119,6 +105,21 @@ export default function HomeClient({ initialTools }) {
               <span className="pill-btn" onClick={() => handlePillClick("Photorealism")}>Photorealism</span>
               <span className="pill-btn" onClick={() => handlePillClick("Voice Clone")}>Voice Clones</span>
               <span className="pill-btn" onClick={() => handlePillClick("Citations")}>Research Citations</span>
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN */}
+          <div className="hero-content-right">
+            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+              <Image
+                src="/hero-image.png"
+                alt="AuraAI Hero"
+                width={1200}
+                height={600}
+                priority={true}
+                loading="eager"
+                style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
+              />
             </div>
 
             <div className="hero-telemetry-grid">
