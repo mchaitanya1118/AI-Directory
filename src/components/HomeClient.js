@@ -105,27 +105,24 @@ export default function HomeClient({ initialTools }) {
               </Link>
             </div>
             
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <div style={{ display: 'flex', position: 'relative' }}>
-                {[1, 2, 3, 4].map((i) => (
-                  <div key={i} style={{ 
-                    width: '40px', height: '40px', borderRadius: '50%', 
-                    background: '#e2e8f0', border: '2px solid #fff', 
-                    marginLeft: i === 1 ? '0' : '-12px',
-                    backgroundImage: `url(https://i.pravatar.cc/100?img=${i+10})`,
-                    backgroundSize: 'cover'
-                  }} />
-                ))}
-                <div style={{ 
-                  width: '40px', height: '40px', borderRadius: '50%', 
-                  background: 'var(--gradient-main)', border: '2px solid #fff', 
-                  marginLeft: '-12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  color: '#fff', fontSize: '0.65rem', fontWeight: 'bold'
-                }}>10K+</div>
+            <div className="hero-telemetry-grid">
+              <div className="telemetry-card" style={{ padding: '1.25rem 1rem' }}>
+                <div className="telemetry-number" style={{ fontSize: '1.5rem' }}>
+                  <span>{safeTools.length}+</span>
+                </div>
+                <div className="telemetry-label" style={{ fontSize: '0.8rem' }}>Prime AI Engines</div>
               </div>
-              <div style={{ fontSize: '0.875rem', color: 'var(--text-muted)', lineHeight: 1.4 }}>
-                Trusted by 10,000+ professionals<br/>
-                to supercharge their workflow
+              <div className="telemetry-card" style={{ padding: '1.25rem 1rem' }}>
+                <div className="telemetry-number" style={{ fontSize: '1.5rem' }}>
+                  <span>100%</span>
+                </div>
+                <div className="telemetry-label" style={{ fontSize: '0.8rem' }}>Crawl Sync Secure</div>
+              </div>
+              <div className="telemetry-card" style={{ padding: '1.25rem 1rem' }}>
+                <div className="telemetry-number" style={{ fontSize: '1.5rem' }}>
+                  <span>4.8 ★</span>
+                </div>
+                <div className="telemetry-label" style={{ fontSize: '0.8rem' }}>Avg Quality Score</div>
               </div>
             </div>
           </motion.div>
