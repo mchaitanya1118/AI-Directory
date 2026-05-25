@@ -82,7 +82,7 @@ export default function HomeClient({ initialTools }) {
                 width={1200}
                 height={600}
                 priority={true}
-                loading="eager"
+                fetchPriority="high"
                 style={{ width: '100%', height: '270px', borderRadius: '12px', objectFit: 'cover' }}
               />
             </div>
