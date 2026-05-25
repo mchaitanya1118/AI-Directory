@@ -6,6 +6,11 @@ export default function NewsletterBox() {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState("idle"); // idle, loading, success, error
   const [msg, setMsg] = useState("");
+  const [isMounted, setIsMounted] = useState(false);
+
+  React.useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -136,14 +141,13 @@ export default function NewsletterBox() {
           >
             ✓ {msg}
           </div>
-        ) : (
-          <form onSubmit={handleSubmit} suppressHydrationWarning style={{ display: "flex", gap: "0.5rem", maxWidth: "480px", margin: "0 auto" }}>
-            <div suppressHydrationWarning style={{ flex: 1, position: "relative" }}>
+        ) : isMounted ? (
+          <form onSubmit={handleSubmit} style={{ display: "flex", gap: "0.5rem", maxWidth: "480px", margin: "0 auto" }}>
+            <div style={{ flex: 1, position: "relative" }}>
               <input
                 type="email"
                 placeholder="Enter your email address"
                 value={email}
-                suppressHydrationWarning
                 onChange={(e) => {
                   setEmail(e.target.value);
                   if (status === "error") setStatus("idle");
@@ -192,6 +196,11 @@ export default function NewsletterBox() {
               )}
             </button>
           </form>
+        ) : (
+          <div style={{ height: "40px", display: "flex", gap: "0.5rem", maxWidth: "480px", margin: "0 auto" }}>
+             <div style={{ flex: 1, background: "rgba(255, 255, 255, 0.05)", borderRadius: "20px", border: "1px solid rgba(255, 255, 255, 0.12)" }}></div>
+             <div style={{ width: "100px", background: "var(--gradient-main)", borderRadius: "20px", opacity: 0.5 }}></div>
+          </div>
         )}
 
         {status === "error" && (
