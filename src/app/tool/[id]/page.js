@@ -92,11 +92,6 @@ export default async function ToolDetailPage({ params }) {
     include: { reviews: true }
   });
 
-  // Build JSON-LD schemas
-  const softwareSchema = {
-    "@context": "https://schema.org",
-    "@type": "SoftwareApplication",
-    "name": tool.name,
   return (
     <>
       <script
