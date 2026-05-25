@@ -5,9 +5,11 @@ import { useApp } from "@/context/AppContext";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
-import AdPlacement from "@/components/AdPlacement";
 import SchemaMarkup from "@/components/SchemaMarkup";
-import InternalLinks from "@/components/InternalLinks";
+import dynamic from "next/dynamic";
+
+const AdPlacement = dynamic(() => import("@/components/AdPlacement"), { ssr: true });
+const InternalLinks = dynamic(() => import("@/components/InternalLinks"), { ssr: true });
 
 export default function ToolDetailClient({ tool, similarTools, betterAlternatives = [], usersAlsoLiked = [] }) {
   const ensureAbsoluteUrl = (url) => {
