@@ -81,7 +81,7 @@ export default function HomeClient({ initialTools }) {
                 height={600}
                 priority={true}
                 loading="eager"
-                style={{ width: '100%', height: '270px', borderRadius: '12px', objectFit: 'fill' }}
+                style={{ width: '100%', height: '270px', borderRadius: '12px', objectFit: 'cover' }}
               />
             </div>
             <div className="hero-telemetry-grid" style={{ gap: '0.75rem' }}>
