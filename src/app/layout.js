@@ -11,34 +11,33 @@ export const dynamic = "force-dynamic";
 
 export const metadata = {
   metadataBase: new URL("https://ai.neqtra.com"),
-  alternates: {
-    canonical: "/",
+  title: {
+    default: "AuraAI | The Ultimate AI Directory & Comparison Engine 2026",
+    template: "%s | AuraAI",
   },
-  title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
-  description:
-    "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools. Verified user ratings and affiliate updates.",
+  description: "Discover, compare, and read verified reviews for the best AI tools, coding assistants, image generators, and video platforms.",
   openGraph: {
-    title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
-    description: "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools.",
+    title: "AuraAI | The Ultimate AI Directory & Comparison Engine 2026",
+    description: "Discover, compare, and read verified reviews for the best AI tools, coding assistants, image generators, and video platforms.",
     url: "https://ai.neqtra.com/",
-    siteName: "AuraAI Directory",
-    locale: "en_US",
-    type: "website",
+    siteName: "AuraAI",
     images: [
       {
-        url: "https://ai.neqtra.com/og-image.png",
+        url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "AuraAI Directory Banner",
-      },
+        alt: "AuraAI Preview",
+      }
     ],
+    locale: "en_US",
+    type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "AuraAI | Directory of Premium AI Tools, Reviews, & Comparisons",
-    description: "Explore, compare, and review the best AI coding assistants, image generators, productivity suites, and video tools.",
-    images: ["https://ai.neqtra.com/og-image.png"],
-  },
+    title: "AuraAI | The Ultimate AI Directory & Comparison Engine 2026",
+    description: "Discover, compare, and read verified reviews for the best AI tools, coding assistants, image generators, and video platforms.",
+    images: ["/og-image.jpg"],
+  }
 };
 
 export default function RootLayout({ children }) {

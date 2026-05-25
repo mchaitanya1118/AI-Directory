@@ -7,10 +7,13 @@ export default async function sitemap() {
   // 1. Core pages
   const corePages = [
     { url: baseUrl, lastModified: new Date(), changeFrequency: "daily", priority: 1.0 },
-    { url: `${baseUrl}/category/all`, lastModified: new Date(), changeFrequency: "daily", priority: 0.8 },
+    { url: `${baseUrl}/category/all`, lastModified: new Date(), changeFrequency: "daily", priority: 0.7 },
     { url: `${baseUrl}/submit`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
-    { url: `${baseUrl}/quiz`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.6 },
-    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.7 }
+    { url: `${baseUrl}/quiz`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/prompts`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/workflows`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/compare`, lastModified: new Date(), changeFrequency: "monthly", priority: 0.5 },
+    { url: `${baseUrl}/blog`, lastModified: new Date(), changeFrequency: "weekly", priority: 0.6 }
   ];
 
   try {
@@ -26,7 +29,7 @@ export default async function sitemap() {
       url: `${baseUrl}/category/${cat.id}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.8
+      priority: 0.7
     }));
 
     // 4. Dynamic Tool Detail Pages
@@ -34,7 +37,7 @@ export default async function sitemap() {
       url: `${baseUrl}/tool/${tool.id}`,
       lastModified: new Date(),
       changeFrequency: "daily",
-      priority: 0.9
+      priority: 0.8
     }));
 
     // 5. Dynamic Blog Pages
@@ -50,18 +53,16 @@ export default async function sitemap() {
       url: `${baseUrl}/curated/${slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.8
+      priority: 0.7
     }));
 
     // 7. Dynamic Programmatic SEO Pages (PSEO)
-    // For every category, we generate a "best-ai-tools-for-[cat]" and a "free-ai-tools-for-[cat]" page
     const pseoIntents = [];
     categories.forEach((cat) => {
       pseoIntents.push(`best-ai-tools-for-${cat.id}`);
       pseoIntents.push(`free-ai-tools-for-${cat.id}`);
     });
 
-    // Plus some general high-converting professional ones
     const generalIntents = [
       "best-ai-tools-for-students",
       "best-ai-tools-for-startups",
@@ -75,11 +76,10 @@ export default async function sitemap() {
       url: `${baseUrl}/best/${slug}`,
       lastModified: new Date(),
       changeFrequency: "weekly",
-      priority: 0.8
+      priority: 0.7
     }));
 
     // 8. Head-to-Head Comparison Pages
-    // For each category, combine every pairwise tool combo to build comparison sitemaps
     const compareUrls = [];
     categories.forEach((cat) => {
       const catTools = tools.filter((t) => t.categoryId === cat.id || t.category === cat.id);
@@ -88,13 +88,12 @@ export default async function sitemap() {
           for (let j = i + 1; j < catTools.length; j++) {
             const toolA = catTools[i];
             const toolB = catTools[j];
-            // E.g. "cursor-vs-github-copilot"
             const slug = `${toolA.id}-vs-${toolB.id}`;
             compareUrls.push({
               url: `${baseUrl}/compare/${slug}`,
               lastModified: new Date(),
               changeFrequency: "weekly",
-              priority: 0.7
+              priority: 0.6
             });
           }
         }

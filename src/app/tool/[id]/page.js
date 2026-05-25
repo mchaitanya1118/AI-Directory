@@ -23,12 +23,13 @@ export async function generateMetadata({ params }) {
     title,
     description,
     alternates: {
-      canonical: `/tool/${tool.id}`,
+      canonical: `https://ai.neqtra.com/tool/${tool.id}`,
     },
     openGraph: {
       title,
       description,
       url: `https://ai.neqtra.com/tool/${tool.id}`,
+      siteName: "AuraAI",
       type: "website",
       images: [
         {
