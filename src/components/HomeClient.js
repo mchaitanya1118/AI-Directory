@@ -81,7 +81,7 @@ export default function HomeClient({ initialTools }) {
                 height={600}
                 priority={true}
                 loading="eager"
-                style={{ width: '100%', height: '270px', borderRadius: '12px', objectFit: 'cover' }}
+                style={{ width: '100%', height: '270px', borderRadius: '12px', objectFit: 'fill' }}
               />
             </div>
             <div className="hero-telemetry-grid" style={{ gap: '0.75rem' }}>
@@ -136,7 +136,7 @@ export default function HomeClient({ initialTools }) {
               ></path>
             </svg>
           </div>
-          
+
           <div className="quick-pills" style={{ margin: 0, flexShrink: 0 }}>
             <span className="pill-btn" onClick={() => handlePillClick("IDE")}>AI IDEs</span>
             <span className="pill-btn" onClick={() => handlePillClick("Free Tier")}>Free Tiers</span>
