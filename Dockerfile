@@ -6,9 +6,8 @@ COPY package*.json ./
 COPY prisma ./prisma/
 RUN npm ci
 COPY . .
-ENV DATABASE_URL="file:./dev.db"
+ENV DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"
 RUN npx prisma generate
-RUN npx prisma db push --accept-data-loss
 RUN npm run build
 
 # --- Runner Stage ---
@@ -16,7 +15,6 @@ FROM node:20-alpine AS runner
 RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
 ENV NODE_ENV=production
-ENV DATABASE_URL="file:/data/dev.db"
 ENV NEXTAUTH_SECRET="auraai_super_secret_jwt_key_2026_production_fallback"
 ENV NEXTAUTH_URL="https://ai.neqtra.com"
 COPY --from=builder /app/package*.json ./
