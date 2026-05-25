@@ -80,7 +80,7 @@ export default function HomeClient({ initialTools }) {
               Explore top AI tools to boost productivity, automate tasks, and achieve more in less time.
             </p>
             
-            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '3rem' }}>
+            <div style={{ display: 'flex', gap: '1rem', alignItems: 'center', marginBottom: '1.5rem' }}>
               <Link href="/category/all" style={{ 
                 display: 'flex', alignItems: 'center', gap: '0.5rem',
                 background: 'var(--gradient-main)', color: '#fff', 
