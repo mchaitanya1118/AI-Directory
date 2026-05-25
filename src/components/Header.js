@@ -42,7 +42,6 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const links = [
-    { href: "/", label: "Home" },
     { href: "/category/all", label: "All Tools" },
     { href: "/category/coding", label: "Coding" },
     { href: "/category/image", label: "Design" },
@@ -103,7 +102,7 @@ export default function Header() {
 
   return (
     <header className="app-header">
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%', maxWidth: '1000px', margin: '0 auto' }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%', maxWidth: '1200px', padding: '0 1rem', margin: '0 auto' }}>
         
         {/* 1. Left Logo */}
         <Link href="/" className="logo-container" style={{ flexShrink: 0, gap: '0.5rem' }}>
