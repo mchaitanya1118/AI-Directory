@@ -81,6 +81,7 @@ export default function HomeClient({ initialTools }) {
                 alt="AuraAI Hero"
                 width={1200}
                 height={600}
+                sizes="(max-width: 768px) 100vw, 50vw"
                 priority={true}
                 fetchPriority="high"
                 style={{ width: '100%', height: '270px', borderRadius: '12px', objectFit: 'cover' }}
