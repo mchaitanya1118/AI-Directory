@@ -71,15 +71,37 @@ export default async function HomePage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "name": "Best AI Tools 2026",
+            "url": "https://ai.neqtra.com",
+            "itemListElement": tools.map((tool, i) => ({
+              "@type": "ListItem",
+              "position": i + 1,
+              "name": tool.name,
+              "url": `https://ai.neqtra.com/tool/${tool.id}`,
+              "description": tool.shortDescription,
+            })),
+          }),
+        }}
       />
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(itemListSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            "name": "AuraAI",
+            "url": "https://ai.neqtra.com",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": "https://ai.neqtra.com/category/all?q={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
       />
       <HomeClient initialTools={tools} />
     </>

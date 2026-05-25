@@ -18,39 +18,29 @@ export const metadata = {
   description: "Discover, compare, and read verified reviews for the best AI tools, coding assistants, image generators, and video platforms.",
   openGraph: {
     title: "AuraAI | The Ultimate AI Directory & Comparison Engine 2026",
-    description: "Discover, compare, and read verified reviews for the best AI tools, coding assistants, image generators, and video platforms.",
-    url: "https://ai.neqtra.com/",
+    description: "Discover, compare, and read verified reviews for the best AI tools.",
+    url: "https://ai.neqtra.com",
     siteName: "AuraAI",
-    images: [
-      {
-        url: "/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "AuraAI Preview",
-      }
-    ],
-    locale: "en_US",
+    images: [{ url: "/og-image.jpg", width: 1200, height: 630, alt: "AuraAI Directory" }],
     type: "website",
+    locale: "en_US",
   },
   twitter: {
     card: "summary_large_image",
     title: "AuraAI | The Ultimate AI Directory & Comparison Engine 2026",
-    description: "Discover, compare, and read verified reviews for the best AI tools, coding assistants, image generators, and video platforms.",
+    description: "Discover the best AI tools for your workflow.",
     images: ["/og-image.jpg"],
-  }
+  },
+  alternates: {
+    canonical: "https://ai.neqtra.com",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        {/* Google AdSense Script - Optimized to lazyOnload */}
-        <Script 
-          async 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9876543210123456" 
-          strategy="lazyOnload" 
-          crossOrigin="anonymous" 
-        />
+
         <NextAuthProvider>
           <AppProvider>
             <div className="app-container">
@@ -147,6 +137,12 @@ export default function RootLayout({ children }) {
           </div>
         </AppProvider>
         </NextAuthProvider>
+        {/* Google AdSense Script - Optimized to lazyOnload */}
+        <Script 
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9876543210123456" 
+          strategy="lazyOnload" 
+          crossOrigin="anonymous" 
+        />
       </body>
     </html>
   );

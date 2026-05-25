@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { useApp } from "@/context/AppContext";
 import ToolCard from "@/components/ToolCard";
 import Link from "next/link";
+import Image from "next/image";
 import { useRouter } from "next/navigation";
 import NewsletterBox from "@/components/NewsletterBox";
 
@@ -30,12 +31,19 @@ export default function HomeClient({ initialTools }) {
   };
 
   const safeTools = initialTools || [];
-  const sponsoredList = safeTools.filter((t) => t.sponsored);
-  // Deduplicate: filter out sponsored tools from popular list
-  const popularList = [...safeTools]
-    .filter((t) => !t.sponsored)
+  const sponsoredTools = safeTools.filter((t) => t.sponsored);
+
+  const sponsoredSlugs = new Set(sponsoredTools.map((t) => t.id));
+
+  const highestRatedFiltered = safeTools
+    .filter((t) => !sponsoredSlugs.has(t.id))
     .sort((a, b) => getAverageRating(b) - getAverageRating(a))
     .slice(0, 4);
+
+  const catalogTools = safeTools.map((tool) => ({
+    ...tool,
+    isSponsored: sponsoredSlugs.has(tool.id),
+  }));
 
   return (
     <div>
@@ -60,6 +68,17 @@ export default function HomeClient({ initialTools }) {
 
           {/* RIGHT COLUMN */}
           <div className="hero-content-right">
+            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+              <Image
+                src="/hero-image.png"
+                alt="AuraAI Hero"
+                width={1200}
+                height={600}
+                priority={true}
+                loading="eager"
+                style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
+              />
+            </div>
             <div className="search-wrapper">
               <input
                 type="text"
@@ -125,7 +144,7 @@ export default function HomeClient({ initialTools }) {
           </div>
         </div>
         <div className="sponsored-carousel">
-          {sponsoredList.map((t) => <ToolCard key={t.id} tool={t} />)}
+          {sponsoredTools.map((t) => <ToolCard key={t.id} tool={t} />)}
         </div>
       </section>
 
@@ -225,7 +244,7 @@ export default function HomeClient({ initialTools }) {
           <Link href="/category/all" className="read-more-link">See All Tools &rarr;</Link>
         </div>
         <div className="sponsored-carousel">
-          {popularList.map((t) => <ToolCard key={t.id} tool={t} />)}
+          {highestRatedFiltered.map((t) => <ToolCard key={t.id} tool={t} />)}
         </div>
       </section>
 
@@ -262,7 +281,7 @@ export default function HomeClient({ initialTools }) {
         </div>
 
         <div className="sponsored-carousel" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", display: "grid", gap: "1.5rem" }}>
-          {safeTools
+          {catalogTools
             .filter((t) => homeCategory === "all" ? true : t.categoryId === homeCategory)
             .map((t) => (
               <ToolCard key={t.id} tool={t} />

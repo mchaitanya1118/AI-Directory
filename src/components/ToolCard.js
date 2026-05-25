@@ -3,6 +3,7 @@
 import React from "react";
 import { useApp } from "@/context/AppContext";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function ToolCard({ tool }) {
   const { comparedTools, toggleCompare, isMounted } = useApp();
@@ -52,10 +53,20 @@ export default function ToolCard({ tool }) {
 
       <div>
         <div className="card-header">
-          <div
-            className="card-logo-wrap"
-            dangerouslySetInnerHTML={{ __html: tool.logo }}
-          />
+          <div className="card-logo-wrap">
+            {tool.logo.startsWith('<svg') ? (
+              <div dangerouslySetInnerHTML={{ __html: tool.logo }} />
+            ) : (
+              <Image
+                src={tool.logo || "/placeholder.png"}
+                alt={`${tool.name} logo`}
+                width={48}
+                height={48}
+                loading="lazy"
+                style={{ objectFit: "contain" }}
+              />
+            )}
+          </div>
           <div className="card-title-area">
             <Link href={`/tool/${tool.id}`}>
               <h3 style={{ cursor: "pointer" }}>{tool.name}</h3>
@@ -104,8 +115,9 @@ export default function ToolCard({ tool }) {
         </div>
         <a
           href={ensureAbsoluteUrl(tool.website)}
+          rel="nofollow sponsored noopener noreferrer"
           target="_blank"
-          rel="noopener noreferrer nofollow sponsored"
+          aria-label={`Visit ${tool.name} website (affiliate link)`}
           className="card-btn action-primary"
           style={{ width: '100%', marginTop: '0.75rem', padding: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
         >

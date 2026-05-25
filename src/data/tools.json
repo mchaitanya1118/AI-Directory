@@ -1254,7 +1254,7 @@
     "pricing": "Free",
     "pricingDetails": "Highly affordable pay-per-token API (currently starting at $0.14/million tokens). Free model download available.",
     "shortDescription": "High-capability open-weight developer models matching commercial performance at a fraction of the cost.",
-    "description": "DeepSeek Coder is a state-of-the-art open-weight AI model optimized specifically for developers. Trained on over 2 trillion code tokens and supporting a massive 128K context window, DeepSeek Coder matches commercial models in coding benchmarks while remaining highly affordable to scale.",
+    "description": "DeepSeek is an open-weight AI model from China offering competitive coding, reasoning, and chat capabilities at very low API cost. Ideal for developers needing an affordable GPT-4-class model with open weights and a generous free tier.",
     "features": [
       "Open-weights available for secure self-hosted execution",
       "Massive 128K token context window for large codebase uploads",
