@@ -67,42 +67,13 @@ export default function HomeClient({ initialTools }) {
             </p>
             <div className="hero-cta-buttons">
               <Link href="/category/all" className="cta-btn primary">Start the Search</Link>
-              <Link href="/quiz" className="cta-btn secondary">AI Finder Quiz ⚡</Link>
-            </div>
-            
-            <div className="search-wrapper" style={{ marginTop: '2rem' }}>
-              {isMounted ? (
-                <input
-                  type="text"
-                  className="search-input"
-                  placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
-                  value={searchVal}
-                  onChange={(e) => setSearchVal(e.target.value)}
-                  onKeyDown={handleSearchSubmit}
-                />
-              ) : (
-                <div style={{ height: "50px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "25px", border: "1px solid rgba(255,255,255,0.12)" }}></div>
-              )}
-              <svg
-                className="search-icon-svg"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                ></path>
-              </svg>
+              <Link href="/quiz" className="cta-btn secondary" style={{ background: '#dcdcdc', color: '#000' }}>Start the Search</Link>
             </div>
           </div>
 
           {/* RIGHT COLUMN */}
           <div className="hero-content-right">
-            <div style={{ marginBottom: '2rem', textAlign: 'center' }}>
+            <div style={{ marginBottom: '1rem', textAlign: 'center' }}>
               <Image
                 src="/hero-image.png"
                 alt="AuraAI Hero"
@@ -113,29 +84,57 @@ export default function HomeClient({ initialTools }) {
                 style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
               />
             </div>
+            <div className="hero-telemetry-grid" style={{ gap: '0.75rem' }}>
+              <div className="telemetry-card" style={{ padding: '0.75rem', borderRadius: '8px' }}>
+                <div className="telemetry-number">
+                  <span>{safeTools.length}+</span>
+                </div>
+                <div className="telemetry-label" style={{ fontSize: '0.65rem' }}>Prime AI Engines</div>
+              </div>
+              <div className="telemetry-card" style={{ padding: '0.75rem', borderRadius: '8px' }}>
+                <div className="telemetry-number">
+                  <span>100%</span>
+                </div>
+                <div className="telemetry-label" style={{ fontSize: '0.65rem' }}>Crawl Sync Secure</div>
+              </div>
+              <div className="telemetry-card" style={{ padding: '0.75rem', borderRadius: '8px' }}>
+                <div className="telemetry-number">
+                  <span>4.8 ★</span>
+                </div>
+                <div className="telemetry-label" style={{ fontSize: '0.65rem' }}>Avg Quality Score</div>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div style={{ maxWidth: "1200px", margin: "3rem auto 0 auto", width: "100%" }}>
-          <div className="hero-telemetry-grid">
-            <div className="telemetry-card">
-              <div className="telemetry-number">
-                <span>{safeTools.length}+</span>
-              </div>
-              <div className="telemetry-label">Prime AI Engines</div>
-            </div>
-            <div className="telemetry-card">
-              <div className="telemetry-number">
-                <span>100%</span>
-              </div>
-              <div className="telemetry-label">Crawl Sync Secure</div>
-            </div>
-            <div className="telemetry-card">
-              <div className="telemetry-number">
-                <span>4.8 ★</span>
-              </div>
-              <div className="telemetry-label">Avg Quality Score</div>
-            </div>
+        <div style={{ maxWidth: "1200px", margin: "2rem auto 0 auto", width: "100%" }}>
+          <div className="search-wrapper">
+            {isMounted ? (
+              <input
+                type="text"
+                className="search-input"
+                placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
+                value={searchVal}
+                onChange={(e) => setSearchVal(e.target.value)}
+                onKeyDown={handleSearchSubmit}
+              />
+            ) : (
+              <div style={{ height: "60px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "30px", border: "1px solid rgba(255,255,255,0.12)" }}></div>
+            )}
+            <svg
+              className="search-icon-svg"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+              ></path>
+            </svg>
           </div>
         </div>
       </section>
