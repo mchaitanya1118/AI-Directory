@@ -297,6 +297,7 @@ export default function HomeClient({ initialTools }) {
         <div className="sponsored-carousel" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", display: "grid", gap: "1.5rem" }}>
           {catalogTools
             .filter((t) => homeCategory === "all" ? true : t.categoryId === homeCategory)
+            .slice(0, 8)
             .map((t) => (
               <ToolCard key={t.id} tool={t} />
             ))}
