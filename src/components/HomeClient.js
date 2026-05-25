@@ -107,8 +107,8 @@ export default function HomeClient({ initialTools }) {
           </div>
         </div>
 
-        <div style={{ maxWidth: "1200px", margin: "2rem auto 0 auto", width: "100%" }}>
-          <div className="search-wrapper">
+        <div style={{ maxWidth: "1200px", margin: "2rem auto 0 auto", width: "100%", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
+          <div className="search-wrapper" style={{ margin: 0, flex: "1 1 400px" }}>
             {isMounted ? (
               <input
                 type="text"
@@ -137,7 +137,7 @@ export default function HomeClient({ initialTools }) {
             </svg>
           </div>
           
-          <div className="quick-pills">
+          <div className="quick-pills" style={{ margin: 0, flexShrink: 0 }}>
             <span className="pill-btn" onClick={() => handlePillClick("IDE")}>AI IDEs</span>
             <span className="pill-btn" onClick={() => handlePillClick("Free Tier")}>Free Tiers</span>
             <span className="pill-btn" onClick={() => handlePillClick("Photorealism")}>Photorealism</span>
