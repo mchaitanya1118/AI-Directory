@@ -57,8 +57,8 @@ export default function HomeClient({ initialTools }) {
           {/* LEFT COLUMN */}
           <div className="hero-content-left">
             <h2 className="hero-title">
-              Discover the best<br/>
-              <span>AI Tools</span> for your<br/>
+              Discover the best<br />
+              <span>AI Tools</span> for your<br />
               workflow!
             </h2>
             <p className="hero-subtitle">
@@ -81,7 +81,7 @@ export default function HomeClient({ initialTools }) {
                 height={600}
                 priority={true}
                 loading="eager"
-                style={{ width: '100%', height: 'auto', borderRadius: '12px' }}
+                style={{ width: '100%', height: '270px', borderRadius: '12px', objectFit: 'cover' }}
               />
             </div>
             <div className="hero-telemetry-grid" style={{ gap: '0.75rem' }}>
@@ -136,6 +136,14 @@ export default function HomeClient({ initialTools }) {
               ></path>
             </svg>
           </div>
+          
+          <div className="quick-pills">
+            <span className="pill-btn" onClick={() => handlePillClick("IDE")}>AI IDEs</span>
+            <span className="pill-btn" onClick={() => handlePillClick("Free Tier")}>Free Tiers</span>
+            <span className="pill-btn" onClick={() => handlePillClick("Photorealism")}>Photorealism</span>
+            <span className="pill-btn" onClick={() => handlePillClick("Voice Clone")}>Voice Clones</span>
+            <span className="pill-btn" onClick={() => handlePillClick("Citations")}>Research Citations</span>
+          </div>
         </div>
       </section>
 
@@ -170,8 +178,8 @@ export default function HomeClient({ initialTools }) {
             if (!toolA || !toolB) return null;
 
             return (
-              <div 
-                key={idx} 
+              <div
+                key={idx}
                 className="compare-shortcut-card"
                 onClick={() => {
                   startComparison(pair.idA, pair.idB);
