@@ -26,5 +26,11 @@
     "eslint-config-next": "16.2.6",
     "prisma": "^5.21.1",
     "tailwindcss": "^4"
-  }
+  },
+  "browserslist": [
+    ">0.3%",
+    "not dead",
+    "not op_mini all",
+    "not ie 11"
+  ]
 }
