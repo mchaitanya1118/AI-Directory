@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import SignOutButton from "@/components/SignOutButton";
+import { LayoutDashboard, Wrench, ShieldAlert, Link as LinkIcon, Mail, Users, MessageSquare, Database, PenTool, Trash2, Edit3, ArrowRight, Bookmark, Globe } from "lucide-react";
 
 export default function AdminClient({
   initialTools = [],
@@ -322,6 +323,49 @@ export default function AdminClient({
     }
   };
 
+  const handleUpdateUserRole = async (userId, newRole) => {
+    setIsLoading(true);
+    try {
+      const response = await fetch(`/api/admin/users/${userId}`, {
+        method: "PUT",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ role: newRole })
+      });
+      const resData = await response.json();
+      if (response.ok && resData.success) {
+        setUsers((prev) => prev.map((u) => (u.id === userId ? { ...u, role: newRole } : u)));
+        showAlert("success", `User role successfully updated to ${newRole}`);
+      } else {
+        showAlert("error", resData.error || "Failed to update user role");
+      }
+    } catch (err) {
+      showAlert("error", "Network failure updating user role");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
+  const handleDeleteUser = async (userId, username) => {
+    if (!confirm(`Are you sure you want to permanently delete user @${username}? This action cannot be undone.`)) return;
+    setIsLoading(true);
+    try {
+      const response = await fetch(`/api/admin/users/${userId}`, {
+        method: "DELETE"
+      });
+      const resData = await response.json();
+      if (response.ok && resData.success) {
+        setUsers((prev) => prev.filter((u) => u.id !== userId));
+        showAlert("success", `User @${username} was completely deleted.`);
+      } else {
+        showAlert("error", resData.error || "Failed to delete user");
+      }
+    } catch (err) {
+      showAlert("error", "Network failure deleting user");
+    } finally {
+      setIsLoading(false);
+    }
+  };
+
   const handleSendBlast = (e) => {
     e.preventDefault();
     if (!blastSubject || !blastContent) {
@@ -494,13 +538,13 @@ export default function AdminClient({
         }}
       >
         {[
-          { id: "overview", label: "Overview Metrics", icon: "📊" },
-          { id: "tools", label: `Tools Inventory (${approvedTools.length})`, icon: "🛠️" },
-          { id: "moderation", label: `Moderation Queue (${pendingTools.length})`, icon: "⚖️" },
-          { id: "central-command", label: "Central Link Command", icon: "🌐" },
-          { id: "subscribers", label: `Newsletter Leads (${subscribers.length})`, icon: "✉️" },
-          { id: "users", label: `User Roster (${users.length})`, icon: "👥" },
-          { id: "reviews", label: `Reviews Moderation (${reviews.length})`, icon: "💬" }
+          { id: "overview", label: "Overview Metrics", icon: <LayoutDashboard size={18} /> },
+          { id: "tools", label: `Tools Inventory (${approvedTools.length})`, icon: <Wrench size={18} /> },
+          { id: "moderation", label: `Moderation Queue (${pendingTools.length})`, icon: <ShieldAlert size={18} /> },
+          { id: "central-command", label: "Central Link Command", icon: <LinkIcon size={18} /> },
+          { id: "subscribers", label: `Newsletter Leads (${subscribers.length})`, icon: <Mail size={18} /> },
+          { id: "users", label: `User Roster (${users.length})`, icon: <Users size={18} /> },
+          { id: "reviews", label: `Reviews Moderation (${reviews.length})`, icon: <MessageSquare size={18} /> }
         ].map((tab) => (
           <button
             key={tab.id}
@@ -535,21 +579,25 @@ export default function AdminClient({
           <div>
             {/* Quick Metrics Grid */}
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "1.5rem" }}>
-              <div className="detail-glass-card" style={{ padding: "2rem", textAlign: "center" }}>
-                <h3 style={{ fontSize: "3rem", color: "var(--neon-cyan)", margin: 0, fontFamily: "var(--font-display)" }}>{tools.length}</h3>
-                <p style={{ color: "var(--text-muted)", margin: 0, textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px" }}>Total Tools</p>
+              <div className="detail-glass-card" style={{ padding: "2rem", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
+                <div style={{ background: "rgba(0, 113, 227, 0.1)", padding: "1rem", borderRadius: "50%", marginBottom: "0.5rem" }}><Database size={24} color="var(--neon-cyan)" /></div>
+                <h3 style={{ fontSize: "2.5rem", color: "var(--neon-cyan)", margin: 0, fontFamily: "var(--font-display)", lineHeight: 1 }}>{tools.length}</h3>
+                <p style={{ color: "var(--text-muted)", margin: 0, textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px", fontWeight: "600" }}>Total Tools</p>
               </div>
-              <div className="detail-glass-card" style={{ padding: "2rem", textAlign: "center" }}>
-                <h3 style={{ fontSize: "3rem", color: "var(--neon-gold)", margin: 0, fontFamily: "var(--font-display)" }}>{users.length}</h3>
-                <p style={{ color: "var(--text-muted)", margin: 0, textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px" }}>Registered Users</p>
+              <div className="detail-glass-card" style={{ padding: "2rem", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
+                <div style={{ background: "rgba(255, 159, 10, 0.1)", padding: "1rem", borderRadius: "50%", marginBottom: "0.5rem" }}><Users size={24} color="var(--neon-gold)" /></div>
+                <h3 style={{ fontSize: "2.5rem", color: "var(--neon-gold)", margin: 0, fontFamily: "var(--font-display)", lineHeight: 1 }}>{users.length}</h3>
+                <p style={{ color: "var(--text-muted)", margin: 0, textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px", fontWeight: "600" }}>Registered Users</p>
               </div>
-              <div className="detail-glass-card" style={{ padding: "2rem", textAlign: "center" }}>
-                <h3 style={{ fontSize: "3rem", color: "#a855f7", margin: 0, fontFamily: "var(--font-display)" }}>{reviews.length}</h3>
-                <p style={{ color: "var(--text-muted)", margin: 0, textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px" }}>Platform Reviews</p>
+              <div className="detail-glass-card" style={{ padding: "2rem", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
+                <div style={{ background: "rgba(168, 85, 247, 0.1)", padding: "1rem", borderRadius: "50%", marginBottom: "0.5rem" }}><MessageSquare size={24} color="#a855f7" /></div>
+                <h3 style={{ fontSize: "2.5rem", color: "#a855f7", margin: 0, fontFamily: "var(--font-display)", lineHeight: 1 }}>{reviews.length}</h3>
+                <p style={{ color: "var(--text-muted)", margin: 0, textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px", fontWeight: "600" }}>Platform Reviews</p>
               </div>
-              <div className="detail-glass-card" style={{ padding: "2rem", textAlign: "center" }}>
-                <h3 style={{ fontSize: "3rem", color: "#10b981", margin: 0, fontFamily: "var(--font-display)" }}>{totalBookmarks}</h3>
-                <p style={{ color: "var(--text-muted)", margin: 0, textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px" }}>Saved Bookmarks</p>
+              <div className="detail-glass-card" style={{ padding: "2rem", textAlign: "center", display: "flex", flexDirection: "column", alignItems: "center", gap: "0.5rem" }}>
+                <div style={{ background: "rgba(16, 185, 129, 0.1)", padding: "1rem", borderRadius: "50%", marginBottom: "0.5rem" }}><Bookmark size={24} color="#10b981" /></div>
+                <h3 style={{ fontSize: "2.5rem", color: "#10b981", margin: 0, fontFamily: "var(--font-display)", lineHeight: 1 }}>{totalBookmarks}</h3>
+                <p style={{ color: "var(--text-muted)", margin: 0, textTransform: "uppercase", fontSize: "0.8rem", letterSpacing: "1px", fontWeight: "600" }}>Saved Bookmarks</p>
               </div>
             </div>
 
@@ -647,7 +695,7 @@ export default function AdminClient({
             </div>
 
             {/* Tools table list */}
-            <div className="detail-glass-card" style={{ padding: 0, overflowX: "auto", border: "1px solid var(--border-glass)" }}>
+            <div className="detail-glass-card" style={{ padding: 0, overflowX: "auto", overflowY: "auto", maxHeight: "600px", border: "1px solid var(--border-glass)" }}>
               <table style={{ width: "100%", borderCollapse: "collapse", textAlign: "left", fontSize: "0.9rem" }}>
                 <thead>
                   <tr style={{ borderBottom: "1px solid var(--border-glass)", background: "rgba(255,255,255,0.01)" }}>
@@ -1025,13 +1073,17 @@ export default function AdminClient({
                     <th style={{ padding: "1rem 1.5rem", color: "var(--text-muted)" }}>Username</th>
                     <th style={{ padding: "1rem 1.5rem", color: "var(--text-muted)" }}>Email Address</th>
                     <th style={{ padding: "1rem 1.5rem", color: "var(--text-muted)" }}>Security Role</th>
+                    <th style={{ padding: "1rem 1.5rem", color: "var(--text-muted)", textAlign: "center" }}>Actions</th>
                   </tr>
                 </thead>
                 <tbody>
                   {users.length === 0 ? (
                     <tr>
-                      <td colSpan="3" style={{ padding: "3rem", textAlign: "center", color: "var(--text-muted)" }}>
-                        No registered accounts in system roster.
+                      <td colSpan="4" style={{ padding: "4rem", textAlign: "center", color: "var(--text-muted)" }}>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "1rem", opacity: 0.5 }}>
+                          <Users size={48} />
+                          <p style={{ margin: 0 }}>No registered accounts in system roster.</p>
+                        </div>
                       </td>
                     </tr>
                   ) : (
@@ -1040,19 +1092,42 @@ export default function AdminClient({
                         <td style={{ padding: "1.25rem 1.5rem", color: "var(--text-bright)", fontWeight: "600" }}>{user.username}</td>
                         <td style={{ padding: "1.25rem 1.5rem", color: "var(--text-muted)" }}>{user.email}</td>
                         <td style={{ padding: "1.25rem 1.5rem" }}>
-                          <span
+                          <select
+                            value={user.role}
+                            onChange={(e) => handleUpdateUserRole(user.id, e.target.value)}
                             style={{
-                              padding: "0.25rem 0.6rem",
-                              borderRadius: "4px",
-                              fontSize: "0.75rem",
-                              fontWeight: "700",
                               background: user.role === "ADMIN" ? "rgba(0, 242, 254, 0.1)" : "rgba(255,255,255,0.03)",
                               color: user.role === "ADMIN" ? "var(--neon-cyan)" : "var(--text-muted)",
-                              border: user.role === "ADMIN" ? "1px solid rgba(0, 242, 254, 0.2)" : "1px solid var(--border-glass)"
+                              border: user.role === "ADMIN" ? "1px solid rgba(0, 242, 254, 0.2)" : "1px solid var(--border-glass)",
+                              padding: "0.4rem 0.6rem",
+                              borderRadius: "6px",
+                              fontSize: "0.8rem",
+                              fontWeight: "700",
+                              cursor: "pointer",
+                              outline: "none"
                             }}
                           >
-                            {user.role}
-                          </span>
+                            <option value="USER" style={{ background: "#111" }}>USER</option>
+                            <option value="ADMIN" style={{ background: "#111" }}>ADMIN</option>
+                          </select>
+                        </td>
+                        <td style={{ padding: "1.25rem 1.5rem", textAlign: "center" }}>
+                           <button
+                             onClick={() => handleDeleteUser(user.id, user.username)}
+                             style={{
+                               background: "rgba(255, 77, 77, 0.1)",
+                               border: "1px solid rgba(255, 77, 77, 0.2)",
+                               color: "#ff4d4d",
+                               padding: "0.4rem 0.75rem",
+                               fontSize: "0.8rem",
+                               borderRadius: "6px",
+                               cursor: "pointer",
+                               fontWeight: "600"
+                             }}
+                             title={`Delete @${user.username}`}
+                           >
+                             Delete User
+                           </button>
                         </td>
                       </tr>
                     ))
@@ -1407,18 +1482,19 @@ export default function AdminClient({
                 </div>
               </div>
 
-              <div>
-                <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Website Outbound URL *</label>
-                <input
-                  type="text"
-                  name="website"
-                  required
-                  value={formData.website}
-                  onChange={handleFormChange}
-                  placeholder="https://example.com"
-                  style={{ width: "100%", padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff" }}
-                />
-              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Website Outbound URL *</label>
+                  <input
+                    type="text"
+                    name="website"
+                    required
+                    value={formData.website}
+                    onChange={handleFormChange}
+                    placeholder="https://example.com"
+                    style={{ width: "100%", padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff" }}
+                  />
+                </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                 <div>
@@ -1448,17 +1524,18 @@ export default function AdminClient({
                 </div>
               </div>
 
-              <div>
-                <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Short Sub-headline *</label>
-                <input
-                  type="text"
-                  name="shortDescription"
-                  required
-                  value={formData.shortDescription}
-                  onChange={handleFormChange}
-                  placeholder="One line tagline description..."
-                  style={{ width: "100%", padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff" }}
-                />
+                <div>
+                  <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Short Sub-headline *</label>
+                  <input
+                    type="text"
+                    name="shortDescription"
+                    required
+                    value={formData.shortDescription}
+                    onChange={handleFormChange}
+                    placeholder="One line tagline description..."
+                    style={{ width: "100%", padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff" }}
+                  />
+                </div>
               </div>
 
               <div>
@@ -1627,17 +1704,18 @@ export default function AdminClient({
                 </div>
               </div>
 
-              <div>
-                <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Website Outbound URL *</label>
-                <input
-                  type="text"
-                  name="website"
-                  required
-                  value={formData.website}
-                  onChange={handleFormChange}
-                  style={{ width: "100%", padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff" }}
-                />
-              </div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
+                <div>
+                  <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Website Outbound URL *</label>
+                  <input
+                    type="text"
+                    name="website"
+                    required
+                    value={formData.website}
+                    onChange={handleFormChange}
+                    style={{ width: "100%", padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff" }}
+                  />
+                </div>
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "1rem" }}>
                 <div>
@@ -1666,16 +1744,17 @@ export default function AdminClient({
                 </div>
               </div>
 
-              <div>
-                <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Short Sub-headline *</label>
-                <input
-                  type="text"
-                  name="shortDescription"
-                  required
-                  value={formData.shortDescription}
-                  onChange={handleFormChange}
-                  style={{ width: "100%", padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff" }}
-                />
+                <div>
+                  <label style={{ display: "block", fontSize: "0.8rem", color: "var(--text-muted)", marginBottom: "0.4rem" }}>Short Sub-headline *</label>
+                  <input
+                    type="text"
+                    name="shortDescription"
+                    required
+                    value={formData.shortDescription}
+                    onChange={handleFormChange}
+                    style={{ width: "100%", padding: "0.5rem 0.75rem", background: "rgba(255,255,255,0.03)", border: "1px solid var(--border-glass)", borderRadius: "6px", color: "#fff" }}
+                  />
+                </div>
               </div>
 
               <div>
