@@ -26,5 +26,6 @@ COPY --from=builder /app/scripts ./scripts
 
 EXPOSE 3000
 
-# Push schema changes on startup, then launch Next.js
-CMD ["sh", "-c", "node scripts/validate-db-url.js && npx prisma db push && npm run start"]
+# Start via the startup wrapper script (handles URL encoding, schema push, and server start)
+CMD ["node", "scripts/start.js"]
+
