@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
+import styles from "./HomeClient.module.css";
 
 const NewsletterBox = dynamic(() => import("@/components/NewsletterBox"), { ssr: true });
 
@@ -54,27 +55,27 @@ export default function HomeClient({ initialTools }) {
 
   return (
     <div>
-      <section className="hero-section">
-        <div className="hero-container">
+      <section className={styles['hero-section']}>
+        <div className={styles['hero-container']}>
           {/* LEFT COLUMN */}
-          <div className="hero-content-left">
-            <h2 className="hero-title">
+          <div className={styles['hero-content-left']}>
+            <h2 className={styles['hero-title']}>
               Discover the best<br />
               <span>AI Tools</span> for your<br />
               workflow!
             </h2>
-            <p className="hero-subtitle">
+            <p className={styles['hero-subtitle']}>
               Compare pricing models, explore verified user reviews, and filter
               through industry-standard AI productivity, coding, image, and video generators.
             </p>
-            <div className="hero-cta-buttons">
-              <Link href="/category/all" className="cta-btn primary">Start the Search</Link>
-              <Link href="/quiz" className="cta-btn secondary" style={{ background: '#ebebeb', color: '#000' }}>AI Finder Quiz ⚡</Link>
+            <div className={styles['hero-cta-buttons']}>
+              <Link href="/category/all" className={`${styles['cta-btn']} ${styles.primary}`}>Start the Search</Link>
+              <Link href="/quiz" className={`${styles['cta-btn']} ${styles.secondary}`} style={{ background: '#ebebeb', color: '#000' }}>AI Finder Quiz ⚡</Link>
             </div>
           </div>
 
           {/* RIGHT COLUMN */}
-          <div className="hero-content-right">
+          <div className={styles['hero-content-right']}>
             <div style={{ marginBottom: '1rem', textAlign: 'center' }}>
               <Image
                 src="/hero-image.png"
@@ -87,41 +88,41 @@ export default function HomeClient({ initialTools }) {
                 style={{ width: '100%', height: '270px', borderRadius: '12px', objectFit: 'cover' }}
               />
             </div>
-            <div className="hero-telemetry-grid" style={{ gap: '0.75rem' }}>
-              <div className="telemetry-card" style={{ padding: '0.75rem', borderRadius: '8px' }}>
-                <div className="telemetry-number">
+            <div className={styles['hero-telemetry-grid']} style={{ gap: '0.75rem' }}>
+              <div className={styles['telemetry-card']} style={{ padding: '0.75rem', borderRadius: '8px' }}>
+                <div className={styles['telemetry-number']}>
                   <span>{safeTools.length}+</span>
                 </div>
-                <div className="telemetry-label" style={{ fontSize: '0.65rem' }}>Prime AI Engines</div>
+                <div className={styles['telemetry-label']} style={{ fontSize: '0.65rem' }}>Prime AI Engines</div>
               </div>
-              <div className="telemetry-card" style={{ padding: '0.75rem', borderRadius: '8px' }}>
-                <div className="telemetry-number">
+              <div className={styles['telemetry-card']} style={{ padding: '0.75rem', borderRadius: '8px' }}>
+                <div className={styles['telemetry-number']}>
                   <span>100%</span>
                 </div>
-                <div className="telemetry-label" style={{ fontSize: '0.65rem' }}>Crawl Sync Secure</div>
+                <div className={styles['telemetry-label']} style={{ fontSize: '0.65rem' }}>Crawl Sync Secure</div>
               </div>
-              <div className="telemetry-card" style={{ padding: '0.75rem', borderRadius: '8px' }}>
-                <div className="telemetry-number">
+              <div className={styles['telemetry-card']} style={{ padding: '0.75rem', borderRadius: '8px' }}>
+                <div className={styles['telemetry-number']}>
                   <span>4.8 ★</span>
                 </div>
-                <div className="telemetry-label" style={{ fontSize: '0.65rem' }}>Avg Quality Score</div>
+                <div className={styles['telemetry-label']} style={{ fontSize: '0.65rem' }}>Avg Quality Score</div>
               </div>
             </div>
           </div>
         </div>
 
         <div style={{ maxWidth: "1200px", margin: "2rem auto 0 auto", width: "100%", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
-          <div className="search-wrapper" style={{ margin: 0, flex: "1 1 400px" }}>
+          <div className={styles['search-wrapper']} style={{ margin: 0, flex: "1 1 400px" }}>
             <input
               type="text"
-              className="search-input"
+              className={styles['search-input']}
               placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
               value={searchVal}
               onChange={(e) => setSearchVal(e.target.value)}
               onKeyDown={handleSearchSubmit}
             />
             <svg
-              className="search-icon-svg"
+              className={styles['search-icon-svg']}
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -136,37 +137,37 @@ export default function HomeClient({ initialTools }) {
             </svg>
           </div>
 
-          <div className="quick-pills" style={{ margin: 0, flexShrink: 0 }}>
-            <span className="pill-btn" onClick={() => handlePillClick("IDE")}>AI IDEs</span>
-            <span className="pill-btn" onClick={() => handlePillClick("Free Tier")}>Free Tiers</span>
-            <span className="pill-btn" onClick={() => handlePillClick("Photorealism")}>Photorealism</span>
-            <span className="pill-btn" onClick={() => handlePillClick("Voice Clone")}>Voice Clones</span>
-            <span className="pill-btn" onClick={() => handlePillClick("Citations")}>Research Citations</span>
+          <div className={styles['quick-pills']} style={{ margin: 0, flexShrink: 0 }}>
+            <span className={styles['pill-btn']} onClick={() => handlePillClick("IDE")}>AI IDEs</span>
+            <span className={styles['pill-btn']} onClick={() => handlePillClick("Free Tier")}>Free Tiers</span>
+            <span className={styles['pill-btn']} onClick={() => handlePillClick("Photorealism")}>Photorealism</span>
+            <span className={styles['pill-btn']} onClick={() => handlePillClick("Voice Clone")}>Voice Clones</span>
+            <span className={styles['pill-btn']} onClick={() => handlePillClick("Citations")}>Research Citations</span>
           </div>
         </div>
       </section>
 
       <section className="sponsored-section">
-        <div className="section-headline-container">
+        <div className={styles['section-headline-container']}>
           <div>
-            <h2 className="section-title">Sponsored Spotlight</h2>
-            <p className="section-subtitle">Promoted premium services driving high-impact AI innovation.</p>
+            <h2 className={styles['section-title']}>Sponsored Spotlight</h2>
+            <p className={styles['section-subtitle']}>Promoted premium services driving high-impact AI innovation.</p>
           </div>
         </div>
-        <div className="sponsored-carousel">
+        <div className={styles['sponsored-carousel']}>
           {sponsoredTools.map((t) => <ToolCard key={t.id} tool={t} />)}
         </div>
       </section>
 
-      <section className="quick-compare-section">
-        <div className="section-headline-container">
+      <section className={styles['quick-compare-section']}>
+        <div className={styles['section-headline-container']}>
           <div>
-            <h2 className="section-title">Quick Head-to-Head Comparisons</h2>
-            <p className="section-subtitle">Instant technical specs analysis for industry-standard AI pairings.</p>
+            <h2 className={styles['section-title']}>Quick Head-to-Head Comparisons</h2>
+            <p className={styles['section-subtitle']}>Instant technical specs analysis for industry-standard AI pairings.</p>
           </div>
           <Link href="/compare" className="read-more-link">Open Compare Screen &rarr;</Link>
         </div>
-        <div className="quick-compare-grid">
+        <div className={styles['quick-compare-grid']}>
           {[
             { idA: "cursor", idB: "github-copilot", desc: "Modular, AI-first codebase index vs inline copilot autocompletions." },
             { idA: "claude", idB: "chatgpt", desc: "Expert logic reasoning and text analysis vs standard LLM features." },
@@ -177,30 +178,32 @@ export default function HomeClient({ initialTools }) {
             if (!toolA || !toolB) return null;
 
             return (
-              <div
-                key={idx}
-                className="compare-shortcut-card"
+              <div 
+                key={idx} 
+                className={styles['compare-shortcut-card']}
                 onClick={() => {
-                  startComparison(pair.idA, pair.idB);
-                  router.push("/compare");
+                  startComparison(toolA.id);
+                  startComparison(toolB.id);
+                  router.push(`/compare/${toolA.id}-vs-${toolB.id}`);
                 }}
               >
                 <div>
-                  <div className="compare-shortcut-header">
-                    <div className="compare-partner-info">
-                      <div className="compare-partner-logo" dangerouslySetInnerHTML={{ __html: toolA.logo }} />
-                      <span className="compare-partner-name">{toolA.name}</span>
+                  <div className={styles['compare-shortcut-header']}>
+                    <div className={styles['compare-partner-info']}>
+                      <div className={styles['compare-partner-logo']} dangerouslySetInnerHTML={{ __html: toolA.logo }} />
+                      <span className={styles['compare-partner-name']}>{toolA.name}</span>
                     </div>
-                    <div className="compare-shortcut-vs">VS</div>
-                    <div className="compare-partner-info" style={{ flexDirection: 'row-reverse' }}>
-                      <div className="compare-partner-logo" dangerouslySetInnerHTML={{ __html: toolB.logo }} />
-                      <span className="compare-partner-name">{toolB.name}</span>
+                    <div className={styles['compare-shortcut-vs']}>VS</div>
+                    <div className={styles['compare-partner-info']} style={{ flexDirection: 'row-reverse' }}>
+                      <div className={styles['compare-partner-logo']} dangerouslySetInnerHTML={{ __html: toolB.logo }} />
+                      <span className={styles['compare-partner-name']}>{toolB.name}</span>
                     </div>
                   </div>
-                  <p className="compare-shortcut-desc">{pair.desc}</p>
+                  <p className={styles['compare-shortcut-desc']}>{pair.desc}</p>
                 </div>
-                <div className="compare-shortcut-footer">
-                  <span className="compare-shortcut-cta">Analyze Pairing &rarr;</span>
+                <div className={styles['compare-shortcut-footer']}>
+                  <span className={styles['compare-shortcut-desc']} style={{ fontSize: '0.7rem' }}>Official 2026 Diff Matrix</span>
+                  <span className={styles['compare-shortcut-cta']}>Compare &rarr;</span>
                 </div>
               </div>
             );
@@ -246,29 +249,29 @@ export default function HomeClient({ initialTools }) {
       </section>
 
       <section className="trending-section" style={{ marginTop: "5rem", marginBottom: "2rem" }}>
-        <div className="section-headline-container">
+        <div className={styles['section-headline-container']}>
           <div>
-            <h2 className="section-title">Highest Rated Platforms</h2>
-            <p className="section-subtitle">Top user-voted AI systems sorted by authentic verified reviews.</p>
+            <h2 className={styles['section-title']}>Highest Rated Platforms</h2>
+            <p className={styles['section-subtitle']}>Top user-voted AI systems sorted by authentic verified reviews.</p>
           </div>
           <Link href="/category/all" className="read-more-link">See All Tools &rarr;</Link>
         </div>
-        <div className="sponsored-carousel">
+        <div className={styles['sponsored-carousel']}>
           {highestRatedFiltered.map((t) => <ToolCard key={t.id} tool={t} />)}
         </div>
       </section>
 
       <section className="complete-catalog-section" style={{ marginTop: "5rem" }}>
-        <div className="section-headline-container">
+        <div className={styles['section-headline-container']}>
           <div>
-            <h2 className="section-title">Complete AI Tools Catalog</h2>
-            <p className="section-subtitle">Browse through our entire active index of {safeTools.length} high-performance AI systems.</p>
+            <h2 className={styles['section-title']}>Complete AI Tools Catalog</h2>
+            <p className={styles['section-subtitle']}>Browse through our entire active index of {safeTools.length} high-performance AI systems.</p>
           </div>
           <Link href="/category/all" className="read-more-link">Open Advanced Filters &rarr;</Link>
         </div>
 
         <div style={{ textAlign: 'center', width: '100%' }}>
-          <div className="category-dock-wrapper">
+          <div className={styles['category-dock-wrapper']}>
             {[
               { id: "all", name: "All Technologies" },
               { id: "coding", name: "AI Coding Tools" },
@@ -281,7 +284,7 @@ export default function HomeClient({ initialTools }) {
                 <button
                   key={cat.id}
                   onClick={() => setHomeCategory(cat.id)}
-                  className={`category-dock-btn ${isActive ? "active" : ""}`}
+                  className={`${styles['category-dock-btn']} ${isActive ? styles.active : ""}`}
                 >
                   {cat.name}
                 </button>
@@ -290,7 +293,7 @@ export default function HomeClient({ initialTools }) {
           </div>
         </div>
 
-        <div className="sponsored-carousel" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", display: "grid", gap: "1.5rem" }}>
+        <div className={styles['sponsored-carousel']} style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", display: "grid", gap: "1.5rem" }}>
           {catalogTools
             .filter((t) => homeCategory === "all" ? true : t.categoryId === homeCategory)
             .slice(0, 8)

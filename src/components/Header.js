@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useSession, signOut } from "next-auth/react";
+import styles from "./Header.module.css";
 
 export default function Header() {
   const pathname = usePathname();
@@ -100,15 +101,15 @@ export default function Header() {
   };
 
   return (
-    <header className="app-header">
+    <header className={styles['app-header']}>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', width: '100%', height: '100%', maxWidth: '1200px', padding: '0 1rem', margin: '0 auto' }}>
         
         {/* 1. Left Logo */}
-        <Link href="/" className="logo-container" style={{ flexShrink: 0, gap: '0.5rem' }}>
-          <div className="logo-glow">
+        <Link href="/" className={styles['logo-container']} style={{ flexShrink: 0, gap: '0.5rem' }}>
+          <div className={styles['logo-glow']}>
             <span>A</span>
           </div>
-          <h1 className="brand-name" style={{ display: 'none' }}>AuraAI</h1>
+          <h1 className={styles['brand-name']} style={{ display: 'none' }}>AuraAI</h1>
         </Link>
 
         {/* 2. Desktop Navigation Links */}
@@ -119,7 +120,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`nav-link ${isActive ? "active" : ""}`}
+                className={`${styles['nav-link']} ${isActive ? styles.active : ""}`}
               >
                 {link.label}
               </Link>
@@ -419,7 +420,7 @@ export default function Header() {
           ) : status !== "loading" ? (
             <Link 
               href="/login" 
-              className={`nav-link ${isLoginActive ? "active" : ""}`}
+              className={`${styles['nav-link']} ${isLoginActive ? styles.active : ""}`}
               style={{ 
                 fontWeight: isLoginActive ? '600' : '400',
                 padding: '0.25rem 0.5rem'
@@ -430,7 +431,7 @@ export default function Header() {
           ) : null}
 
           {/* Submit CTA Button (Desktop-only via css class) */}
-          <Link href="/submit" className="cta-btn header-submit-btn">
+          <Link href="/submit" className={`${styles['cta-btn']} header-submit-btn`}>
             Submit AI
           </Link>
 

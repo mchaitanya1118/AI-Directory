@@ -3,6 +3,7 @@
 import React from "react";
 import { useApp } from "@/context/AppContext";
 import { useRouter } from "next/navigation";
+import styles from "./CompareTray.module.css";
 
 export default function CompareTray() {
   const { tools, comparedTools, toggleCompare, clearCompare, isMounted } = useApp();
@@ -26,18 +27,18 @@ export default function CompareTray() {
   };
 
   return (
-    <div className="compare-tray active" id="floating-compare-tray">
-      <div className="compare-tray-left">
-        <h4 className="compare-title-h4">Compare AI Tools</h4>
-        <div className="compare-slots">
+    <div className={`${styles['compare-tray']} ${styles.active}`} id="floating-compare-tray">
+      <div className={styles['compare-tray-left']}>
+        <h4 className={styles['compare-title-h4']}>Compare AI Tools</h4>
+        <div className={styles['compare-slots']}>
           {[0, 1, 2].map((i) => {
             if (i < comparedObjs.length) {
               const tool = comparedObjs[i];
               return (
-                <div key={tool.id} className="compare-slot filled">
+                <div key={tool.id} className={`${styles['compare-slot']} ${styles.filled}`}>
                   <span>{tool.name}</span>
                   <span
-                    className="slot-remove-btn"
+                    className={styles['slot-remove-btn']}
                     onClick={() => toggleCompare(tool.id)}
                   >
                     &times;
@@ -46,19 +47,19 @@ export default function CompareTray() {
               );
             }
             return (
-              <div key={i} className="compare-slot">
+              <div key={i} className={styles['compare-slot']}>
                 Empty Slot
               </div>
             );
           })}
         </div>
       </div>
-      <div className="compare-tray-actions">
-        <button className="btn-secondary" onClick={clearCompare}>
+      <div className={styles['compare-tray-actions']}>
+        <button className={styles['btn-secondary']} onClick={clearCompare}>
           Clear All
         </button>
         <button
-          className="cta-btn"
+          className={styles['cta-btn']}
           style={{ boxShadow: "0 4px 10px rgba(0, 242, 254, 0.2)" }}
           onClick={handleCompareSubmit}
         >

@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { useSession } from "next-auth/react";
 import SchemaMarkup from "@/components/SchemaMarkup";
 import dynamic from "next/dynamic";
+import styles from "./ToolDetailClient.module.css";
 
 const AdPlacement = dynamic(() => import("@/components/AdPlacement"), { ssr: true });
 const InternalLinks = dynamic(() => import("@/components/InternalLinks"), { ssr: true });
@@ -33,10 +34,26 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
   
   // Accordion active index
   const [activeFaq, setActiveFaq] = useState(null);
+  const [isBookmarked, setIsBookmarked] = useState(false);
+
+  useEffect(() => {
+    const checkBookmark = async () => {
+      if (session && tool?.id) {
+        try {
+          const res = await fetch(`/api/bookmarks/check?toolId=${tool.id}`);
+          if (res.ok) {
+            const data = await res.json();
+            setIsBookmarked(data.bookmarked);
+          }
+        } catch(e) {}
+      }
+    };
+    checkBookmark();
+  }, [session, tool?.id]);
 
   if (!tool) {
     return (
-      <div className="detail-glass-card" style={{ textAlign: "center", padding: "4rem" }}>
+      <div className={styles["detail-glass-card"]} style={{ textAlign: "center", padding: "4rem" }}>
         <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", marginBottom: "0.5rem", color: "var(--text-bright)" }}>
           Tool Not Found
         </h3>
@@ -128,22 +145,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
     }
   };
 
-  const [isBookmarked, setIsBookmarked] = useState(false);
 
-  useEffect(() => {
-    const checkBookmark = async () => {
-      if (session) {
-        try {
-          const res = await fetch(`/api/bookmarks/check?toolId=${tool.id}`);
-          if (res.ok) {
-            const data = await res.json();
-            setIsBookmarked(data.bookmarked);
-          }
-        } catch(e) {}
-      }
-    };
-    checkBookmark();
-  }, [session, tool.id]);
 
   const handleBookmark = async () => {
     if (!session) {
@@ -218,28 +220,28 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
         <span style={{ color: "var(--neon-cyan)" }}>{tool.name}</span>
       </div>
 
-      <div className="detail-glass-card" style={{ marginBottom: "2rem" }}>
-        <div className="detail-header-block">
-          <div className="detail-brand-row">
+      <div className={styles["detail-glass-card"]} style={{ marginBottom: "2rem" }}>
+        <div className={styles["detail-header-block"]}>
+          <div className={styles["detail-brand-row"]}>
             <div
-              className="detail-logo-wrap"
+              className={styles["detail-logo-wrap"]}
               dangerouslySetInnerHTML={{ __html: tool.logo }}
             />
-            <div className="detail-brand-info">
+            <div className={styles["detail-brand-info"]}>
               <span className="curated-card-tag" style={{ margin: 0, fontSize: "0.8rem" }}>
                 {tool.categoryId} AI TOOL
               </span>
               <h1 style={{ marginTop: "0.25rem" }}>{tool.name}</h1>
-              <div className="detail-sub-meta">
-                <span className="star-rating">{stars}</span>
-                <span className="rating-value" style={{ fontWeight: 600, color: "var(--neon-gold)" }}>{avgRating}</span>
-                <span className="rating-count" style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>({totalReviewsCount} reviews)</span>
+              <div className={styles["detail-sub-meta"]}>
+                <span className={styles["star-rating"]}>{stars}</span>
+                <span className={styles["rating-value"]} style={{ fontWeight: 600, color: "var(--neon-gold)" }}>{avgRating}</span>
+                <span className={styles["rating-count"]} style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>({totalReviewsCount} reviews)</span>
                 <span style={{ color: "var(--border-glass)" }}>|</span>
-                <span className={`card-pricing-badge pricing-${tool.pricing.toLowerCase()}`}>{tool.pricing}</span>
+                <span className={`${styles["card-pricing-badge"]} ${styles[`pricing-${tool.pricing.toLowerCase()}`]}`}>{tool.pricing}</span>
               </div>
             </div>
           </div>
-          <div className="detail-visit-affiliate-box" style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
+          <div className={styles["detail-visit-affiliate-box"]} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem', alignItems: 'flex-end' }}>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               <button
                 onClick={handleBookmark}
@@ -281,18 +283,18 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
             <strong>Pricing Details:</strong> {tool.pricingDetails}
           </span>
           <label
-            className={`compare-checkbox-container ${isMounted && isCompared ? "checked" : ""}`}
+            className={`${styles["compare-checkbox-container"]} ${isMounted && isCompared ? styles["checked"] : ""}`}
             onClick={() => toggleCompare(tool.id)}
             style={{ marginLeft: "auto", fontSize: "0.9rem", color: (isMounted && isCompared) ? "var(--neon-cyan)" : "var(--text-muted)" }}
           >
-            <span className="compare-circle"></span> {(isMounted && isCompared) ? "In Comparison List" : "Add to Comparison List"}
+            <span className={styles["compare-circle"]}></span> {(isMounted && isCompared) ? "In Comparison List" : "Add to Comparison List"}
           </label>
         </div>
       </div>
 
-      <div className="tool-detail-grid">
-        <div className="tool-detail-main">
-          <div className="detail-glass-card">
+      <div className={styles["tool-detail-grid"]}>
+        <div className={styles["tool-detail-main"]}>
+          <div className={styles["detail-glass-card"]}>
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1rem" }}>
               Product Overview & Capabilities
             </h3>
@@ -315,7 +317,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           <AdPlacement type="in-content" />
 
           {useCases && useCases.length > 0 && (
-            <div className="detail-glass-card">
+            <div className={styles["detail-glass-card"]}>
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.25rem" }}>
                 Real-World Workflows & Use Cases
               </h3>
@@ -359,18 +361,18 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
             </div>
           )}
 
-          <div className="pros-cons-grid">
-            <div className="pros-box">
+          <div className={styles["pros-cons-grid"]}>
+            <div className={styles["pros-box"]}>
               <h4>Strengths & Pros</h4>
-              <ul className="pros-cons-list" style={{ padding: 0, margin: 0 }}>
+              <ul className={styles["pros-cons-list"]} style={{ padding: 0, margin: 0 }}>
                 {pros.map((pro, idx) => (
                   <li key={idx}>{pro}</li>
                 ))}
               </ul>
             </div>
-            <div className="cons-box">
+            <div className={styles["cons-box"]}>
               <h4>Limitations & Cons</h4>
-              <ul className="pros-cons-list" style={{ padding: 0, margin: 0 }}>
+              <ul className={styles["pros-cons-list"]} style={{ padding: 0, margin: 0 }}>
                 {cons.map((con, idx) => (
                   <li key={idx}>{con}</li>
                 ))}
@@ -379,7 +381,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           </div>
 
           {faqs && faqs.length > 0 && (
-            <div className="detail-glass-card">
+            <div className={styles["detail-glass-card"]}>
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.25rem" }}>
                 Frequently Asked Questions about {tool.name}
               </h3>
@@ -452,7 +454,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           )}
 
           {comparisons && comparisons.length > 0 && (
-            <div className="detail-glass-card">
+            <div className={styles["detail-glass-card"]}>
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1rem" }}>
                 Direct Head-to-Head Comparisons
               </h3>
@@ -500,12 +502,12 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
             </div>
           )}
 
-          <div className="detail-glass-card">
+          <div className={styles["detail-glass-card"]}>
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.5rem" }}>
               User Reviews ({tool.reviews ? tool.reviews.length : 0})
             </h3>
 
-            <div className="reviews-section">
+            <div className={styles["reviews-section"]}>
               {(!tool.reviews || tool.reviews.length === 0) ? (
                 <p style={{ color: "var(--text-muted)", fontStyle: "italic" }}>
                   No user reviews submitted yet. Be the first to share your experience!
@@ -527,31 +529,31 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
                     );
                   }
                   return (
-                    <div key={rev.id} className="review-item">
-                      <div className="review-meta">
-                        <span className="review-user">@{rev.username}</span>
+                    <div key={rev.id} className={styles["review-item"]}>
+                      <div className={styles["review-meta"]}>
+                        <span className={styles["review-user"]}>@{rev.username}</span>
                         <div style={{ display: "flex", alignItems: "center", gap: "0.5rem" }}>
-                          <span className="star-rating">{revStars}</span>
-                          <span className="review-date">{rev.date}</span>
+                          <span className={styles["star-rating"]}>{revStars}</span>
+                          <span className={styles["review-date"]}>{rev.date}</span>
                         </div>
                       </div>
-                      <p className="review-comment" style={{ marginTop: "0.5rem" }}>{rev.comment}</p>
+                      <p className={styles["review-comment"]} style={{ marginTop: "0.5rem" }}>{rev.comment}</p>
                     </div>
                   );
                 })
               )}
             </div>
 
-            <form onSubmit={handleReviewSubmit} className="add-review-form">
-              <h4 className="form-title">Write a Review</h4>
+            <form onSubmit={handleReviewSubmit} className={styles["add-review-form"]}>
+              <h4 className={styles["form-title"]}>Write a Review</h4>
               
-              <div className="form-group">
-                <label className="form-label">Your Rating</label>
-                <div className="rating-select-stars">
+              <div className={styles["form-group"]}>
+                <label className={styles["form-label"]}>Your Rating</label>
+                <div className={styles["rating-select-stars"]}>
                   {[1, 2, 3, 4, 5].map((starValue) => (
                     <span
                       key={starValue}
-                      className={`star-input ${(hoverRating || userRating) >= starValue ? "active" : ""}`}
+                      className={`${styles["star-input"]} ${(hoverRating || userRating) >= starValue ? styles["active"] : ""}`}
                       onMouseEnter={() => setHoverRating(starValue)}
                       onMouseLeave={() => setHoverRating(0)}
                       onClick={() => setUserRating(starValue)}
@@ -563,14 +565,14 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
                 </div>
               </div>
 
-              <div className="form-group">
-                <label className="form-label" htmlFor="rev-username">
+              <div className={styles["form-group"]}>
+                <label className={styles["form-label"]} htmlFor="rev-username">
                   Username
                 </label>
                 <input
                   type="text"
                   id="rev-username"
-                  className="form-input"
+                  className={styles["form-input"]}
                   placeholder="e.g. dev_guru"
                   value={username}
                   onChange={(e) => setUsername(e.target.value)}
@@ -578,13 +580,13 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
                 />
               </div>
 
-              <div className="form-group">
-                <label className="form-label" htmlFor="rev-comment">
+              <div className={styles["form-group"]}>
+                <label className={styles["form-label"]} htmlFor="rev-comment">
                   Review Message
                 </label>
                 <textarea
                   id="rev-comment"
-                  className="form-textarea"
+                  className={styles["form-textarea"]}
                   placeholder="Describe your workflows, pricing thoughts, strengths, or issues with this product..."
                   value={comment}
                   onChange={(e) => setComment(e.target.value)}
@@ -603,8 +605,8 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           </div>
         </div>
 
-        <div className="tool-detail-sidebar" style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-          <div className="detail-glass-card">
+        <div className={styles["tool-detail-sidebar"]} style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+          <div className={styles["detail-glass-card"]}>
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.25rem", borderBottom: "1px solid var(--border-glass)", paddingBottom: "0.5rem" }}>
               Technical Specifications
             </h3>
@@ -634,7 +636,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
 
           <AdPlacement type="sticky-sidebar" />
 
-          <div className="detail-glass-card">
+          <div className={styles["detail-glass-card"]}>
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.25rem", borderBottom: "1px solid var(--border-glass)", paddingBottom: "0.5rem" }}>
               Similar Alternatives
             </h3>
@@ -701,7 +703,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
 
       {/* 3. AI RECOMMENDATION ENGINE (DEDICATED FULL-WIDTH SECTION) */}
       <div 
-        className="detail-glass-card" 
+        className={styles["detail-glass-card"]} 
         style={{ 
           marginTop: "1.5rem", 
           padding: "2rem",

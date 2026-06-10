@@ -1,11 +1,20 @@
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
-import CompareTray from "@/components/CompareTray";
 import Header from "@/components/Header";
 import Link from "next/link";
 import Script from "next/script";
 import AffiliateBanner from "@/components/AffiliateBanner";
+import dynamicImport from "next/dynamic";
+import { Inter } from "next/font/google";
+
+const InterFont = Inter({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const CompareTray = dynamicImport(() => import("@/components/CompareTray"));
 
 export const dynamic = "force-dynamic";
 
@@ -38,7 +47,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" className={InterFont.variable}>
       <body>
 
         <NextAuthProvider>

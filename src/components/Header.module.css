@@ -1,0 +1,130 @@
+/* --- PREMIUM NAVIGATION HEADER --- */
+.app-header {
+  padding: 0 max(1.5rem, calc((100% - 1000px) / 2));
+  height: 48px;
+  background-color: rgba(0, 0, 0, 0.82);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+.app-header:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  cursor: pointer;
+}
+
+@keyframes logo-metallic-spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.logo-glow {
+  width: 1.25rem;
+  height: 1.25rem;
+  background: #f5f5f7;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+  font-family: var(--font-display);
+  font-size: 0.75rem;
+  color: #000000;
+  position: relative;
+  transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow: hidden;
+}
+
+.logo-glow::before {
+  content: "";
+  position: absolute;
+  inset: 2px;
+  background: var(--bg-dark);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.logo-glow span {
+  position: relative;
+  z-index: 2;
+  color: #000000;
+}
+
+.logo-container:hover .logo-glow {
+  transform: scale(1.08) rotate(180deg);
+  box-shadow: 0 0 25px rgba(0, 242, 254, 0.45), 0 0 10px rgba(127, 0, 255, 0.25);
+}
+
+.brand-name {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 1rem;
+  color: #f5f5f7;
+  letter-spacing: -0.2px;
+  transition: var(--transition-smooth);
+}
+
+.logo-container:hover .brand-name {
+  filter: brightness(1.25);
+  transform: translateX(1px);
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.nav-link {
+  font-size: 0.75rem;
+  font-weight: 400;
+  color: #f5f5f7;
+  transition: opacity 0.3s ease, color 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  opacity: 0.8;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+}
+
+.nav-link:hover, .nav-link.active {
+  opacity: 1;
+  color: #ffffff;
+}
+
+/* Removing pulse dot */
+.nav-link-dot {
+  display: none;
+}
+
+.cta-btn {
+  background: #0071e3;
+  color: #ffffff;
+  font-family: var(--font-body);
+  font-weight: 500;
+  font-size: 0.7rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  opacity: 0.8;
+}

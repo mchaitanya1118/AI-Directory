@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import ToolCard from "@/components/ToolCard";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import styles from "./CategoryClient.module.css";
 
 export default function CategoryClient({ category, initialTools }) {
   const router = useRouter();
@@ -158,24 +159,24 @@ export default function CategoryClient({ category, initialTools }) {
   };
 
   return (
-    <div className="category-explorer-container">
-      <div className="section-headline-container">
+    <div className={styles["category-explorer-container"]}>
+      <div className={styles["section-headline-container"]}>
         <div>
-          <h2 className="section-title" style={{ textTransform: "capitalize" }}>
+          <h2 className={styles["section-title"]} style={{ textTransform: "capitalize" }}>
             {category === "all" ? "Explore AI Directory" : `${category} Tools`}
           </h2>
-          <p className="section-subtitle">
+          <p className={styles["section-subtitle"]}>
             Real-time dynamic filters spanning monetization channels and technical specifications.
           </p>
         </div>
-        <div className="results-count">Showing {filtered.length} platforms</div>
+        <div className={styles["results-count"]}>Showing {filtered.length} platforms</div>
       </div>
 
       {crawlingStatus !== "idle" && (
-        <div className={`scraper-pill ${crawlingStatus}`}>
+        <div className={`${styles["scraper-pill"]} ${styles[crawlingStatus]}`}>
           {crawlingStatus === "scanning" && (
             <>
-              <div className="scraper-spinner" />
+              <div className={styles["scraper-spinner"]} />
               <span>Searching web registries for newly launched <strong style={{ textTransform: 'capitalize' }}>{category}</strong> platforms...</span>
             </>
           )}
@@ -188,14 +189,14 @@ export default function CategoryClient({ category, initialTools }) {
         </div>
       )}
 
-      <div className="category-tabs">
+      <div className={styles["category-tabs"]}>
         {categories.map((cat) => {
           const isActive = cat.id === category;
           return (
             <Link
               key={cat.id}
               href={`/category/${cat.id}`}
-              className={`category-tab ${isActive ? "active" : ""}`}
+              className={`${styles["category-tab"]} ${isActive ? styles["active"] : ""}`}
             >
               {cat.name}
             </Link>
@@ -203,16 +204,16 @@ export default function CategoryClient({ category, initialTools }) {
         })}
       </div>
 
-      <div className="search-wrapper" style={{ maxWidth: "100%", marginBottom: "1.5rem" }}>
+      <div className={styles["search-wrapper"]} style={{ maxWidth: "100%", marginBottom: "1.5rem" }}>
         <input
           type="text"
-          className="search-input"
+          className={styles["search-input"]}
           placeholder="Refine search by keyword, tag, or spec..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <svg
-          className="search-icon-svg"
+          className={styles["search-icon-svg"]}
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -227,12 +228,12 @@ export default function CategoryClient({ category, initialTools }) {
         </svg>
       </div>
 
-      <div className="filter-control-panel">
-        <div className="filters-left">
+      <div className={styles["filter-control-panel"]}>
+        <div className={styles["filters-left"]}>
           <select
             value={pricingFilter}
             onChange={(e) => setPricingFilter(e.target.value)}
-            className="select-filter"
+            className={styles["select-filter"]}
           >
             <option value="all">All Pricing Models</option>
             <option value="free">Free Only</option>
@@ -243,7 +244,7 @@ export default function CategoryClient({ category, initialTools }) {
           <select
             value={ratingFilter}
             onChange={(e) => setRatingFilter(e.target.value)}
-            className="select-filter"
+            className={styles["select-filter"]}
           >
             <option value="all">All Verified Ratings</option>
             <option value="4.5">Rating &gt;= 4.5</option>
@@ -253,7 +254,7 @@ export default function CategoryClient({ category, initialTools }) {
           <select
             value={sortBy}
             onChange={(e) => setSortBy(e.target.value)}
-            className="select-filter"
+            className={styles["select-filter"]}
           >
             <option value="popularity">Sort by Popularity</option>
             <option value="rating">Sort by Top Rated</option>
@@ -266,19 +267,19 @@ export default function CategoryClient({ category, initialTools }) {
       </div>
 
       {searchQuery && (
-        <div className="active-filters-badges">
-          <div className="filter-badge">
+        <div className={styles["active-filters-badges"]}>
+          <div className={styles["filter-badge"]}>
             Search: "{searchQuery}"
-            <span className="remove-btn" onClick={() => setSearchQuery("")}>
+            <span className={styles["remove-btn"]} onClick={() => setSearchQuery("")}>
               &times;
             </span>
           </div>
         </div>
       )}
 
-      <div className="sponsored-carousel" style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))" }}>
+      <div className={styles["sponsored-carousel"]} style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))" }}>
         {filtered.length === 0 ? (
-          <div className="detail-glass-card" style={{ textAlign: "center", padding: "4rem", width: "100%" }}>
+          <div className={styles["detail-glass-card"]} style={{ textAlign: "center", padding: "4rem", width: "100%" }}>
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", marginBottom: "0.5rem", color: "var(--text-bright)" }}>
               No AI tools found
             </h3>

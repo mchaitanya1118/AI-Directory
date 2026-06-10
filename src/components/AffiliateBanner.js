@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import styles from "./AffiliateBanner.module.css";
 
 export default function AffiliateBanner() {
   const [isVisible, setIsVisible] = useState(true);
@@ -32,13 +33,13 @@ export default function AffiliateBanner() {
           `,
         }}
       />
-      <div className="affiliate-disclosure-banner">
-        <div className="banner-content">
-          <span className="banner-icon">ℹ️</span>
-          <p className="banner-text">
+      <div className={styles['affiliate-disclosure-banner']}>
+        <div className={styles['banner-content']}>
+          <span className={styles['banner-icon']}>ℹ️</span>
+          <p className={styles['banner-text']}>
             <strong>Affiliate Disclosure:</strong> Some links on AuraAI are affiliate links. If you click through and make a purchase, we may receive a commission at no extra cost to you. This helps support our independent comparison engine.
           </p>
-          <button className="banner-close-btn" onClick={handleDismiss} aria-label="Close disclosure">
+          <button className={styles['banner-close-btn']} onClick={handleDismiss} aria-label="Close disclosure">
             &times;
           </button>
         </div>

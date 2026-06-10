@@ -4,6 +4,7 @@ import React from "react";
 import { useApp } from "@/context/AppContext";
 import Link from "next/link";
 import Image from "next/image";
+import styles from "./ToolCard.module.css";
 
 export default function ToolCard({ tool }) {
   const { comparedTools, toggleCompare, isMounted } = useApp();
@@ -47,13 +48,13 @@ export default function ToolCard({ tool }) {
   };
 
   return (
-    <div className={`card-glass ${tool.sponsored ? "sponsored" : ""} ${tool.isCrawledLive ? "crawled-live" : ""}`} data-id={tool.id}>
-      {tool.sponsored && <span className="sponsored-tag">Sponsored Spotlight</span>}
-      {tool.isCrawledLive && <span className="crawled-live-tag">Crawled Live 🌐</span>}
+    <div className={`${styles['card-glass']} ${tool.sponsored ? styles.sponsored : ""} ${tool.isCrawledLive ? styles['crawled-live'] : ""}`} data-id={tool.id}>
+      {tool.sponsored && <span className={styles['sponsored-tag']}>Sponsored Spotlight</span>}
+      {tool.isCrawledLive && <span className={styles['crawled-live-tag']}>Crawled Live 🌐</span>}
 
       <div>
-        <div className="card-header">
-          <div className="card-logo-wrap">
+        <div className={styles['card-header']}>
+          <div className={styles['card-logo-wrap']}>
             {tool.logo.startsWith('<svg') ? (
               <div dangerouslySetInnerHTML={{ __html: tool.logo }} />
             ) : (
@@ -67,25 +68,25 @@ export default function ToolCard({ tool }) {
               />
             )}
           </div>
-          <div className="card-title-area">
+          <div className={styles['card-title-area']}>
             <Link href={`/tool/${tool.id}`}>
               <h3 style={{ cursor: "pointer" }}>{tool.name}</h3>
             </Link>
-            <div className="card-rating-row">
-              <span className="star-rating">{stars}</span>
-              <span className="rating-value">{avgRating}</span>
-              <span className="rating-count">({totalReviewsCount})</span>
+            <div className={styles['card-rating-row']}>
+              <span className={styles['star-rating']}>{stars}</span>
+              <span className={styles['rating-value']}>{avgRating}</span>
+              <span className={styles['rating-count']}>({totalReviewsCount})</span>
             </div>
           </div>
         </div>
 
-        <p className="card-desc">{tool.shortDescription}</p>
+        <p className={styles['card-desc']}>{tool.shortDescription}</p>
 
-        <div className="card-tags">
+        <div className={styles['card-tags']}>
           {(tool.tags || []).slice(0, 3).map((tag, idx) => {
             const tagName = typeof tag === 'string' ? tag : tag?.tag?.name || "";
             return (
-              <span key={idx} className="card-tag">
+              <span key={idx} className={styles['card-tag']}>
                 {tagName}
               </span>
             );
@@ -93,20 +94,20 @@ export default function ToolCard({ tool }) {
         </div>
       </div>
 
-      <div className="card-bottom-wrapper">
-        <div className="card-footer">
-          <span className={`card-pricing-badge pricing-${tool.pricing.toLowerCase()}`}>
+      <div className={styles['card-bottom-wrapper']}>
+        <div className={styles['card-footer']}>
+          <span className={`${styles['card-pricing-badge']} ${styles[`pricing-${tool.pricing.toLowerCase()}`]}`}>
             {tool.pricing}
           </span>
 
-          <div className="card-actions">
+          <div className={styles['card-actions']}>
             <label
-              className={`compare-checkbox-container ${isMounted && isCompared ? "checked" : ""}`}
+              className={`${styles['compare-checkbox-container']} ${isMounted && isCompared ? styles.checked : ""}`}
               onClick={() => toggleCompare(tool.id)}
             >
-              <span className="compare-circle"></span> Compare
+              <span className={styles['compare-circle']}></span> Compare
             </label>
-            <Link href={`/tool/${tool.id}`} className="card-btn">
+            <Link href={`/tool/${tool.id}`} className={styles['card-btn']}>
               Reviews
             </Link>
           </div>
@@ -116,7 +117,7 @@ export default function ToolCard({ tool }) {
           rel="nofollow sponsored noopener noreferrer"
           target="_blank"
           aria-label={`Visit ${tool.name} website (affiliate link)`}
-          className="card-btn action-primary"
+          className={`${styles['card-btn']} ${styles['action-primary']}`}
           style={{ width: '100%', marginTop: '0.75rem', padding: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
         >
           <span>Visit Site</span>

@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import Link from "next/link";
+import styles from "@/components/AdminClient.module.css";
 
 export default function AdminScraper() {
   const [stats, setStats] = useState({
@@ -31,19 +32,6 @@ export default function AdminScraper() {
   const [activeTab, setActiveTab] = useState("diff"); // diff | config
   const terminalEndRef = useRef(null);
 
-  // Load initial statistics and tools from API
-  useEffect(() => {
-    fetchStats();
-    fetchTools();
-  }, []);
-
-  // Auto-scroll terminal to bottom
-  useEffect(() => {
-    if (terminalEndRef.current) {
-      terminalEndRef.current.scrollIntoView({ behavior: "smooth" });
-    }
-  }, [terminalLines]);
-
   const fetchStats = async () => {
     try {
       const res = await fetch("/api/scrape");
@@ -68,9 +56,23 @@ export default function AdminScraper() {
     }
   };
 
+  // Load initial statistics and tools from API
+  useEffect(() => {
+    fetchStats();
+    fetchTools();
+  }, []);
+
+  // Auto-scroll terminal to bottom
+  useEffect(() => {
+    if (terminalEndRef.current) {
+      terminalEndRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  }, [terminalLines]);
+
   const addTerminalLine = (level, message) => {
     setTerminalLines((prev) => [...prev, { level, message }]);
   };
+
 
   const handleTriggerScrape = async () => {
     if (isRunning) return;
@@ -169,10 +171,10 @@ export default function AdminScraper() {
   };
 
   return (
-    <div className="admin-scraper-container">
+    <div className={styles["admin-scraper-container"]}>
       {/* HEADER SECTION */}
-      <div className="scraper-header">
-        <div className="scraper-title-section">
+      <div className={styles["scraper-header"]}>
+        <div className={styles["scraper-title-section"]}>
           <h2>Scraper <span>Control Dashboard</span></h2>
           <p>Supercharge SEO rankings & keep AI tool specifications 100% synchronized in real-time.</p>
         </div>
@@ -182,62 +184,62 @@ export default function AdminScraper() {
       </div>
 
       {/* STATS COUNTER GRID */}
-      <div className="scraper-stats-grid">
-        <div className="scraper-stat-card cyan">
-          <div className="stat-header">
-            <span className="stat-label">Crawl Runs</span>
-            <span className="stat-icon">🔄</span>
+      <div className={styles["scraper-stats-grid"]}>
+        <div className={`${styles["scraper-stat-card"]} ${styles["cyan"]}`}>
+          <div className={styles["stat-header"]}>
+            <span className={styles["stat-label"]}>Crawl Runs</span>
+            <span className={styles["stat-icon"]}>🔄</span>
           </div>
-          <div className="stat-value">{stats.totalRuns || 0}</div>
-          <div className="stat-subtext">Total autonomous executions</div>
+          <div className={styles["stat-value"]}>{stats.totalRuns || 0}</div>
+          <div className={styles["stat-subtext"]}>Total autonomous executions</div>
         </div>
 
-        <div className="scraper-stat-card purple">
-          <div className="stat-header">
-            <span className="stat-label">Success Rate</span>
-            <span className="stat-icon">📈</span>
+        <div className={`${styles["scraper-stat-card"]} ${styles["purple"]}`}>
+          <div className={styles["stat-header"]}>
+            <span className={styles["stat-label"]}>Success Rate</span>
+            <span className={styles["stat-icon"]}>📈</span>
           </div>
-          <div className="stat-value">{stats.successRate || 100}%</div>
-          <div className="stat-subtext">Crawl complete benchmark</div>
+          <div className={styles["stat-value"]}>{stats.successRate || 100}%</div>
+          <div className={styles["stat-subtext"]}>Crawl complete benchmark</div>
         </div>
 
-        <div className="scraper-stat-card gold">
-          <div className="stat-header">
-            <span className="stat-label">Last Synchronized</span>
-            <span className="stat-icon">🕒</span>
+        <div className={`${styles["scraper-stat-card"]} ${styles["gold"]}`}>
+          <div className={styles["stat-header"]}>
+            <span className={styles["stat-label"]}>Last Synchronized</span>
+            <span className={styles["stat-icon"]}>🕒</span>
           </div>
-          <div className="stat-value" style={{ fontSize: "1.1rem", padding: "0.55rem 0", color: "var(--neon-gold)" }}>
+          <div className={styles["stat-value"]} style={{ fontSize: "1.1rem", padding: "0.55rem 0", color: "var(--neon-gold)" }}>
             {stats.lastRun !== "Never" ? new Date(stats.lastRun).toLocaleTimeString() : "Never"}
           </div>
-          <div className="stat-subtext">{stats.lastRun !== "Never" ? new Date(stats.lastRun).toLocaleDateString() : "Pending first run"}</div>
+          <div className={styles["stat-subtext"]}>{stats.lastRun !== "Never" ? new Date(stats.lastRun).toLocaleDateString() : "Pending first run"}</div>
         </div>
 
-        <div className="scraper-stat-card rose">
-          <div className="stat-header">
-            <span className="stat-label">Sync Catalog</span>
-            <span className="stat-icon">📂</span>
+        <div className={`${styles["scraper-stat-card"]} ${styles["rose"]}`}>
+          <div className={styles["stat-header"]}>
+            <span className={styles["stat-label"]}>Sync Catalog</span>
+            <span className={styles["stat-icon"]}>📂</span>
           </div>
-          <div className="stat-value">{tools.length || 0}</div>
-          <div className="stat-subtext">Registered listings in directory</div>
+          <div className={styles["stat-value"]}>{tools.length || 0}</div>
+          <div className={styles["stat-subtext"]}>Registered listings in directory</div>
         </div>
       </div>
 
       {/* CORE CONTROL AREA */}
-      <div className="scraper-main-layout">
+      <div className={styles["scraper-main-layout"]}>
         {/* Monospace Interactive console widget */}
-        <div className="console-terminal-wrapper">
-          <div className="terminal-header">
-            <div className="terminal-buttons">
-              <span className="terminal-dot close"></span>
-              <span className="terminal-dot minimize"></span>
-              <span className="terminal-dot maximize"></span>
+        <div className={styles["console-terminal-wrapper"]}>
+          <div className={styles["terminal-header"]}>
+            <div className={styles["terminal-buttons"]}>
+              <span className={`${styles["terminal-dot"]} ${styles["close"]}`}></span>
+              <span className={`${styles["terminal-dot"]} ${styles["minimize"]}`}></span>
+              <span className={`${styles["terminal-dot"]} ${styles["maximize"]}`}></span>
             </div>
-            <div className="terminal-title">bash - AuraAI-Scraper-CLI</div>
+            <div className={styles["terminal-title"]}>bash - AuraAI-Scraper-CLI</div>
             <div style={{ width: "42px" }}></div>
           </div>
-          <div className="terminal-body">
+          <div className={styles["terminal-body"]}>
             {terminalLines.map((line, idx) => (
-              <div key={idx} className={`terminal-line ${line.level.toLowerCase()}`}>
+              <div key={idx} className={`${styles["terminal-line"]} ${styles[line.level.toLowerCase()]}`}>
                 <span className="terminal-line-prefix" style={{ color: "rgba(255,255,255,0.25)", marginRight: "0.5rem" }}>
                   $
                 </span>
@@ -254,18 +256,18 @@ export default function AdminScraper() {
         </div>
 
         {/* Action Button Controls */}
-        <div className="control-panel-wrapper">
-          <div className="control-card">
+        <div className={styles["control-panel-wrapper"]}>
+          <div className={styles["control-card"]}>
             <h3>Manual Execution</h3>
-            <div className="trigger-actions">
+            <div className={styles["trigger-actions"]}>
               <button
-                className="action-btn primary"
+                className={`${styles["action-btn"]} ${styles["primary"]}`}
                 disabled={isRunning}
                 onClick={handleTriggerScrape}
               >
                 {isRunning ? (
                   <>
-                    <svg className="spinner-icon" width="20" height="20" fill="none" viewBox="0 0 24 24">
+                    <svg className={styles["spinner-icon"]} width="20" height="20" fill="none" viewBox="0 0 24 24">
                       <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" style={{ opacity: 0.25 }} />
                       <path fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
@@ -283,14 +285,14 @@ export default function AdminScraper() {
             </div>
           </div>
 
-          <div className="control-card">
+          <div className={styles["control-card"]}>
             <h3>Recent Crawl Diffs</h3>
-            <div className="recent-changes-box">
+            <div className={styles["recent-changes-box"]}>
               {getRecentUpdates().length > 0 ? (
                 getRecentUpdates().map((tName, i) => (
-                  <div className="recent-change-item" key={i}>
-                    <span className="change-tool-name">{tName}</span>
-                    <span className="change-badge">Synchronized</span>
+                  <div className={styles["recent-change-item"]} key={i}>
+                    <span className={styles["change-tool-name"]}>{tName}</span>
+                    <span className={styles["change-badge"]}>Synchronized</span>
                   </div>
                 ))
               ) : (
@@ -304,8 +306,8 @@ export default function AdminScraper() {
       </div>
 
       {/* DETAILED LOG AUDIT & LIVE DIRECTORY GRID */}
-      <div className="audit-log-section">
-        <div className="section-title-wrap">
+      <div className={styles["audit-log-section"]}>
+        <div className={styles["section-title-wrap"]}>
           <h3>Directory Sync Analyzer</h3>
           <div style={{ display: "flex", gap: "0.5rem" }}>
             <button
@@ -334,8 +336,8 @@ export default function AdminScraper() {
         </div>
 
         {activeTab === "diff" ? (
-          <div className="diff-check-table-wrap">
-            <table className="diff-table">
+          <div className={styles["diff-check-table-wrap"]}>
+            <table className={styles["diff-table"]}>
               <thead>
                 <tr>
                   <th>Tool Name</th>
@@ -348,8 +350,8 @@ export default function AdminScraper() {
               <tbody>
                 {tools.map((t, idx) => (
                   <tr key={idx}>
-                    <td className="tool-name-cell">
-                      <span className="diff-indicator-dot"></span>
+                    <td className={styles["tool-name-cell"]}>
+                      <span className={styles["diff-indicator-dot"]}></span>
                       {t.name}
                     </td>
                     <td>
@@ -362,7 +364,7 @@ export default function AdminScraper() {
                       )}
                     </td>
                     <td>
-                      <span className={`cell-pricing-badge ${t.pricing?.toLowerCase()}`}>
+                      <span className={`${styles["cell-pricing-badge"]} ${styles[t.pricing?.toLowerCase()]}`}>
                         {t.pricing}
                       </span>
                     </td>
@@ -379,40 +381,40 @@ export default function AdminScraper() {
           </div>
         ) : (
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
-            <div className="cron-instruction">
+            <div className={styles["cron-instruction"]}>
               <h4 style={{ color: "var(--text-bright)", marginBottom: "0.5rem", fontFamily: "var(--font-display)" }}>
                 Programmatic Background Automation
               </h4>
               <p>
-                To run AuraAI's scraper automatically at a set interval (e.g. daily at 2:00 AM) and maintain fresh rankings, configure a background crontab job on your hosting provider or server console.
+                To run AuraAI&apos;s scraper automatically at a set interval (e.g. daily at 2:00 AM) and maintain fresh rankings, configure a background crontab job on your hosting provider or server console.
               </p>
               <div style={{ marginTop: "1rem" }}>
                 <strong>Crontab Configuration Directive:</strong>
-                <span className="cron-code">
-                  0 2 * * * curl -X POST https://your-auraai-domain.com/api/scrape -H "Authorization: Bearer YOUR_SECRET_KEY"
+                <span className={styles["cron-code"]}>
+                  0 2 * * * curl -X POST https://your-auraai-domain.com/api/scrape -H &quot;Authorization: Bearer YOUR_SECRET_KEY&quot;
                 </span>
               </div>
               <p style={{ marginTop: "1rem", fontSize: "0.8rem" }}>
-                Note: In production environments, protect the `/api/scrape` endpoint with an environment token (e.g., `PROCESS_SECRET`) within the header authorization to secure crawls against arbitrary API spans.
+                Note: In production environments, protect the `/api/scrape` endpoint with an environment token (e.g., &quot;PROCESS_SECRET&quot;) within the header authorization to secure crawls against arbitrary API spans.
               </p>
             </div>
 
-            <div className="cron-instruction" style={{ borderColor: "rgba(127,0,255,0.3)" }}>
+            <div className={styles["cron-instruction"]} style={{ borderColor: "rgba(127,0,255,0.3)" }}>
               <h4 style={{ color: "var(--text-bright)", marginBottom: "0.5rem", fontFamily: "var(--font-display)" }}>
                 Historical Crawl Runs Audit
               </h4>
-              <div className="audit-runs-list" style={{ marginTop: "1rem" }}>
+              <div className={styles["audit-runs-list"]} style={{ marginTop: "1rem" }}>
                 {stats.runs && stats.runs.length > 0 ? (
                   stats.runs.map((run, i) => (
-                    <div className="audit-run-row" key={i}>
-                      <div className="run-meta-info">
-                        <span className={`run-status-dot ${run.success ? "success" : "failed"}`}></span>
-                        <span className="run-date">{formatTime(run.timestamp)}</span>
+                    <div className={styles["audit-run-row"]} key={i}>
+                      <div className={styles["run-meta-info"]}>
+                        <span className={`${styles["run-status-dot"]} ${run.success ? styles["success"] : styles["failed"]}`}></span>
+                        <span className={styles["run-date"]}>{formatTime(run.timestamp)}</span>
                       </div>
-                      <span className="run-stats-summary">
+                      <span className={styles["run-stats-summary"]}>
                         Processed: {run.toolsProcessed} | Changes: {run.changesCount}
                       </span>
-                      <span className="run-updates-count">
+                      <span className={styles["run-updates-count"]}>
                         {run.successRate}% Success
                       </span>
                     </div>

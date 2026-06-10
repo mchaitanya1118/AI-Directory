@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import { useApp } from "@/context/AppContext";
 import Link from "next/link";
 import InternalLinks from "@/components/InternalLinks";
+import styles from "./CompareMatrixClient.module.css";
 
 export default function CompareMatrixClient({ initialComparedTools = [] }) {
   const { tools, comparedTools, clearCompare, isMounted } = useApp();
@@ -43,7 +44,7 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
 
   if (comparedObjs.length < 2 && !isDynamicRoute) {
     return (
-      <div className="detail-glass-card" style={{ textAlign: "center", padding: "4rem" }}>
+      <div className={styles["detail-glass-card"]} style={{ textAlign: "center", padding: "4rem" }}>
         <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", marginBottom: "0.5rem", color: "var(--text-bright)" }}>
           Comparison Tray Empty
         </h3>
@@ -77,11 +78,11 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
   };
 
   return (
-    <div className="compare-screen-container">
-      <div className="section-headline-container">
+    <div className={styles["compare-screen-container"]}>
+      <div className={styles["section-headline-container"]}>
         <div>
-          <h2 className="section-title">AuraAI Comparative Matrix</h2>
-          <p className="section-subtitle">
+          <h2 className={styles["section-title"]}>AuraAI Comparative Matrix</h2>
+          <p className={styles["section-subtitle"]}>
             Side-by-side technical specs, monetized parameters, and editorial conclusions.
           </p>
         </div>
@@ -98,21 +99,21 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
       </div>
 
       <div style={{ overflowX: "auto", width: "100%" }}>
-        <table className="compare-matrix-table">
+        <table className={styles["compare-matrix-table"]}>
           <thead>
             <tr>
               <th>Specifications</th>
               {comparedObjs.map((t) => (
-                <th key={t.id} className="compare-header-cell" style={{ width: `calc(75% / ${comparedObjs.length})` }}>
-                  <div className="compare-header-cell">
-                    <div className="tool-logo-wrap" dangerouslySetInnerHTML={{ __html: t.logo }} />
+                <th key={t.id} className={styles["compare-header-cell"]} style={{ width: `calc(75% / ${comparedObjs.length})` }}>
+                  <div className={styles["compare-header-cell"]}>
+                    <div className={styles["tool-logo-wrap"]} dangerouslySetInnerHTML={{ __html: t.logo }} />
                     <h3>{t.name}</h3>
-                    <span className={`card-pricing-badge pricing-${t.pricing.toLowerCase()}`}>{t.pricing}</span>
-                    <div className="card-rating-row" style={{ justifyContent: "center", marginTop: "0.5rem" }}>
-                      <span className="rating-value" style={{ color: "var(--neon-gold)" }}>
+                    <span className={`${styles["card-pricing-badge"]} ${styles[`pricing-${t.pricing.toLowerCase()}`]}`}>{t.pricing}</span>
+                    <div className={styles["card-rating-row"]} style={{ justifyContent: "center", marginTop: "0.5rem" }}>
+                      <span className={styles["rating-value"]} style={{ color: "var(--neon-gold)" }}>
                         ★ {getAverageRating(t)}
                       </span>
-                      <span className="rating-count">
+                      <span className={styles["rating-count"]}>
                         ({t.ratingCount + (t.reviews ? t.reviews.length : 0)} votes)
                       </span>
                     </div>
@@ -161,7 +162,7 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
                     <ul style={{ listStyle: "none", paddingLeft: 0 }}>
                       {features.map((feat, idx) => (
                         <li key={idx} style={{ fontSize: "0.85rem", marginBottom: "0.4rem" }}>
-                          <span className="feature-check-icon">✓</span> {feat}
+                          <span className={styles["feature-check-icon"]}>✓</span> {feat}
                         </li>
                       ))}
                     </ul>
