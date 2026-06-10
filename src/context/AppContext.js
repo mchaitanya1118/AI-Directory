@@ -12,65 +12,106 @@ export function AppProvider({ children }) {
 
   // Hydration safety: only read from localStorage on client mount & sync from server
   useEffect(() => {
-    setIsMounted(true);
-    let localTools = null;
-    try {
-      const savedTools = localStorage.getItem("aura_next_tools");
-      if (savedTools) {
-        localTools = JSON.parse(savedTools);
-        setTools(localTools);
-      }
-      
-      const savedCompared = localStorage.getItem("aura_next_compared");
-      if (savedCompared) {
-        setComparedTools(JSON.parse(savedCompared));
-      }
-    } catch (e) {
-      console.error("Failed to load local storage state:", e);
-    }
+    let active = true;
+    let deferTimer = null;
 
-    // Dynamic Live Sync from Scraped database
-    const syncWithServer = async () => {
+    const initLocalStorage = () => {
+      if (!active) return;
+      let localTools = null;
+      let localCompared = null;
       try {
-        const response = await fetch("/api/tools");
-        if (response.ok) {
-          const serverTools = await response.json();
-          setTools((prevTools) => {
-            // Map serverTools and merge any local-only metadata (like user reviews)
-            const merged = serverTools.map((sTool) => {
-              const localTool = prevTools.find((p) => p.id === sTool.id);
-              if (localTool) {
-                return {
-                  ...sTool,
-                  // Keep user-created local reviews and rating averages
-                  reviews: localTool.reviews || sTool.reviews,
-                  rating: localTool.rating || sTool.rating,
-                  userRatingCount: localTool.userRatingCount || sTool.userRatingCount,
-                };
-              }
-              return sTool;
-            });
-
-            // Keep custom-submitted tools that do not exist on the server database
-            const serverIds = new Set(serverTools.map((s) => s.id));
-            const localOnly = prevTools.filter((p) => !serverIds.has(p.id));
-
-            const finalTools = [...merged, ...localOnly];
-            
-            // Persist the synced data safely
-            try {
-              localStorage.setItem("aura_next_tools", JSON.stringify(finalTools));
-            } catch (_) {}
-            
-            return finalTools;
-          });
+        const savedTools = localStorage.getItem("aura_next_tools");
+        if (savedTools) {
+          localTools = JSON.parse(savedTools);
         }
-      } catch (err) {
-        console.warn("Failed to synchronize catalog with live scraper server data:", err);
+        
+        const savedCompared = localStorage.getItem("aura_next_compared");
+        if (savedCompared) {
+          localCompared = JSON.parse(savedCompared);
+        }
+      } catch (e) {
+        console.error("Failed to load local storage state:", e);
       }
+
+      // Mark the state updates as transitions so React yields to browser paints/interactions
+      React.startTransition(() => {
+        if (localTools) {
+          setTools(localTools);
+        }
+        if (localCompared) {
+          setComparedTools(localCompared);
+        }
+        setIsMounted(true);
+      });
+
+      // Defer server sync to run 2.5 seconds later (after Time to Interactive has fully finished)
+      deferTimer = setTimeout(() => {
+        const syncWithServer = async () => {
+          if (!active) return;
+          try {
+            const response = await fetch("/api/tools");
+            if (response.ok) {
+              const serverTools = await response.json();
+              if (!active) return;
+
+              React.startTransition(() => {
+                setTools((prevTools) => {
+                  const activeTools = localTools || prevTools;
+                  const merged = serverTools.map((sTool) => {
+                    const localTool = activeTools.find((p) => p.id === sTool.id);
+                    if (localTool) {
+                      return {
+                        ...sTool,
+                        reviews: localTool.reviews || sTool.reviews,
+                        rating: localTool.rating || sTool.rating,
+                        userRatingCount: localTool.userRatingCount || sTool.userRatingCount,
+                      };
+                    }
+                    return sTool;
+                  });
+
+                  const serverIds = new Set(serverTools.map((s) => s.id));
+                  const localOnly = activeTools.filter((p) => !serverIds.has(p.id));
+                  const finalTools = [...merged, ...localOnly];
+                  
+                  try {
+                    localStorage.setItem("aura_next_tools", JSON.stringify(finalTools));
+                  } catch (_) {}
+                  
+                  return finalTools;
+                });
+              });
+            }
+          } catch (err) {
+            console.warn("Failed to synchronize catalog with live scraper server data:", err);
+          }
+        };
+
+        if (window.requestIdleCallback) {
+          window.requestIdleCallback(() => syncWithServer());
+        } else {
+          syncWithServer();
+        }
+      }, 2500);
     };
 
-    syncWithServer();
+    // Initialize after the initial mount, utilizing idle callbacks if available
+    let idleId = null;
+    if (window.requestIdleCallback) {
+      idleId = window.requestIdleCallback(() => initLocalStorage());
+    } else {
+      idleId = setTimeout(initLocalStorage, 150);
+    }
+
+    return () => {
+      active = false;
+      if (deferTimer) clearTimeout(deferTimer);
+      if (window.requestIdleCallback && idleId) {
+        if (window.cancelIdleCallback) window.cancelIdleCallback(idleId);
+      } else if (idleId) {
+        clearTimeout(idleId);
+      }
+    };
   }, []);
 
   // Save state helpers
