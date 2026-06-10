@@ -80,8 +80,8 @@
   margin-bottom: 1rem;
 }
 
-.pros-box h4 { color: #00FF87; }
-.cons-box h4 { color: #FF5858; }
+.pros-box h4 { color: #15803d; }
+.cons-box h4 { color: #dc2626; }
 
 .pros-cons-list {
   list-style: none;
@@ -98,7 +98,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: #00FF87;
+  color: #15803d;
   font-weight: 800;
 }
 
@@ -106,7 +106,7 @@
   content: "✕";
   position: absolute;
   left: 0;
-  color: #FF5858;
+  color: #dc2626;
   font-weight: 800;
 }
 

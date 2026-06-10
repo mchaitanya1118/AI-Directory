@@ -249,20 +249,20 @@ export default function HomeClient({ initialTools }) {
 
               <div className="curated-card" style={{ borderColor: "rgba(0, 255, 135, 0.15)" }}>
                 <div>
-                  <span className="curated-card-tag" style={{ color: "#00FF87" }}>Zero Cost</span>
+                  <span className="curated-card-tag" style={{ color: "#15803d" }}>Zero Cost</span>
                   <h3>Top Free AI Tools (100% Free)</h3>
                   <p>Explore robust open-source image suites and React scaffolding generators that don't charge hefty monthly fees.</p>
                 </div>
-                <Link href="/curated/top-free" className="read-more-link" style={{ color: "#00FF87" }}>View Free Tools &rarr;</Link>
+                <Link href="/curated/top-free" className="read-more-link" style={{ color: "#15803d" }}>View Free Tools &rarr;</Link>
               </div>
 
               <div className="curated-card">
                 <div>
-                  <span className="curated-card-tag" style={{ color: "#00F2FE" }}>Developer Core</span>
+                  <span className="curated-card-tag" style={{ color: "#0284c7" }}>Developer Core</span>
                   <h3>Best AI Coding Assistants</h3>
                   <p>An in-depth review comparing local code editors, inline autocompletes, and multi-file codebase agents in 2026.</p>
                 </div>
-                <Link href="/curated/best-coding-assistants" className="read-more-link" style={{ color: "#00F2FE" }}>Analyze Editors &rarr;</Link>
+                <Link href="/curated/best-coding-assistants" className="read-more-link" style={{ color: "#0284c7" }}>Analyze Editors &rarr;</Link>
               </div>
             </div>
           </section>

@@ -23,6 +23,23 @@
   --gradient-main: linear-gradient(135deg, var(--neon-cyan), var(--neon-purple));
   --gradient-sponsored: linear-gradient(135deg, var(--neon-gold), var(--neon-rose));
   
+  /* Accessible WCAG AA Badge Tokens */
+  --badge-free-bg: rgba(21, 128, 61, 0.08);
+  --badge-free-text: #15803d;
+  --badge-free-border: rgba(21, 128, 61, 0.2);
+
+  --badge-freemium-bg: rgba(2, 132, 199, 0.08);
+  --badge-freemium-text: #0284c7;
+  --badge-freemium-border: rgba(2, 132, 199, 0.2);
+
+  --badge-paid-bg: rgba(220, 38, 38, 0.08);
+  --badge-paid-text: #dc2626;
+  --badge-paid-border: rgba(220, 38, 38, 0.2);
+
+  --badge-affiliate-bg: rgba(194, 94, 0, 0.08);
+  --badge-affiliate-text: #c25e00;
+  --badge-affiliate-border: rgba(194, 94, 0, 0.25);
+  
   --font-display: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
   --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
   
@@ -97,7 +114,7 @@ main#app-main-content {
   left: 10px;
   font-size: 0.65rem;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.6);
+  color: rgba(0, 0, 0, 0.72);
   letter-spacing: 1px;
 }
 
@@ -348,9 +365,9 @@ footer.app-footer {
 .affiliate-badge {
   display: inline-flex;
   align-items: center;
-  background: rgba(255, 159, 10, 0.1);
-  color: #ff9f0a;
-  border: 1px solid rgba(255, 159, 10, 0.25);
+  background: var(--badge-affiliate-bg);
+  color: var(--badge-affiliate-text);
+  border: 1px solid var(--badge-affiliate-border);
   font-size: 0.62rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -363,8 +380,18 @@ footer.app-footer {
 }
 
 .affiliate-badge:hover {
-  background: rgba(255, 159, 10, 0.15);
-  border-color: rgba(255, 159, 10, 0.4);
+  background: rgba(194, 94, 0, 0.12);
+  border-color: rgba(194, 94, 0, 0.35);
+}
+
+/* High contrast white text/border for affiliate badges inside primary blue CTA buttons */
+.card-btn.action-primary .affiliate-badge,
+.cta-btn.action-primary .affiliate-badge,
+.ad-badge-button + .affiliate-badge,
+.ad-badge-button .affiliate-badge {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.35) !important;
 }
 
 /* --- SHARED LAYOUT & UI COMPONENTS --- */
@@ -541,16 +568,19 @@ footer.app-footer {
   border-radius: 4px;
 }
 .pricing-free {
-  background: rgba(0, 255, 135, 0.1);
-  color: #00FF87;
+  background: var(--badge-free-bg);
+  color: var(--badge-free-text);
+  border: 1px solid var(--badge-free-border);
 }
 .pricing-freemium {
-  background: rgba(0, 242, 254, 0.1);
-  color: #00F2FE;
+  background: var(--badge-freemium-bg);
+  color: var(--badge-freemium-text);
+  border: 1px solid var(--badge-freemium-border);
 }
 .pricing-paid {
-  background: rgba(255, 88, 88, 0.1);
-  color: #FF5858;
+  background: var(--badge-paid-bg);
+  color: var(--badge-paid-text);
+  border: 1px solid var(--badge-paid-border);
 }
 
 .card-rating-row {

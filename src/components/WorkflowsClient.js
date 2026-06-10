@@ -284,7 +284,7 @@ export default function WorkflowsClient({ initialWorkflows = [], allTools = [] }
                     fontWeight: "800", 
                     textTransform: "uppercase", 
                     letterSpacing: "1px", 
-                    color: compiledStack.isCurated ? "#00FF87" : "var(--neon-cyan)" 
+                    color: compiledStack.isCurated ? "#15803d" : "var(--neon-cyan)" 
                   }}
                 >
                   {compiledStack.isCurated ? "🏆 100% Curated Stack Match" : "⚡ Dynamic Custom Assembly"}

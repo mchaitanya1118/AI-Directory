@@ -181,7 +181,7 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
                   <td key={t.id}>
                     <ul style={{ listStyle: "none", paddingLeft: 0 }}>
                       {pros.slice(0, 3).map((p, idx) => (
-                        <li key={idx} style={{ fontSize: "0.85rem", marginBottom: "0.4rem", color: "#00FF87" }}>
+                        <li key={idx} style={{ fontSize: "0.85rem", marginBottom: "0.4rem", color: "#15803d" }}>
                           ✓ {p}
                         </li>
                       ))}
