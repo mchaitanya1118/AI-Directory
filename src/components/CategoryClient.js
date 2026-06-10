@@ -160,12 +160,12 @@ export default function CategoryClient({ category, initialTools }) {
 
   return (
     <div className={styles["category-explorer-container"]}>
-      <div className={styles["section-headline-container"]}>
+      <div className="section-headline-container">
         <div>
-          <h2 className={styles["section-title"]} style={{ textTransform: "capitalize" }}>
+          <h2 className="section-title" style={{ textTransform: "capitalize" }}>
             {category === "all" ? "Explore AI Directory" : `${category} Tools`}
           </h2>
-          <p className={styles["section-subtitle"]}>
+          <p className="section-subtitle">
             Real-time dynamic filters spanning monetization channels and technical specifications.
           </p>
         </div>
@@ -204,16 +204,16 @@ export default function CategoryClient({ category, initialTools }) {
         })}
       </div>
 
-      <div className={styles["search-wrapper"]} style={{ maxWidth: "100%", marginBottom: "1.5rem" }}>
+      <div className="search-wrapper" style={{ maxWidth: "100%", marginBottom: "1.5rem" }}>
         <input
           type="text"
-          className={styles["search-input"]}
+          className="search-input"
           placeholder="Refine search by keyword, tag, or spec..."
           value={searchQuery}
           onChange={(e) => setSearchQuery(e.target.value)}
         />
         <svg
-          className={styles["search-icon-svg"]}
+          className="search-icon-svg"
           fill="none"
           stroke="currentColor"
           strokeWidth="2"
@@ -279,7 +279,7 @@ export default function CategoryClient({ category, initialTools }) {
 
       <div className={styles["sponsored-carousel"]} style={{ gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))" }}>
         {filtered.length === 0 ? (
-          <div className={styles["detail-glass-card"]} style={{ textAlign: "center", padding: "4rem", width: "100%" }}>
+          <div className="detail-glass-card" style={{ textAlign: "center", padding: "4rem", width: "100%" }}>
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", marginBottom: "0.5rem", color: "var(--text-bright)" }}>
               No AI tools found
             </h3>

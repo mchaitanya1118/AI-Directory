@@ -53,7 +53,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
 
   if (!tool) {
     return (
-      <div className={styles["detail-glass-card"]} style={{ textAlign: "center", padding: "4rem" }}>
+      <div className="detail-glass-card" style={{ textAlign: "center", padding: "4rem" }}>
         <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", marginBottom: "0.5rem", color: "var(--text-bright)" }}>
           Tool Not Found
         </h3>
@@ -220,7 +220,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
         <span style={{ color: "var(--neon-cyan)" }}>{tool.name}</span>
       </div>
 
-      <div className={styles["detail-glass-card"]} style={{ marginBottom: "2rem" }}>
+      <div className="detail-glass-card" style={{ marginBottom: "2rem" }}>
         <div className={styles["detail-header-block"]}>
           <div className={styles["detail-brand-row"]}>
             <div
@@ -283,18 +283,18 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
             <strong>Pricing Details:</strong> {tool.pricingDetails}
           </span>
           <label
-            className={`${styles["compare-checkbox-container"]} ${isMounted && isCompared ? styles["checked"] : ""}`}
+            className={`compare-checkbox-container ${isMounted && isCompared ? "checked" : ""}`}
             onClick={() => toggleCompare(tool.id)}
             style={{ marginLeft: "auto", fontSize: "0.9rem", color: (isMounted && isCompared) ? "var(--neon-cyan)" : "var(--text-muted)" }}
           >
-            <span className={styles["compare-circle"]}></span> {(isMounted && isCompared) ? "In Comparison List" : "Add to Comparison List"}
+            <span className="compare-circle"></span> {(isMounted && isCompared) ? "In Comparison List" : "Add to Comparison List"}
           </label>
         </div>
       </div>
 
-      <div className={styles["tool-detail-grid"]}>
-        <div className={styles["tool-detail-main"]}>
-          <div className={styles["detail-glass-card"]}>
+      <div className="tool-detail-grid">
+        <div className="tool-detail-main">
+          <div className="detail-glass-card">
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1rem" }}>
               Product Overview & Capabilities
             </h3>
@@ -317,7 +317,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           <AdPlacement type="in-content" />
 
           {useCases && useCases.length > 0 && (
-            <div className={styles["detail-glass-card"]}>
+            <div className="detail-glass-card">
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.25rem" }}>
                 Real-World Workflows & Use Cases
               </h3>
@@ -381,7 +381,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           </div>
 
           {faqs && faqs.length > 0 && (
-            <div className={styles["detail-glass-card"]}>
+            <div className="detail-glass-card">
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.25rem" }}>
                 Frequently Asked Questions about {tool.name}
               </h3>
@@ -454,7 +454,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           )}
 
           {comparisons && comparisons.length > 0 && (
-            <div className={styles["detail-glass-card"]}>
+            <div className="detail-glass-card">
               <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1rem" }}>
                 Direct Head-to-Head Comparisons
               </h3>
@@ -502,7 +502,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
             </div>
           )}
 
-          <div className={styles["detail-glass-card"]}>
+          <div className="detail-glass-card">
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.4rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.5rem" }}>
               User Reviews ({tool.reviews ? tool.reviews.length : 0})
             </h3>
@@ -606,7 +606,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
         </div>
 
         <div className={styles["tool-detail-sidebar"]} style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-          <div className={styles["detail-glass-card"]}>
+          <div className="detail-glass-card">
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.25rem", borderBottom: "1px solid var(--border-glass)", paddingBottom: "0.5rem" }}>
               Technical Specifications
             </h3>
@@ -636,7 +636,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
 
           <AdPlacement type="sticky-sidebar" />
 
-          <div className={styles["detail-glass-card"]}>
+          <div className="detail-glass-card">
             <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.2rem", fontWeight: "700", color: "var(--text-bright)", marginBottom: "1.25rem", borderBottom: "1px solid var(--border-glass)", paddingBottom: "0.5rem" }}>
               Similar Alternatives
             </h3>
@@ -703,7 +703,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
 
       {/* 3. AI RECOMMENDATION ENGINE (DEDICATED FULL-WIDTH SECTION) */}
       <div 
-        className={styles["detail-glass-card"]} 
+        className="detail-glass-card" 
         style={{ 
           marginTop: "1.5rem", 
           padding: "2rem",

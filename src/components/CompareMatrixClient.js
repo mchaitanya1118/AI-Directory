@@ -44,7 +44,7 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
 
   if (comparedObjs.length < 2 && !isDynamicRoute) {
     return (
-      <div className={styles["detail-glass-card"]} style={{ textAlign: "center", padding: "4rem" }}>
+      <div className="detail-glass-card" style={{ textAlign: "center", padding: "4rem" }}>
         <h3 style={{ fontFamily: "var(--font-display)", fontSize: "1.5rem", marginBottom: "0.5rem", color: "var(--text-bright)" }}>
           Comparison Tray Empty
         </h3>
@@ -79,10 +79,10 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
 
   return (
     <div className={styles["compare-screen-container"]}>
-      <div className={styles["section-headline-container"]}>
+      <div className="section-headline-container">
         <div>
-          <h2 className={styles["section-title"]}>AuraAI Comparative Matrix</h2>
-          <p className={styles["section-subtitle"]}>
+          <h2 className="section-title">AuraAI Comparative Matrix</h2>
+          <p className="section-subtitle">
             Side-by-side technical specs, monetized parameters, and editorial conclusions.
           </p>
         </div>
@@ -108,12 +108,12 @@ export default function CompareMatrixClient({ initialComparedTools = [] }) {
                   <div className={styles["compare-header-cell"]}>
                     <div className={styles["tool-logo-wrap"]} dangerouslySetInnerHTML={{ __html: t.logo }} />
                     <h3>{t.name}</h3>
-                    <span className={`${styles["card-pricing-badge"]} ${styles[`pricing-${t.pricing.toLowerCase()}`]}`}>{t.pricing}</span>
-                    <div className={styles["card-rating-row"]} style={{ justifyContent: "center", marginTop: "0.5rem" }}>
-                      <span className={styles["rating-value"]} style={{ color: "var(--neon-gold)" }}>
+                    <span className={`card-pricing-badge pricing-${t.pricing.toLowerCase()}`}>{t.pricing}</span>
+                    <div className="card-rating-row" style={{ justifyContent: "center", marginTop: "0.5rem" }}>
+                      <span className="rating-value" style={{ color: "var(--neon-gold)" }}>
                         ★ {getAverageRating(t)}
                       </span>
-                      <span className={styles["rating-count"]}>
+                      <span className="rating-count">
                         ({t.ratingCount + (t.reviews ? t.reviews.length : 0)} votes)
                       </span>
                     </div>

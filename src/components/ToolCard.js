@@ -72,21 +72,21 @@ export default function ToolCard({ tool }) {
             <Link href={`/tool/${tool.id}`}>
               <h3 style={{ cursor: "pointer" }}>{tool.name}</h3>
             </Link>
-            <div className={styles['card-rating-row']}>
-              <span className={styles['star-rating']}>{stars}</span>
-              <span className={styles['rating-value']}>{avgRating}</span>
-              <span className={styles['rating-count']}>({totalReviewsCount})</span>
+            <div className="card-rating-row">
+              <span className="star-rating">{stars}</span>
+              <span className="rating-value">{avgRating}</span>
+              <span className="rating-count">({totalReviewsCount})</span>
             </div>
           </div>
         </div>
 
         <p className={styles['card-desc']}>{tool.shortDescription}</p>
 
-        <div className={styles['card-tags']}>
+        <div className="card-tags">
           {(tool.tags || []).slice(0, 3).map((tag, idx) => {
             const tagName = typeof tag === 'string' ? tag : tag?.tag?.name || "";
             return (
-              <span key={idx} className={styles['card-tag']}>
+              <span key={idx} className="card-tag">
                 {tagName}
               </span>
             );
@@ -96,18 +96,18 @@ export default function ToolCard({ tool }) {
 
       <div className={styles['card-bottom-wrapper']}>
         <div className={styles['card-footer']}>
-          <span className={`${styles['card-pricing-badge']} ${styles[`pricing-${tool.pricing.toLowerCase()}`]}`}>
+          <span className={`card-pricing-badge pricing-${tool.pricing.toLowerCase()}`}>
             {tool.pricing}
           </span>
 
           <div className={styles['card-actions']}>
             <label
-              className={`${styles['compare-checkbox-container']} ${isMounted && isCompared ? styles.checked : ""}`}
+              className={`compare-checkbox-container ${isMounted && isCompared ? "checked" : ""}`}
               onClick={() => toggleCompare(tool.id)}
             >
-              <span className={styles['compare-circle']}></span> Compare
+              <span className="compare-circle"></span> Compare
             </label>
-            <Link href={`/tool/${tool.id}`} className={styles['card-btn']}>
+            <Link href={`/tool/${tool.id}`} className="card-btn">
               Reviews
             </Link>
           </div>
@@ -117,7 +117,7 @@ export default function ToolCard({ tool }) {
           rel="nofollow sponsored noopener noreferrer"
           target="_blank"
           aria-label={`Visit ${tool.name} website (affiliate link)`}
-          className={`${styles['card-btn']} ${styles['action-primary']}`}
+          className="card-btn action-primary"
           style={{ width: '100%', marginTop: '0.75rem', padding: '0.6rem', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.4rem' }}
         >
           <span>Visit Site</span>

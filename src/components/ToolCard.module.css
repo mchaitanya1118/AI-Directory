@@ -175,21 +175,6 @@
   flex-grow: 1;
 }
 
-.card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-  margin-bottom: 1.25rem;
-}
-
-.card-tag {
-  background: var(--bg-card);
-  font-size: 0.75rem;
-  color: var(--text-main);
-  padding: 0.15rem 0.5rem;
-  border-radius: 4px;
-  border: 1px solid var(--border-glass);
-}
 
 .card-bottom-wrapper {
   margin-top: auto;
@@ -203,27 +188,6 @@
   border-top: 1px solid var(--border-glass);
 }
 
-.card-pricing-badge {
-  font-size: 0.8rem;
-  font-weight: 600;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-}
-
-.pricing-free {
-  background: rgba(0, 255, 135, 0.1);
-  color: #00FF87;
-}
-
-.pricing-freemium {
-  background: rgba(0, 242, 254, 0.1);
-  color: #00F2FE;
-}
-
-.pricing-paid {
-  background: rgba(255, 88, 88, 0.1);
-  color: #FF5858;
-}
 
 .card-actions {
   display: flex;
@@ -231,73 +195,6 @@
   gap: 0.5rem;
 }
 
-.card-btn {
-  background: #f5f5f7;
-  border: none;
-  color: var(--text-bright);
-  padding: 0.4rem 0.8rem;
-  font-size: 0.8rem;
-  font-weight: 500;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: var(--transition-smooth);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.card-btn:hover {
-  background: rgba(0,0,0,0.08);
-}
-
-.card-btn.action-primary {
-  background: var(--neon-cyan);
-  color: #ffffff;
-  font-weight: 600;
-  border: none;
-}
-
-.card-btn.action-primary:hover {
-  box-shadow: 0 0 10px var(--neon-cyan-glow);
-  opacity: 0.9;
-}
-
-/* Compare Select Circle Indicator */
-.compare-checkbox-container {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  cursor: pointer;
-  font-size: 0.75rem;
-  color: var(--text-muted);
-}
-
-.compare-circle {
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--text-muted);
-  border-radius: 50%;
-  display: inline-block;
-  position: relative;
-  transition: var(--transition-smooth);
-}
-
-.compare-checkbox-container.checked .compare-circle {
-  border-color: var(--neon-cyan);
-  background: var(--neon-cyan);
-}
-
-.compare-checkbox-container.checked .compare-circle::after {
-  content: "";
-  position: absolute;
-  width: 6px;
-  height: 4px;
-  border-left: 2px solid var(--bg-dark);
-  border-bottom: 2px solid var(--bg-dark);
-  top: 3px;
-  left: 3px;
-  transform: rotate(-45deg);
-}
 
 /* Crawled Live Card border accent */
 .card-glass.crawled-live {

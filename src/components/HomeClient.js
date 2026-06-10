@@ -86,8 +86,8 @@ export default function HomeClient({ initialTools }) {
               through industry-standard AI productivity, coding, image, and video generators.
             </p>
             <div className={styles['hero-cta-buttons']}>
-              <Link href="/category/all" className={`${styles['cta-btn']} ${styles.primary}`}>Start the Search</Link>
-              <Link href="/quiz" className={`${styles['cta-btn']} ${styles.secondary}`} style={{ background: '#ebebeb', color: '#000' }}>AI Finder Quiz ⚡</Link>
+              <Link href="/category/all" className="cta-btn primary">Start the Search</Link>
+              <Link href="/quiz" className="cta-btn secondary" style={{ background: '#ebebeb', color: '#000' }}>AI Finder Quiz ⚡</Link>
             </div>
           </div>
 
@@ -129,17 +129,17 @@ export default function HomeClient({ initialTools }) {
         </div>
 
         <div style={{ maxWidth: "1200px", margin: "2rem auto 0 auto", width: "100%", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
-          <div className={styles['search-wrapper']} style={{ margin: 0, flex: "1 1 400px" }}>
+          <div className="search-wrapper" style={{ margin: 0, flex: "1 1 400px" }}>
             <input
               type="text"
-              className={styles['search-input']}
+              className="search-input"
               placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
               value={searchVal}
               onChange={(e) => setSearchVal(e.target.value)}
               onKeyDown={handleSearchSubmit}
             />
             <svg
-              className={styles['search-icon-svg']}
+              className="search-icon-svg"
               fill="none"
               stroke="currentColor"
               strokeWidth="2"
@@ -167,10 +167,10 @@ export default function HomeClient({ initialTools }) {
       {renderBelowFold ? (
         <>
           <section className="sponsored-section">
-            <div className={styles['section-headline-container']}>
+            <div className="section-headline-container">
               <div>
-                <h2 className={styles['section-title']}>Sponsored Spotlight</h2>
-                <p className={styles['section-subtitle']}>Promoted premium services driving high-impact AI innovation.</p>
+                <h2 className="section-title">Sponsored Spotlight</h2>
+                <p className="section-subtitle">Promoted premium services driving high-impact AI innovation.</p>
               </div>
             </div>
             <div className={styles['sponsored-carousel']}>
@@ -179,10 +179,10 @@ export default function HomeClient({ initialTools }) {
           </section>
 
           <section className={styles['quick-compare-section']}>
-            <div className={styles['section-headline-container']}>
+            <div className="section-headline-container">
               <div>
-                <h2 className={styles['section-title']}>Quick Head-to-Head Comparisons</h2>
-                <p className={styles['section-subtitle']}>Instant technical specs analysis for industry-standard AI pairings.</p>
+                <h2 className="section-title">Quick Head-to-Head Comparisons</h2>
+                <p className="section-subtitle">Instant technical specs analysis for industry-standard AI pairings.</p>
               </div>
               <Link href="/compare" className="read-more-link">Open Compare Screen &rarr;</Link>
             </div>
@@ -268,10 +268,10 @@ export default function HomeClient({ initialTools }) {
           </section>
 
           <section className="trending-section" style={{ marginTop: "5rem", marginBottom: "2rem" }}>
-            <div className={styles['section-headline-container']}>
+            <div className="section-headline-container">
               <div>
-                <h2 className={styles['section-title']}>Highest Rated Platforms</h2>
-                <p className={styles['section-subtitle']}>Top user-voted AI systems sorted by authentic verified reviews.</p>
+                <h2 className="section-title">Highest Rated Platforms</h2>
+                <p className="section-subtitle">Top user-voted AI systems sorted by authentic verified reviews.</p>
               </div>
               <Link href="/category/all" className="read-more-link">See All Tools &rarr;</Link>
             </div>
@@ -281,10 +281,10 @@ export default function HomeClient({ initialTools }) {
           </section>
 
           <section className="complete-catalog-section" style={{ marginTop: "5rem" }}>
-            <div className={styles['section-headline-container']}>
+            <div className="section-headline-container">
               <div>
-                <h2 className={styles['section-title']}>Complete AI Tools Catalog</h2>
-                <p className={styles['section-subtitle']}>Browse through our entire active index of {safeTools.length} high-performance AI systems.</p>
+                <h2 className="section-title">Complete AI Tools Catalog</h2>
+                <p className="section-subtitle">Browse through our entire active index of {safeTools.length} high-performance AI systems.</p>
               </div>
               <Link href="/category/all" className="read-more-link">Open Advanced Filters &rarr;</Link>
             </div>
