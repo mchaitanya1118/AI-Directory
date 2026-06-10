@@ -28,9 +28,9 @@
   --badge-free-text: #15803d;
   --badge-free-border: rgba(21, 128, 61, 0.2);
 
-  --badge-freemium-bg: rgba(2, 132, 199, 0.08);
-  --badge-freemium-text: #0284c7;
-  --badge-freemium-border: rgba(2, 132, 199, 0.2);
+  --badge-freemium-bg: rgba(3, 105, 161, 0.08);
+  --badge-freemium-text: #0369a1;
+  --badge-freemium-border: rgba(3, 105, 161, 0.2);
 
   --badge-paid-bg: #DC2626;
   --badge-paid-text: #FFFFFF;
@@ -707,6 +707,48 @@ footer.app-footer {
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-dark: #0f0f11;
+    --bg-card: #1c1c1e;
+    --bg-card-hover: #2c2c2e;
+    --border-glass: rgba(255, 255, 255, 0.08);
+    --border-glass-hover: rgba(255, 255, 255, 0.15);
+    
+    --text-main: #e5e5ea;
+    --text-muted: #aeaeae;
+    --text-bright: #ffffff;
+    
+    --neon-cyan: #2f95ff;
+    --neon-cyan-glow: rgba(47, 149, 255, 0.15);
+    
+    /* Dark Mode Accessible Badge Tokens */
+    --badge-free-bg: rgba(52, 211, 153, 0.12);
+    --badge-free-text: #34d399; /* Green-400 */
+    --badge-free-border: rgba(52, 211, 153, 0.25);
+
+    --badge-freemium-bg: rgba(56, 189, 248, 0.12);
+    --badge-freemium-text: #38bdf8; /* Sky Blue-400 */
+    --badge-freemium-border: rgba(56, 189, 248, 0.25);
+
+    --badge-paid-bg: #DC2626;
+    --badge-paid-text: #FFFFFF;
+    --badge-paid-border: #B91C1C;
+
+    --badge-affiliate-bg: #1D4ED8;
+    --badge-affiliate-text: #FFFFFF;
+    --badge-affiliate-border: #1E40AF;
+    
+    --badge-sponsored-bg: #C2410C;
+    --badge-sponsored-text: #FFFFFF;
+    --badge-sponsored-border: #9A3412;
+
+    --badge-premium-bg: #DC2626;
+    --badge-premium-text: #FFFFFF;
+    --badge-premium-border: #B91C1C;
+  }
 }
 
 
