@@ -100,14 +100,12 @@ export default function ToolCard({ tool }) {
           </span>
 
           <div className="card-actions">
-            {isMounted && (
-              <label
-                className={`compare-checkbox-container ${isCompared ? "checked" : ""}`}
-                onClick={() => toggleCompare(tool.id)}
-              >
-                <span className="compare-circle"></span> Compare
-              </label>
-            )}
+            <label
+              className={`compare-checkbox-container ${isMounted && isCompared ? "checked" : ""}`}
+              onClick={() => toggleCompare(tool.id)}
+            >
+              <span className="compare-circle"></span> Compare
+            </label>
             <Link href={`/tool/${tool.id}`} className="card-btn">
               Reviews
             </Link>

@@ -280,15 +280,13 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
           <span style={{ fontSize: "0.9rem", color: "var(--text-muted)" }}>
             <strong>Pricing Details:</strong> {tool.pricingDetails}
           </span>
-          {isMounted && (
-            <label
-              className={`compare-checkbox-container ${isCompared ? "checked" : ""}`}
-              onClick={() => toggleCompare(tool.id)}
-              style={{ marginLeft: "auto", fontSize: "0.9rem", color: isCompared ? "var(--neon-cyan)" : "var(--text-muted)" }}
-            >
-              <span className="compare-circle"></span> {isCompared ? "In Comparison List" : "Add to Comparison List"}
-            </label>
-          )}
+          <label
+            className={`compare-checkbox-container ${isMounted && isCompared ? "checked" : ""}`}
+            onClick={() => toggleCompare(tool.id)}
+            style={{ marginLeft: "auto", fontSize: "0.9rem", color: (isMounted && isCompared) ? "var(--neon-cyan)" : "var(--text-muted)" }}
+          >
+            <span className="compare-circle"></span> {(isMounted && isCompared) ? "In Comparison List" : "Add to Comparison List"}
+          </label>
         </div>
       </div>
 

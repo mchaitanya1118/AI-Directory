@@ -112,18 +112,14 @@ export default function HomeClient({ initialTools }) {
 
         <div style={{ maxWidth: "1200px", margin: "2rem auto 0 auto", width: "100%", display: "flex", alignItems: "center", gap: "2rem", flexWrap: "wrap" }}>
           <div className="search-wrapper" style={{ margin: 0, flex: "1 1 400px" }}>
-            {isMounted ? (
-              <input
-                type="text"
-                className="search-input"
-                placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
-                value={searchVal}
-                onChange={(e) => setSearchVal(e.target.value)}
-                onKeyDown={handleSearchSubmit}
-              />
-            ) : (
-              <div style={{ height: "60px", width: "100%", background: "rgba(255,255,255,0.05)", borderRadius: "30px", border: "1px solid rgba(255,255,255,0.12)" }}></div>
-            )}
+            <input
+              type="text"
+              className="search-input"
+              placeholder="Search 50+ AI tools (e.g., 'Cursor', 'Photoshop', 'Claude')..."
+              value={searchVal}
+              onChange={(e) => setSearchVal(e.target.value)}
+              onKeyDown={handleSearchSubmit}
+            />
             <svg
               className="search-icon-svg"
               fill="none"

@@ -2374,6 +2374,11 @@ footer.app-footer {
   border-color: rgba(255, 255, 255, 0.08);
 }
 
+:root[data-banner-dismissed="true"] .affiliate-disclosure-banner {
+  display: none !important;
+}
+
+
 .affiliate-disclosure-banner .banner-content {
   display: flex;
   align-items: center;
