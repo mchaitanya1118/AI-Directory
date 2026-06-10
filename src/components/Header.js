@@ -42,15 +42,14 @@ export default function Header() {
   }, [mobileMenuOpen]);
 
   const links = [
-    { href: "/category/all", label: "All Tools" },
-    { href: "/category/coding", label: "Coding" },
-    { href: "/category/image", label: "Design" },
-    { href: "/category/video", label: "Video" },
-    { href: "/category/productivity", label: "Productivity" },
-    { href: "/blog", label: "Blog" },
-    { href: "/quiz", label: "AI Finder ⚡" },
+    { href: "/category/all", label: "Tools" },
+    { href: "/agents", label: "Agents" },
+    { href: "/mcp", label: "MCP Servers" },
     { href: "/prompts", label: "Prompts" },
     { href: "/workflows", label: "Workflows" },
+    { href: "/academy", label: "Academy" },
+    { href: "/news", label: "News" },
+    { href: "/consultant", label: "AI Consultant ⚡" },
   ];
 
   // Debounced search effect

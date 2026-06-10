@@ -155,3 +155,55 @@ model NewsletterSubscriber {
   email     String   @unique
   createdAt DateTime @default(now())
 }
+
+model Agent {
+  id               String   @id
+  name             String
+  description      String
+  category         String   // Sales, Support, HR, Marketing, Finance
+  capabilities     String   // JSON array of strings
+  supportedModels  String   // JSON array of strings
+  pricing          String   // Free, Freemium, Paid
+  setupGuide       String   // Markdown string
+  demoUrl          String?
+  logo             String
+  approved         Boolean  @default(true)
+}
+
+model MCPServer {
+  id               String   @id
+  name             String
+  description      String
+  githubUrl        String
+  installation     String   // Install instructions
+  supportedClients String   // JSON array of clients
+  tags             String   // JSON array of tags
+  approved         Boolean  @default(true)
+}
+
+model Course {
+  id          String   @id
+  title       String
+  summary     String
+  category    String   // Beginners, Prompt Engineering, Agents, Automation
+  lessons     Lesson[]
+}
+
+model Lesson {
+  id          String   @id
+  courseId    String
+  title       String
+  videoUrl    String
+  duration    String
+  content     String
+  course      Course   @relation(fields: [courseId], references: [id])
+}
+
+model NewsArticle {
+  id        String   @id
+  title     String
+  summary   String
+  body      String
+  source    String   // OpenAI, Anthropic, Google, Meta, Open Source
+  date      String
+}
