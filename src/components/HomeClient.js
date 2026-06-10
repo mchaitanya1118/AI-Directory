@@ -95,7 +95,7 @@ export default function HomeClient({ initialTools }) {
           <div className={styles['hero-content-right']}>
             <div style={{ marginBottom: '1rem', textAlign: 'center' }}>
               <Image
-                src="/hero-image.png"
+                src="/hero-image.jpg"
                 alt="AuraAI Hero"
                 width={1200}
                 height={600}
