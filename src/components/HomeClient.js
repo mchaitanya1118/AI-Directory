@@ -173,7 +173,7 @@ export default function HomeClient({ initialTools }) {
                 <p className="section-subtitle">Promoted premium services driving high-impact AI innovation.</p>
               </div>
             </div>
-            <div className={styles['sponsored-carousel']}>
+            <div className={styles['sponsored-carousel']} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.5rem' }}>
               {sponsoredTools.map((t) => <ToolCard key={t.id} tool={t} />)}
             </div>
           </section>
@@ -275,7 +275,7 @@ export default function HomeClient({ initialTools }) {
               </div>
               <Link href="/category/all" className="read-more-link">See All Tools &rarr;</Link>
             </div>
-            <div className={styles['sponsored-carousel']}>
+            <div className={styles['sponsored-carousel']} style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '1.5rem' }}>
               {highestRatedFiltered.map((t) => <ToolCard key={t.id} tool={t} />)}
             </div>
           </section>
