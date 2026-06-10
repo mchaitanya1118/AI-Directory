@@ -235,7 +235,7 @@ export default function AdPlacement({ type = "in-content" }) {
         }}
       >
         <span>Google AdSense Slot</span>
-        <span style={{ color: "var(--neon-gold)" }}>{ad.badge}</span>
+        <span style={{ color: "var(--badge-sponsored-bg)" }}>{ad.badge}</span>
       </div>
 
       <div style={{ flexGrow: 1, minWidth: 0 }}>

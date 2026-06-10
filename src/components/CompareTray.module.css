@@ -127,6 +127,13 @@
 .btn-secondary:hover {
   background: rgba(0, 0, 0, 0.07);
 }
+.btn-secondary:active {
+  background: rgba(0, 0, 0, 0.12);
+}
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--text-bright);
+  outline-offset: 2px;
+}
 
 .cta-btn {
   background: #0071e3;
@@ -142,5 +149,16 @@
 }
 
 .cta-btn:hover {
-  opacity: 0.8;
+  background-color: #005bb5;
+  color: #ffffff;
+  opacity: 1;
+}
+
+.cta-btn:active {
+  background-color: #004494;
+}
+
+.cta-btn:focus-visible {
+  outline: 2px solid #005bb5;
+  outline-offset: 2px;
 }

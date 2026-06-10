@@ -48,7 +48,7 @@
 }
 
 .card-glass.sponsored:hover {
-  border-color: var(--neon-gold);
+  border-color: var(--badge-sponsored-bg);
   box-shadow: 
     0 20px 45px rgba(0, 0, 0, 0.75), 
     0 0 25px rgba(255, 226, 89, 0.15), 
@@ -89,7 +89,7 @@
 }
 
 .card-glass.sponsored:hover .card-logo-wrap {
-  border-color: var(--neon-gold);
+  border-color: var(--badge-sponsored-bg);
   background: var(--bg-card-hover);
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
 }
@@ -120,8 +120,9 @@
   display: inline-block;
   align-self: flex-start;
   margin-bottom: 1rem;
-  background: #c25e00;
-  color: #ffffff;
+  background: var(--badge-sponsored-bg);
+  color: var(--badge-sponsored-text);
+  border: 1px solid var(--badge-sponsored-border);
   font-weight: 600;
   font-size: 0.65rem;
   text-transform: uppercase;

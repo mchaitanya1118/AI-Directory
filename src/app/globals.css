@@ -32,13 +32,21 @@
   --badge-freemium-text: #0284c7;
   --badge-freemium-border: rgba(2, 132, 199, 0.2);
 
-  --badge-paid-bg: rgba(220, 38, 38, 0.08);
-  --badge-paid-text: #dc2626;
-  --badge-paid-border: rgba(220, 38, 38, 0.2);
+  --badge-paid-bg: #DC2626;
+  --badge-paid-text: #FFFFFF;
+  --badge-paid-border: #B91C1C;
 
-  --badge-affiliate-bg: rgba(194, 94, 0, 0.08);
-  --badge-affiliate-text: #c25e00;
-  --badge-affiliate-border: rgba(194, 94, 0, 0.25);
+  --badge-affiliate-bg: #1D4ED8;
+  --badge-affiliate-text: #FFFFFF;
+  --badge-affiliate-border: #1E40AF;
+
+  --badge-sponsored-bg: #C2410C;
+  --badge-sponsored-text: #FFFFFF;
+  --badge-sponsored-border: #9A3412;
+
+  --badge-premium-bg: #DC2626;
+  --badge-premium-text: #FFFFFF;
+  --badge-premium-border: #B91C1C;
   
   --font-display: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", Roboto, sans-serif;
   --font-body: var(--font-inter), -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", Roboto, sans-serif;
@@ -380,8 +388,8 @@ footer.app-footer {
 }
 
 .affiliate-badge:hover {
-  background: rgba(194, 94, 0, 0.12);
-  border-color: rgba(194, 94, 0, 0.35);
+  background: var(--badge-affiliate-border);
+  border-color: var(--badge-affiliate-bg);
 }
 
 /* High contrast white text/border for affiliate badges inside primary blue CTA buttons */
@@ -421,8 +429,33 @@ footer.app-footer {
   cursor: pointer;
   transition: var(--transition-smooth);
 }
-.cta-btn:hover {
-  opacity: 0.8;
+.cta-btn:hover,
+.cta-btn.primary:hover {
+  background: #005bb5 !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
+}
+.cta-btn:active,
+.cta-btn.primary:active {
+  background: #004494 !important;
+  color: #ffffff !important;
+}
+.cta-btn:focus-visible,
+.cta-btn.primary:focus-visible {
+  outline: 2px solid #005bb5 !important;
+  outline-offset: 2px !important;
+}
+.cta-btn.secondary:hover {
+  background: #dbdbdb !important;
+  color: var(--text-bright) !important;
+  opacity: 1 !important;
+}
+.cta-btn.secondary:active {
+  background: #c5c5c5 !important;
+}
+.cta-btn.secondary:focus-visible {
+  outline: 2px solid var(--text-bright) !important;
+  outline-offset: 2px !important;
 }
 .cta-btn.primary {
   background: var(--neon-cyan);
@@ -515,15 +548,39 @@ footer.app-footer {
 .card-btn:hover {
   background: rgba(0,0,0,0.08);
 }
-.card-btn.action-primary {
+.card-btn.action-primary,
+.action-primary {
   background: var(--neon-cyan);
-  color: #ffffff;
+  color: #ffffff !important;
   font-weight: 600;
   border: none;
 }
-.card-btn.action-primary:hover {
+.card-btn.action-primary:hover,
+.cta-btn.action-primary:hover,
+.action-primary:hover {
+  background: #005bb5 !important;
+  color: #ffffff !important;
+  opacity: 1 !important;
   box-shadow: 0 0 10px var(--neon-cyan-glow);
-  opacity: 0.9;
+}
+.card-btn.action-primary:active,
+.cta-btn.action-primary:active,
+.action-primary:active {
+  background: #004494 !important;
+}
+.card-btn.action-primary:focus-visible,
+.cta-btn.action-primary:focus-visible,
+.action-primary:focus-visible {
+  outline: 2px solid #005bb5 !important;
+  outline-offset: 2px !important;
+}
+.card-btn:focus-visible,
+.btn-secondary:focus-visible {
+  outline: 2px solid var(--text-bright) !important;
+  outline-offset: 2px !important;
+}
+.card-btn:active {
+  background: rgba(0, 0, 0, 0.15) !important;
 }
 
 .btn-secondary {
@@ -540,6 +597,9 @@ footer.app-footer {
 }
 .btn-secondary:hover {
   background: rgba(0, 0, 0, 0.07);
+}
+.btn-secondary:active {
+  background: rgba(0, 0, 0, 0.12) !important;
 }
 
 .section-headline-container {

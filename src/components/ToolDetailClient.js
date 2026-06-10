@@ -237,7 +237,7 @@ export default function ToolDetailClient({ tool, similarTools, betterAlternative
                 <span className={styles["rating-value"]} style={{ fontWeight: 600, color: "var(--neon-gold)" }}>{avgRating}</span>
                 <span className={styles["rating-count"]} style={{ color: "var(--text-muted)", fontSize: "0.85rem" }}>({totalReviewsCount} reviews)</span>
                 <span style={{ color: "var(--border-glass)" }}>|</span>
-                <span className={`${styles["card-pricing-badge"]} ${styles[`pricing-${tool.pricing.toLowerCase()}`]}`}>{tool.pricing}</span>
+                <span className={`card-pricing-badge pricing-${tool.pricing.toLowerCase()}`}>{tool.pricing}</span>
               </div>
             </div>
           </div>
