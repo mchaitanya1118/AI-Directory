@@ -48,7 +48,7 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={InterFont.variable}>
+    <html lang="en" className={InterFont.variable} suppressHydrationWarning>
       <body>
 
         <NextAuthProvider>
