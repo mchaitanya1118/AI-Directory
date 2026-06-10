@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useMemo } from "react";
 import { useApp } from "@/context/AppContext";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,41 +11,47 @@ export default function ToolCard({ tool }) {
 
   const isCompared = comparedTools.includes(tool.id);
 
-  // Dynamic average rating
-  const getAverageRating = (t) => {
-    if (!t.reviews || t.reviews.length === 0) return t.rating || 0;
-    const total = t.reviews.reduce((sum, rev) => sum + rev.rating, 0);
-    return parseFloat((total / t.reviews.length).toFixed(1));
-  };
+  // Memoized average rating calculation
+  const avgRating = useMemo(() => {
+    if (!tool.reviews || tool.reviews.length === 0) return tool.rating || 0;
+    const total = tool.reviews.reduce((sum, rev) => sum + rev.rating, 0);
+    return parseFloat((total / tool.reviews.length).toFixed(1));
+  }, [tool.rating, tool.reviews]);
 
-  const avgRating = getAverageRating(tool);
-  const totalReviewsCount = tool.ratingCount + (tool.reviews ? tool.reviews.length : 0);
+  // Memoized total reviews count
+  const totalReviewsCount = useMemo(() => {
+    return tool.ratingCount + (tool.reviews ? tool.reviews.length : 0);
+  }, [tool.ratingCount, tool.reviews]);
 
-  // Star ratings visualization
-  const roundedRating = Math.round(avgRating);
-  const stars = [];
-  for (let i = 1; i <= 5; i++) {
-    stars.push(
-      <span
-        key={i}
-        style={{
-          fontSize: "0.8rem",
-          color: i <= roundedRating ? "var(--neon-gold)" : "rgba(0,0,0,0.1)",
-        }}
-      >
-        ★
-      </span>
-    );
-  }
+  // Memoized star rendering
+  const stars = useMemo(() => {
+    const roundedRating = Math.round(avgRating);
+    const result = [];
+    for (let i = 1; i <= 5; i++) {
+      result.push(
+        <span
+          key={i}
+          style={{
+            fontSize: "0.8rem",
+            color: i <= roundedRating ? "var(--neon-gold)" : "rgba(0,0,0,0.1)",
+          }}
+        >
+          ★
+        </span>
+      );
+    }
+    return result;
+  }, [avgRating]);
 
-  const ensureAbsoluteUrl = (url) => {
-    if (!url) return "#";
-    const trimmed = url.trim();
+  // Memoized absolute website URL formatter
+  const absoluteWebsiteUrl = useMemo(() => {
+    if (!tool.website) return "#";
+    const trimmed = tool.website.trim();
     if (trimmed.startsWith("http://") || trimmed.startsWith("https://")) {
       return trimmed;
     }
     return `https://${trimmed}`;
-  };
+  }, [tool.website]);
 
   return (
     <div className={`${styles['card-glass']} ${tool.sponsored ? styles.sponsored : ""} ${tool.isCrawledLive ? styles['crawled-live'] : ""}`} data-id={tool.id}>
@@ -113,7 +119,7 @@ export default function ToolCard({ tool }) {
           </div>
         </div>
         <a
-          href={ensureAbsoluteUrl(tool.website)}
+          href={absoluteWebsiteUrl}
           rel="nofollow sponsored noopener noreferrer"
           target="_blank"
           aria-label={`Visit ${tool.name} website (affiliate link)`}

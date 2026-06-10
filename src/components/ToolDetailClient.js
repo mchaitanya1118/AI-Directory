@@ -9,8 +9,8 @@ import SchemaMarkup from "@/components/SchemaMarkup";
 import dynamic from "next/dynamic";
 import styles from "./ToolDetailClient.module.css";
 
-const AdPlacement = dynamic(() => import("@/components/AdPlacement"), { ssr: true });
-const InternalLinks = dynamic(() => import("@/components/InternalLinks"), { ssr: true });
+const AdPlacement = dynamic(() => import("@/components/AdPlacement"), { ssr: false });
+const InternalLinks = dynamic(() => import("@/components/InternalLinks"), { ssr: false });
 
 export default function ToolDetailClient({ tool, similarTools, betterAlternatives = [], usersAlsoLiked = [] }) {
   const ensureAbsoluteUrl = (url) => {

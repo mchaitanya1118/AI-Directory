@@ -2,8 +2,10 @@
 
 import React from "react";
 import Link from "next/link";
-import AdPlacement from "@/components/AdPlacement";
+import dynamic from "next/dynamic";
 import SchemaMarkup from "@/components/SchemaMarkup";
+
+const AdPlacement = dynamic(() => import("@/components/AdPlacement"), { ssr: false });
 
 export default function BlogClient({ article, relatedToolObjs }) {
   const ensureAbsoluteUrl = (url) => {

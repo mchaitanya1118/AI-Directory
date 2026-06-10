@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import dynamic from "next/dynamic";
 import styles from "./HomeClient.module.css";
 
-const NewsletterBox = dynamic(() => import("@/components/NewsletterBox"), { ssr: true });
+const NewsletterBox = dynamic(() => import("@/components/NewsletterBox"), { ssr: false });
 
 export default function HomeClient({ initialTools }) {
   const { startComparison } = useApp();

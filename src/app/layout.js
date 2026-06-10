@@ -1,12 +1,11 @@
 import "./globals.css";
 import { AppProvider } from "@/context/AppContext";
 import { NextAuthProvider } from "@/components/NextAuthProvider";
-import Header from "@/components/Header";
 import Link from "next/link";
-import Script from "next/script";
-import AffiliateBanner from "@/components/AffiliateBanner";
 import dynamicImport from "next/dynamic";
 import { Inter } from "next/font/google";
+import AdPlacement from "@/components/AdPlacement";
+import AdSenseScript from "@/components/AdSenseScript";
 
 const InterFont = Inter({
   subsets: ["latin"],
@@ -14,7 +13,9 @@ const InterFont = Inter({
   variable: "--font-inter",
 });
 
-const CompareTray = dynamicImport(() => import("@/components/CompareTray"));
+const Header = dynamicImport(() => import("@/components/Header"), { ssr: true });
+const AffiliateBanner = dynamicImport(() => import("@/components/AffiliateBanner"), { ssr: true });
+const CompareTray = dynamicImport(() => import("@/components/CompareTray"), { ssr: true });
 
 export const dynamic = "force-dynamic";
 
@@ -63,55 +64,13 @@ export default function RootLayout({ children }) {
               <AffiliateBanner />
 
               {/* MOCK ADSENSE BANNER TOP */}
-              <div className="adsense-placement" id="top-ad-banner">
-                <span className="ad-label">Sponsored Placement</span>
-                <div className="ad-content">
-                  <div>
-                    <span className="ad-title">Cursor AI Editor</span>
-                    <span className="ad-desc">
-                      {" "}
-                      — Build software faster than ever. Standard-setting
-                      multi-file edits.
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <a
-                      href="https://cursor.com/?via=aitoolsdir"
-                      target="_blank"
-                      rel="nofollow sponsored"
-                      className="ad-badge-button"
-                    >
-                      Get Started For Free
-                    </a>
-                    <span className="affiliate-badge">Affiliate</span>
-                  </div>
-                </div>
-              </div>
+              <AdPlacement type="top-banner" />
 
               {children}
             </main>
 
             {/* MOCK ADSENSE BANNER BOTTOM */}
-            <div
-              className="adsense-placement"
-              id="bottom-ad-banner"
-              style={{ marginTop: "4rem" }}
-            >
-              <span className="ad-label">AdSense Advertisement</span>
-              <div className="ad-content">
-                <div>
-                  <span className="ad-title">Scale Your Dev Team with HeyGen</span>
-                  <span className="ad-desc">
-                    {" "}
-                    — Generate natural AI spokesperson videos in 40+ languages
-                    instantly.
-                  </span>
-                </div>
-                <Link href="/tool/heygen" className="ad-badge-button">
-                  Read HeyGen Reviews
-                </Link>
-              </div>
-            </div>
+            <AdPlacement type="bottom-banner" />
 
             {/* FLOATING COMPARE BAR CONTAINER */}
             <CompareTray />
@@ -146,12 +105,8 @@ export default function RootLayout({ children }) {
           </div>
         </AppProvider>
         </NextAuthProvider>
-        {/* Google AdSense Script - Optimized to lazyOnload */}
-        <Script 
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9876543210123456" 
-          strategy="lazyOnload" 
-          crossOrigin="anonymous" 
-        />
+        {/* Google AdSense Script - Deferred dynamically via idle callbacks */}
+        <AdSenseScript />
       </body>
     </html>
   );
